@@ -130,6 +130,7 @@ namespace SistemaInterface
             this.usuariosCadastrarBotao1.TabIndex = 9;
             this.usuariosCadastrarBotao1.Text = "Cadastrar novo usuário";
             this.usuariosCadastrarBotao1.UseVisualStyleBackColor = true;
+            this.usuariosCadastrarBotao1.Click += new System.EventHandler(this.usuariosCadastrarBotao1_Click);
             // 
             // livrosPesquisarBotao
             // 
@@ -157,6 +158,7 @@ namespace SistemaInterface
             this.usuariosCadastrarBotao2.TabIndex = 12;
             this.usuariosCadastrarBotao2.Text = "Novo usuário";
             this.usuariosCadastrarBotao2.UseVisualStyleBackColor = true;
+            this.usuariosCadastrarBotao2.Click += new System.EventHandler(this.usuariosCadastrarBotao2_Click);
             // 
             // notificacoesListBox
             // 

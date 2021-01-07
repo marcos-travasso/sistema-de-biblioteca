@@ -16,5 +16,35 @@ namespace SistemaInterface
         {
             InitializeComponent();
         }
+
+        private void abrirCadastroUsuario()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaCadastroUsuario")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaCadastroUsuario janela = new TelaCadastroUsuario();
+                janela.Show();
+            }
+        }
+
+        private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
+        {
+            abrirCadastroUsuario();
+        }
+
+        private void usuariosCadastrarBotao2_Click(object sender, EventArgs e)
+        {
+            abrirCadastroUsuario();
+        }
     }
 }
