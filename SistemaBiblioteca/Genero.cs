@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SistemaBiblioteca
 {
-    class Genero
+    public class Genero
     {
         public string Nome { get; set; }
     }

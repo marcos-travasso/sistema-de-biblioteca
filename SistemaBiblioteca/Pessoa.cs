@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SistemaBiblioteca
 {
-    class Pessoa
+    public class Pessoa
     {
         public string Nome { get; set; }
 

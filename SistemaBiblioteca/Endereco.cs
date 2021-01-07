@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SistemaBiblioteca
 {
-    class Endereco
+    public class Endereco
     {
         public string Rua { get; set; }
         public int Numero { get; set; }

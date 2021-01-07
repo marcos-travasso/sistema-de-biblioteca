@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SistemaBiblioteca
 {
-    class Usuario : Pessoa
+    public class Usuario : Pessoa
     {
         public string celular { get; set; }
         public string telefone { get; set; }

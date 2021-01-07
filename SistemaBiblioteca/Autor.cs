@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SistemaBiblioteca
 {
-    class Autor : Pessoa
+    public class Autor : Pessoa
     {
     }
 }
