@@ -1,0 +1,10 @@
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\bin\Debug\SistemaInterface.exe.config
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\bin\Debug\SistemaInterface.exe
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\bin\Debug\SistemaInterface.pdb
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.csprojAssemblyReference.cache
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.Properties.Resources.resources
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.TelaInicial.resources
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.csproj.GenerateResource.cache
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.csproj.CoreCompileInputs.cache
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.exe
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaInterface\obj\Debug\SistemaInterface.pdb
