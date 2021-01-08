@@ -45,6 +45,7 @@ namespace SistemaInterface
             this.devolutivaBotao = new System.Windows.Forms.Button();
             this.emprestimosBotao = new System.Windows.Forms.Button();
             this.notificacoesLabel = new System.Windows.Forms.Label();
+            this.renovarBotao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imagemDaLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,11 +199,21 @@ namespace SistemaInterface
             this.notificacoesLabel.TabIndex = 16;
             this.notificacoesLabel.Text = "Notificações";
             // 
+            // renovarBotao
+            // 
+            this.renovarBotao.Location = new System.Drawing.Point(676, 454);
+            this.renovarBotao.Name = "renovarBotao";
+            this.renovarBotao.Size = new System.Drawing.Size(214, 50);
+            this.renovarBotao.TabIndex = 17;
+            this.renovarBotao.Text = "Renovar empréstimo";
+            this.renovarBotao.UseVisualStyleBackColor = true;
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.Controls.Add(this.renovarBotao);
             this.Controls.Add(this.notificacoesLabel);
             this.Controls.Add(this.emprestimosBotao);
             this.Controls.Add(this.devolutivaBotao);
@@ -249,6 +260,7 @@ namespace SistemaInterface
         private System.Windows.Forms.Button devolutivaBotao;
         private System.Windows.Forms.Button emprestimosBotao;
         private System.Windows.Forms.Label notificacoesLabel;
+        private System.Windows.Forms.Button renovarBotao;
     }
 }
 
