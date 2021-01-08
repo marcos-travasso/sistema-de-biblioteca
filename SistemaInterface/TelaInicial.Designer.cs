@@ -103,6 +103,7 @@ namespace SistemaInterface
             this.livrosCadastrarBotao.TabIndex = 6;
             this.livrosCadastrarBotao.Text = "Cadastrar novo livro";
             this.livrosCadastrarBotao.UseVisualStyleBackColor = true;
+            this.livrosCadastrarBotao.Click += new System.EventHandler(this.livrosCadastrarBotao_Click);
             // 
             // livrosCadastradosBotao
             // 

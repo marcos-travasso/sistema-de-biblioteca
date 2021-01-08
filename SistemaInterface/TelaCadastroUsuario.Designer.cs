@@ -54,15 +54,16 @@ namespace SistemaInterface
             this.numeroLabel = new System.Windows.Forms.Label();
             this.ruaTexto = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cpfResponsavelLabel = new System.Windows.Forms.Label();
+            this.responsavelLabel = new System.Windows.Forms.Label();
+            this.cpfResponsavelTexto = new System.Windows.Forms.MaskedTextBox();
             this.generoResponsavelTexto = new System.Windows.Forms.ComboBox();
+            this.nomeResponsavelTexto = new System.Windows.Forms.TextBox();
             this.generoResponsavelLabel = new System.Windows.Forms.Label();
+            this.nomeResponsavelLabel = new System.Windows.Forms.Label();
             this.nascimentoResponsavelLabel = new System.Windows.Forms.Label();
             this.nascimentoResponsavelTexto = new System.Windows.Forms.MaskedTextBox();
-            this.nomeResponsavelTexto = new System.Windows.Forms.TextBox();
-            this.nomeResponsavelLabel = new System.Windows.Forms.Label();
-            this.responsavelLabel = new System.Windows.Forms.Label();
-            this.cpfResponsavelLabel = new System.Windows.Forms.Label();
-            this.cpfResponsavelTexto = new System.Windows.Forms.MaskedTextBox();
+            this.cadastrarBotao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -315,6 +316,34 @@ namespace SistemaInterface
             this.panel1.TabIndex = 25;
             this.panel1.Visible = false;
             // 
+            // cpfResponsavelLabel
+            // 
+            this.cpfResponsavelLabel.AutoSize = true;
+            this.cpfResponsavelLabel.Location = new System.Drawing.Point(73, 192);
+            this.cpfResponsavelLabel.Name = "cpfResponsavelLabel";
+            this.cpfResponsavelLabel.Size = new System.Drawing.Size(48, 25);
+            this.cpfResponsavelLabel.TabIndex = 27;
+            this.cpfResponsavelLabel.Text = "CPF:";
+            // 
+            // responsavelLabel
+            // 
+            this.responsavelLabel.AutoSize = true;
+            this.responsavelLabel.Location = new System.Drawing.Point(92, 3);
+            this.responsavelLabel.Name = "responsavelLabel";
+            this.responsavelLabel.Size = new System.Drawing.Size(200, 25);
+            this.responsavelLabel.TabIndex = 26;
+            this.responsavelLabel.Text = "Dados do Responsável";
+            // 
+            // cpfResponsavelTexto
+            // 
+            this.cpfResponsavelTexto.BeepOnError = true;
+            this.cpfResponsavelTexto.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cpfResponsavelTexto.Location = new System.Drawing.Point(127, 188);
+            this.cpfResponsavelTexto.Mask = "000\\.000\\.000\\-00";
+            this.cpfResponsavelTexto.Name = "cpfResponsavelTexto";
+            this.cpfResponsavelTexto.Size = new System.Drawing.Size(223, 33);
+            this.cpfResponsavelTexto.TabIndex = 26;
+            // 
             // generoResponsavelTexto
             // 
             this.generoResponsavelTexto.AutoCompleteCustomSource.AddRange(new string[] {
@@ -336,6 +365,13 @@ namespace SistemaInterface
             this.generoResponsavelTexto.TabIndex = 29;
             this.generoResponsavelTexto.Tag = "";
             // 
+            // nomeResponsavelTexto
+            // 
+            this.nomeResponsavelTexto.Location = new System.Drawing.Point(127, 39);
+            this.nomeResponsavelTexto.Name = "nomeResponsavelTexto";
+            this.nomeResponsavelTexto.Size = new System.Drawing.Size(223, 33);
+            this.nomeResponsavelTexto.TabIndex = 27;
+            // 
             // generoResponsavelLabel
             // 
             this.generoResponsavelLabel.AutoSize = true;
@@ -344,6 +380,15 @@ namespace SistemaInterface
             this.generoResponsavelLabel.Size = new System.Drawing.Size(78, 25);
             this.generoResponsavelLabel.TabIndex = 31;
             this.generoResponsavelLabel.Text = "Gênero:";
+            // 
+            // nomeResponsavelLabel
+            // 
+            this.nomeResponsavelLabel.AutoSize = true;
+            this.nomeResponsavelLabel.Location = new System.Drawing.Point(54, 42);
+            this.nomeResponsavelLabel.Name = "nomeResponsavelLabel";
+            this.nomeResponsavelLabel.Size = new System.Drawing.Size(67, 25);
+            this.nomeResponsavelLabel.TabIndex = 26;
+            this.nomeResponsavelLabel.Text = "Nome:";
             // 
             // nascimentoResponsavelLabel
             // 
@@ -365,55 +410,22 @@ namespace SistemaInterface
             this.nascimentoResponsavelTexto.TabIndex = 28;
             this.nascimentoResponsavelTexto.ValidatingType = typeof(System.DateTime);
             // 
-            // nomeResponsavelTexto
+            // cadastrarBotao
             // 
-            this.nomeResponsavelTexto.Location = new System.Drawing.Point(127, 39);
-            this.nomeResponsavelTexto.Name = "nomeResponsavelTexto";
-            this.nomeResponsavelTexto.Size = new System.Drawing.Size(223, 33);
-            this.nomeResponsavelTexto.TabIndex = 27;
-            // 
-            // nomeResponsavelLabel
-            // 
-            this.nomeResponsavelLabel.AutoSize = true;
-            this.nomeResponsavelLabel.Location = new System.Drawing.Point(54, 42);
-            this.nomeResponsavelLabel.Name = "nomeResponsavelLabel";
-            this.nomeResponsavelLabel.Size = new System.Drawing.Size(67, 25);
-            this.nomeResponsavelLabel.TabIndex = 26;
-            this.nomeResponsavelLabel.Text = "Nome:";
-            // 
-            // responsavelLabel
-            // 
-            this.responsavelLabel.AutoSize = true;
-            this.responsavelLabel.Location = new System.Drawing.Point(92, 3);
-            this.responsavelLabel.Name = "responsavelLabel";
-            this.responsavelLabel.Size = new System.Drawing.Size(200, 25);
-            this.responsavelLabel.TabIndex = 26;
-            this.responsavelLabel.Text = "Dados do Responsável";
-            // 
-            // cpfResponsavelLabel
-            // 
-            this.cpfResponsavelLabel.AutoSize = true;
-            this.cpfResponsavelLabel.Location = new System.Drawing.Point(73, 192);
-            this.cpfResponsavelLabel.Name = "cpfResponsavelLabel";
-            this.cpfResponsavelLabel.Size = new System.Drawing.Size(48, 25);
-            this.cpfResponsavelLabel.TabIndex = 27;
-            this.cpfResponsavelLabel.Text = "CPF:";
-            // 
-            // cpfResponsavelTexto
-            // 
-            this.cpfResponsavelTexto.BeepOnError = true;
-            this.cpfResponsavelTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cpfResponsavelTexto.Location = new System.Drawing.Point(127, 188);
-            this.cpfResponsavelTexto.Mask = "000\\.000\\.000\\-00";
-            this.cpfResponsavelTexto.Name = "cpfResponsavelTexto";
-            this.cpfResponsavelTexto.Size = new System.Drawing.Size(223, 33);
-            this.cpfResponsavelTexto.TabIndex = 26;
+            this.cadastrarBotao.Enabled = false;
+            this.cadastrarBotao.Location = new System.Drawing.Point(576, 373);
+            this.cadastrarBotao.Name = "cadastrarBotao";
+            this.cadastrarBotao.Size = new System.Drawing.Size(223, 64);
+            this.cadastrarBotao.TabIndex = 26;
+            this.cadastrarBotao.Text = "Cadastrar usuário";
+            this.cadastrarBotao.UseVisualStyleBackColor = true;
             // 
             // TelaCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 632);
+            this.Controls.Add(this.cadastrarBotao);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.complementoLabel);
             this.Controls.Add(this.complementoTexto);
@@ -440,7 +452,9 @@ namespace SistemaInterface
             this.Controls.Add(this.nomeTexto);
             this.Controls.Add(this.nomeLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.MaximizeBox = false;
             this.Name = "TelaCadastroUsuario";
             this.Text = "Cadastro de Usuário";
             this.panel1.ResumeLayout(false);
@@ -486,5 +500,6 @@ namespace SistemaInterface
         private System.Windows.Forms.Label nomeResponsavelLabel;
         private System.Windows.Forms.Label nascimentoResponsavelLabel;
         private System.Windows.Forms.MaskedTextBox nascimentoResponsavelTexto;
+        private System.Windows.Forms.Button cadastrarBotao;
     }
 }

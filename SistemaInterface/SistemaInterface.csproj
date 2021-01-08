@@ -65,6 +65,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TelaCadastroAutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCadastroAutor.Designer.cs">
+      <DependentUpon>TelaCadastroAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaCadastroGenero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCadastroGenero.Designer.cs">
+      <DependentUpon>TelaCadastroGenero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaCadastroLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCadastroLivro.Designer.cs">
+      <DependentUpon>TelaCadastroLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaCadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +106,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelaCadastroAutor.resx">
+      <DependentUpon>TelaCadastroAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaCadastroGenero.resx">
+      <DependentUpon>TelaCadastroGenero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaCadastroLivro.resx">
+      <DependentUpon>TelaCadastroLivro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaCadastroUsuario.resx">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>

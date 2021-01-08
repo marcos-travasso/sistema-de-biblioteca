@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace SistemaInterface
 {
-    public partial class TelaInicial : Form
+    public partial class TelaCadastroLivro : Form
     {
-        public TelaInicial()
+        public TelaCadastroLivro()
         {
             InitializeComponent();
         }
 
-        private void abrirCadastroUsuario()
+        private void abrirCadastroAutor()
         {
             bool isOpen = false;
 
             foreach (Form f in Application.OpenForms)
             {
-                if (f.Name == "TelaCadastroUsuario")
+                if (f.Name == "TelaCadastroAutor")
                 {
                     isOpen = true;
                     f.BringToFront();
@@ -32,18 +32,18 @@ namespace SistemaInterface
 
             if (!isOpen)
             {
-                TelaCadastroUsuario janela = new TelaCadastroUsuario();
+                TelaCadastroAutor janela = new TelaCadastroAutor();
                 janela.Show();
             }
         }
 
-        private void abrirCadastroLivro()
+        private void abrirCadastroGenero()
         {
             bool isOpen = false;
 
             foreach (Form f in Application.OpenForms)
             {
-                if (f.Name == "TelaCadastroLivro")
+                if (f.Name == "TelaCadastroGenero")
                 {
                     isOpen = true;
                     f.BringToFront();
@@ -52,24 +52,19 @@ namespace SistemaInterface
 
             if (!isOpen)
             {
-                TelaCadastroLivro janela = new TelaCadastroLivro();
+                TelaCadastroGenero janela = new TelaCadastroGenero();
                 janela.Show();
             }
         }
 
-        private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
+        private void autorAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            abrirCadastroUsuario();
+            abrirCadastroAutor();
         }
 
-        private void usuariosCadastrarBotao2_Click(object sender, EventArgs e)
+        private void generoAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            abrirCadastroUsuario();
-        }
-
-        private void livrosCadastrarBotao_Click(object sender, EventArgs e)
-        {
-            abrirCadastroLivro();
+            abrirCadastroGenero();
         }
     }
 }
