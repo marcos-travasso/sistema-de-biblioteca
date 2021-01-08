@@ -10,7 +10,7 @@ namespace SistemaBiblioteca
 
         public string Genero { get; set; }
 
-        public DateTime Nascimento { get; set; }
+        public string Nascimento { get; set; }
 
         public int idPessoa { get; set; }
     }

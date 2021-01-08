@@ -12,5 +12,6 @@ namespace SistemaBiblioteca
         public DateTime criacaoDaConta { get; set; }
         public string CPF { get; set; }
         public Usuario Responsavel { get; set; }
+        public int idUsuario { get; set; }
     }
 }
