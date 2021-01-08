@@ -153,11 +153,11 @@ namespace SistemaInterface
             // paginasLabel
             // 
             this.paginasLabel.AutoSize = true;
-            this.paginasLabel.Location = new System.Drawing.Point(141, 155);
+            this.paginasLabel.Location = new System.Drawing.Point(40, 155);
             this.paginasLabel.Name = "paginasLabel";
-            this.paginasLabel.Size = new System.Drawing.Size(81, 25);
+            this.paginasLabel.Size = new System.Drawing.Size(182, 25);
             this.paginasLabel.TabIndex = 29;
-            this.paginasLabel.Text = "Páginas:";
+            this.paginasLabel.Text = "Número de páginas:";
             // 
             // paginasTexto
             // 
@@ -191,7 +191,7 @@ namespace SistemaInterface
             this.Controls.Add(this.tituloLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "TelaCadastroLivro";
             this.Text = "Cadastro de Livro";

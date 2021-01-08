@@ -86,6 +86,7 @@ namespace SistemaInterface
             this.usuariosCadastradosBotao.TabIndex = 4;
             this.usuariosCadastradosBotao.Text = "Usuários cadastrados";
             this.usuariosCadastradosBotao.UseVisualStyleBackColor = true;
+            this.usuariosCadastradosBotao.Click += new System.EventHandler(this.usuariosCadastradosBotao_Click);
             // 
             // usuariosEditarBotao
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBiblioteca;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,6 +58,26 @@ namespace SistemaInterface
             }
         }
 
+        private void abrirListarUsuarios()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarUsuarios")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarUsuarios janela = new TelaListarUsuarios();
+                janela.Show();
+            }
+        }
+
         private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
         {
             abrirCadastroUsuario();
@@ -70,6 +91,11 @@ namespace SistemaInterface
         private void livrosCadastrarBotao_Click(object sender, EventArgs e)
         {
             abrirCadastroLivro();
+        }
+
+        private void usuariosCadastradosBotao_Click(object sender, EventArgs e)
+        {
+            abrirListarUsuarios();
         }
     }
 }

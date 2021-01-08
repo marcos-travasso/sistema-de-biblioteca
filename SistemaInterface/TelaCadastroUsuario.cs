@@ -17,5 +17,21 @@ namespace SistemaInterface
         {
             InitializeComponent();
         }
+
+        private void cadastrarBotao_Click(object sender, EventArgs e)
+        {
+            string genero;
+            DateTime nascimento = Convert.ToDateTime(nascimentoTexto.Text);
+
+            if (generoTexto.Text == "Masculino") { genero = "M";  }
+            else if (generoTexto.Text == "Feminino") { genero = "F";  }
+            else { genero = "O"; }
+
+
+            Pessoa novaPessoa = new Pessoa(nomeTexto.Text, genero, nascimento);
+
+            BancoDeDados banco = new BancoDeDados();
+            novaPessoa.idPessoa = banco.AdicionarPessoa(novaPessoa);
+        }
     }
 }

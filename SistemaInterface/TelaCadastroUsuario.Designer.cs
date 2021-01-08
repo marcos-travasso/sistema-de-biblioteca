@@ -412,13 +412,13 @@ namespace SistemaInterface
             // 
             // cadastrarBotao
             // 
-            this.cadastrarBotao.Enabled = false;
             this.cadastrarBotao.Location = new System.Drawing.Point(576, 373);
             this.cadastrarBotao.Name = "cadastrarBotao";
             this.cadastrarBotao.Size = new System.Drawing.Size(223, 64);
             this.cadastrarBotao.TabIndex = 26;
             this.cadastrarBotao.Text = "Cadastrar usuário";
             this.cadastrarBotao.UseVisualStyleBackColor = true;
+            this.cadastrarBotao.Click += new System.EventHandler(this.cadastrarBotao_Click);
             // 
             // TelaCadastroUsuario
             // 
