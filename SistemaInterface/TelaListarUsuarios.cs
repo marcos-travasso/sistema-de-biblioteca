@@ -1,12 +1,6 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -21,7 +15,7 @@ namespace SistemaInterface
         private void TelaListarUsuarios_Load(object sender, EventArgs e)
         {
             BancoDeDados banco = new BancoDeDados();
-            List<Usuario> listaUsuarios = new List<Usuario>(); 
+            List<Usuario> listaUsuarios = new List<Usuario>();
 
             listaUsuarios = banco.GetUsuarios(listaUsuarios);
 
