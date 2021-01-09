@@ -8,6 +8,7 @@ namespace SistemaBiblioteca
 {
     public class BancoDeDados
     {
+        // select * from ((Usuarios inner join Pessoas on Pessoas.idPessoa = Usuarios.idUsuario) inner join Enderecos on Usuarios.endereco = Enderecos.idEndereco);
         private SQLiteConnection sqliteConnection;
         public BancoDeDados()
         { }
@@ -79,7 +80,7 @@ namespace SistemaBiblioteca
             }
         }
 
-        public DataTable GetUsuarios()
+        public List<Usuario> GetUsuarios(List<Usuario> lista)
         {
             SQLiteDataAdapter da = null;
             DataTable dt = new DataTable();
@@ -87,11 +88,21 @@ namespace SistemaBiblioteca
             {
                 using (var cmd = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM Usuarios";
+                    cmd.CommandText = "select * from ((Usuarios inner join Pessoas on Pessoas.idPessoa = Usuarios.idUsuario) inner join Enderecos on Usuarios.endereco = Enderecos.idEndereco);";
                     da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
-                    da.Fill(dt);
-                    sqliteConnection.Close();
-                    return dt;
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        Endereco endereco = new Endereco(Convert.ToInt32(r[13]), Convert.ToString(r[14]), Convert.ToString(r[15]), Convert.ToString(r[16]), Convert.ToString(r[17]), Convert.ToInt32(r[18]), Convert.ToString(r[19]));
+                        Usuario usuario = new Usuario(Convert.ToInt32(r[0]), Convert.ToString(r[2]), Convert.ToString(r[3]), Convert.ToString(r[5]), Convert.ToString(r[6]), Convert.ToString(r[8]), Convert.ToString(r[10]), Convert.ToString(r[11]), Convert.ToString(r[12]), endereco);
+                        lista.Add(usuario);
+                    }
+
+                    r.Close();
+                    cmd.Dispose();
+
+                    return lista;
                 }
             }
             catch (Exception ex)

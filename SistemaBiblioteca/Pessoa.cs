@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SistemaBiblioteca
 {
-    public class Pessoa
+    public class Pessoa : Funcoes
     {
         public Pessoa() { }
         public Pessoa(string Nome, string Genero, DateTime Nascimento)
@@ -20,5 +20,11 @@ namespace SistemaBiblioteca
         public DateTime Nascimento { get; set; }
 
         public int idPessoa { get; set; }
+        public string getGenero()
+        {
+            if (this.Genero == "M") { return "Masculino"; }
+            else if (this.Genero == "F") { return "Feminino"; }
+            else { return "Outro"; }
+        }
     }
 }
