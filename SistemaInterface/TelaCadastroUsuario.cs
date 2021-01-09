@@ -30,15 +30,14 @@ namespace SistemaInterface
         {
             if (generoTexto.Text != "" && nascimentoTexto.Text != "  /  /" && nomeTexto.Text != "")
             {
-                string genero;
-                DateTime nascimento;
                 Usuario novoUsuario = new Usuario();
+                novoUsuario.Nome = nomeTexto.Text;
 
                 if (generoTexto.Text == "Masculino") { novoUsuario.Genero = "M"; }
                 else if (generoTexto.Text == "Feminino") { novoUsuario.Genero = "F"; }
                 else { novoUsuario.Genero = "O"; }
 
-                try { nascimento = Convert.ToDateTime(nascimentoTexto.Text); }
+                try { novoUsuario.Nascimento = Convert.ToDateTime(nascimentoTexto.Text); }
                 catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento está incorreta.", "Erro"); nascimentoTexto.Focus(); }
 
                 Endereco novoEndereco = new Endereco();
