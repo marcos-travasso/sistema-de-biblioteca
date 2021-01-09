@@ -53,7 +53,7 @@ namespace SistemaInterface
             this.cepTexto = new System.Windows.Forms.MaskedTextBox();
             this.numeroLabel = new System.Windows.Forms.Label();
             this.ruaTexto = new System.Windows.Forms.MaskedTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.responsavelPanel = new System.Windows.Forms.Panel();
             this.cpfResponsavelLabel = new System.Windows.Forms.Label();
             this.responsavelLabel = new System.Windows.Forms.Label();
             this.cpfResponsavelTexto = new System.Windows.Forms.MaskedTextBox();
@@ -64,7 +64,10 @@ namespace SistemaInterface
             this.nascimentoResponsavelLabel = new System.Windows.Forms.Label();
             this.nascimentoResponsavelTexto = new System.Windows.Forms.MaskedTextBox();
             this.cadastrarBotao = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.emailTexto = new System.Windows.Forms.TextBox();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
+            this.responsavelPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // nomeLabel
@@ -193,7 +196,7 @@ namespace SistemaInterface
             // ruaLabel
             // 
             this.ruaLabel.AutoSize = true;
-            this.ruaLabel.Location = new System.Drawing.Point(522, 217);
+            this.ruaLabel.Location = new System.Drawing.Point(522, 219);
             this.ruaLabel.Name = "ruaLabel";
             this.ruaLabel.Size = new System.Drawing.Size(48, 25);
             this.ruaLabel.TabIndex = 18;
@@ -202,15 +205,15 @@ namespace SistemaInterface
             // bairroTexto
             // 
             this.bairroTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.bairroTexto.Location = new System.Drawing.Point(576, 160);
+            this.bairroTexto.Location = new System.Drawing.Point(576, 166);
             this.bairroTexto.Name = "bairroTexto";
             this.bairroTexto.Size = new System.Drawing.Size(223, 33);
-            this.bairroTexto.TabIndex = 9;
+            this.bairroTexto.TabIndex = 10;
             // 
             // bairroLabel
             // 
             this.bairroLabel.AutoSize = true;
-            this.bairroLabel.Location = new System.Drawing.Point(503, 163);
+            this.bairroLabel.Location = new System.Drawing.Point(503, 169);
             this.bairroLabel.Name = "bairroLabel";
             this.bairroLabel.Size = new System.Drawing.Size(67, 25);
             this.bairroLabel.TabIndex = 16;
@@ -219,16 +222,16 @@ namespace SistemaInterface
             // cidadeTexto
             // 
             this.cidadeTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cidadeTexto.Location = new System.Drawing.Point(576, 110);
+            this.cidadeTexto.Location = new System.Drawing.Point(576, 116);
             this.cidadeTexto.Name = "cidadeTexto";
             this.cidadeTexto.Size = new System.Drawing.Size(223, 33);
-            this.cidadeTexto.TabIndex = 8;
+            this.cidadeTexto.TabIndex = 9;
             this.cidadeTexto.Text = "São José dos Pinhais";
             // 
             // cidadeLabel
             // 
             this.cidadeLabel.AutoSize = true;
-            this.cidadeLabel.Location = new System.Drawing.Point(495, 113);
+            this.cidadeLabel.Location = new System.Drawing.Point(495, 119);
             this.cidadeLabel.Name = "cidadeLabel";
             this.cidadeLabel.Size = new System.Drawing.Size(75, 25);
             this.cidadeLabel.TabIndex = 14;
@@ -238,17 +241,17 @@ namespace SistemaInterface
             // 
             this.numeroTexto.BeepOnError = true;
             this.numeroTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.numeroTexto.Location = new System.Drawing.Point(576, 262);
+            this.numeroTexto.Location = new System.Drawing.Point(576, 264);
             this.numeroTexto.Mask = "999990";
             this.numeroTexto.Name = "numeroTexto";
             this.numeroTexto.PromptChar = ' ';
             this.numeroTexto.Size = new System.Drawing.Size(223, 33);
-            this.numeroTexto.TabIndex = 11;
+            this.numeroTexto.TabIndex = 12;
             // 
             // complementoLabel
             // 
             this.complementoLabel.AutoSize = true;
-            this.complementoLabel.Location = new System.Drawing.Point(435, 315);
+            this.complementoLabel.Location = new System.Drawing.Point(435, 317);
             this.complementoLabel.Name = "complementoLabel";
             this.complementoLabel.Size = new System.Drawing.Size(135, 25);
             this.complementoLabel.TabIndex = 24;
@@ -257,10 +260,10 @@ namespace SistemaInterface
             // complementoTexto
             // 
             this.complementoTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.complementoTexto.Location = new System.Drawing.Point(576, 312);
+            this.complementoTexto.Location = new System.Drawing.Point(576, 314);
             this.complementoTexto.Name = "complementoTexto";
             this.complementoTexto.Size = new System.Drawing.Size(223, 33);
-            this.complementoTexto.TabIndex = 12;
+            this.complementoTexto.TabIndex = 13;
             // 
             // cepLabel
             // 
@@ -279,12 +282,12 @@ namespace SistemaInterface
             this.cepTexto.Mask = "00000-000";
             this.cepTexto.Name = "cepTexto";
             this.cepTexto.Size = new System.Drawing.Size(223, 33);
-            this.cepTexto.TabIndex = 7;
+            this.cepTexto.TabIndex = 8;
             // 
             // numeroLabel
             // 
             this.numeroLabel.AutoSize = true;
-            this.numeroLabel.Location = new System.Drawing.Point(485, 265);
+            this.numeroLabel.Location = new System.Drawing.Point(485, 267);
             this.numeroLabel.Name = "numeroLabel";
             this.numeroLabel.Size = new System.Drawing.Size(85, 25);
             this.numeroLabel.TabIndex = 20;
@@ -293,28 +296,28 @@ namespace SistemaInterface
             // ruaTexto
             // 
             this.ruaTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ruaTexto.Location = new System.Drawing.Point(576, 214);
+            this.ruaTexto.Location = new System.Drawing.Point(576, 216);
             this.ruaTexto.Name = "ruaTexto";
             this.ruaTexto.PromptChar = ' ';
             this.ruaTexto.Size = new System.Drawing.Size(223, 33);
-            this.ruaTexto.TabIndex = 10;
+            this.ruaTexto.TabIndex = 11;
             // 
-            // panel1
+            // responsavelPanel
             // 
-            this.panel1.Controls.Add(this.cpfResponsavelLabel);
-            this.panel1.Controls.Add(this.responsavelLabel);
-            this.panel1.Controls.Add(this.cpfResponsavelTexto);
-            this.panel1.Controls.Add(this.generoResponsavelTexto);
-            this.panel1.Controls.Add(this.nomeResponsavelTexto);
-            this.panel1.Controls.Add(this.generoResponsavelLabel);
-            this.panel1.Controls.Add(this.nomeResponsavelLabel);
-            this.panel1.Controls.Add(this.nascimentoResponsavelLabel);
-            this.panel1.Controls.Add(this.nascimentoResponsavelTexto);
-            this.panel1.Location = new System.Drawing.Point(12, 370);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 234);
-            this.panel1.TabIndex = 25;
-            this.panel1.Visible = false;
+            this.responsavelPanel.Controls.Add(this.cpfResponsavelLabel);
+            this.responsavelPanel.Controls.Add(this.responsavelLabel);
+            this.responsavelPanel.Controls.Add(this.cpfResponsavelTexto);
+            this.responsavelPanel.Controls.Add(this.generoResponsavelTexto);
+            this.responsavelPanel.Controls.Add(this.nomeResponsavelTexto);
+            this.responsavelPanel.Controls.Add(this.generoResponsavelLabel);
+            this.responsavelPanel.Controls.Add(this.nomeResponsavelLabel);
+            this.responsavelPanel.Controls.Add(this.nascimentoResponsavelLabel);
+            this.responsavelPanel.Controls.Add(this.nascimentoResponsavelTexto);
+            this.responsavelPanel.Location = new System.Drawing.Point(12, 428);
+            this.responsavelPanel.Name = "responsavelPanel";
+            this.responsavelPanel.Size = new System.Drawing.Size(353, 234);
+            this.responsavelPanel.TabIndex = 25;
+            this.responsavelPanel.Visible = false;
             // 
             // cpfResponsavelLabel
             // 
@@ -412,21 +415,44 @@ namespace SistemaInterface
             // 
             // cadastrarBotao
             // 
-            this.cadastrarBotao.Location = new System.Drawing.Point(576, 373);
+            this.cadastrarBotao.Location = new System.Drawing.Point(576, 375);
             this.cadastrarBotao.Name = "cadastrarBotao";
             this.cadastrarBotao.Size = new System.Drawing.Size(223, 64);
-            this.cadastrarBotao.TabIndex = 26;
+            this.cadastrarBotao.TabIndex = 14;
             this.cadastrarBotao.Text = "Cadastrar usuário";
             this.cadastrarBotao.UseVisualStyleBackColor = true;
             this.cadastrarBotao.Click += new System.EventHandler(this.cadastrarBotao_Click);
+            // 
+            // emailTexto
+            // 
+            this.emailTexto.Location = new System.Drawing.Point(142, 364);
+            this.emailTexto.Name = "emailTexto";
+            this.emailTexto.Size = new System.Drawing.Size(223, 33);
+            this.emailTexto.TabIndex = 7;
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(74, 366);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(62, 25);
+            this.emailLabel.TabIndex = 27;
+            this.emailLabel.Text = "Email:";
+            // 
+            // sqLiteCommandBuilder1
+            // 
+            this.sqLiteCommandBuilder1.DataAdapter = null;
+            this.sqLiteCommandBuilder1.QuoteSuffix = "]";
             // 
             // TelaCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 632);
+            this.ClientSize = new System.Drawing.Size(843, 674);
+            this.Controls.Add(this.emailTexto);
+            this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.cadastrarBotao);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.responsavelPanel);
             this.Controls.Add(this.complementoLabel);
             this.Controls.Add(this.complementoTexto);
             this.Controls.Add(this.cepLabel);
@@ -457,8 +483,9 @@ namespace SistemaInterface
             this.MaximizeBox = false;
             this.Name = "TelaCadastroUsuario";
             this.Text = "Cadastro de Usuário";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaCadastroUsuario_KeyDown);
+            this.responsavelPanel.ResumeLayout(false);
+            this.responsavelPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,7 +517,7 @@ namespace SistemaInterface
         private System.Windows.Forms.MaskedTextBox cepTexto;
         private System.Windows.Forms.Label numeroLabel;
         private System.Windows.Forms.MaskedTextBox ruaTexto;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel responsavelPanel;
         private System.Windows.Forms.Label cpfResponsavelLabel;
         private System.Windows.Forms.Label responsavelLabel;
         private System.Windows.Forms.MaskedTextBox cpfResponsavelTexto;
@@ -501,5 +528,8 @@ namespace SistemaInterface
         private System.Windows.Forms.Label nascimentoResponsavelLabel;
         private System.Windows.Forms.MaskedTextBox nascimentoResponsavelTexto;
         private System.Windows.Forms.Button cadastrarBotao;
+        private System.Windows.Forms.TextBox emailTexto;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Data.SQLite.SQLiteCommandBuilder sqLiteCommandBuilder1;
     }
 }

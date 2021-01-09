@@ -12,5 +12,6 @@ namespace SistemaBiblioteca
         public string Cidade { get; set; }
         public string CEP { get; set; }
         public string Complemento { get; set; }
+        public int idEndereco { get; set; }
     }
 }

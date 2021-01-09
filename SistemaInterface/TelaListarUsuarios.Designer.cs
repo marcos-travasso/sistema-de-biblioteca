@@ -36,21 +36,19 @@ namespace SistemaInterface
             // usuariosDGV
             // 
             this.usuariosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usuariosDGV.Location = new System.Drawing.Point(31, 106);
+            this.usuariosDGV.Location = new System.Drawing.Point(25, 27);
             this.usuariosDGV.Name = "usuariosDGV";
-            this.usuariosDGV.Size = new System.Drawing.Size(869, 391);
+            this.usuariosDGV.Size = new System.Drawing.Size(1264, 552);
             this.usuariosDGV.TabIndex = 0;
             // 
             // TelaListarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 588);
+            this.ClientSize = new System.Drawing.Size(1319, 656);
             this.Controls.Add(this.usuariosDGV);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.Name = "TelaListarUsuarios";
             this.Text = "Listagem de Usuários";
             this.Load += new System.EventHandler(this.TelaListarUsuarios_Load);
