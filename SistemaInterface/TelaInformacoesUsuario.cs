@@ -1,16 +1,93 @@
 ﻿using SistemaBiblioteca;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Media;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
 {
-    public partial class TelaCadastroUsuario : Form
+    public partial class TelaInformacoesUsuario : Form
     {
-        public bool menorDeIdade = false;
-        public TelaCadastroUsuario()
+        bool admin = false;
+        bool menorDeIdade = false;
+        Usuario usuario;
+        public TelaInformacoesUsuario()
         {
+            this.admin = false;
             InitializeComponent();
+        }
+
+        public TelaInformacoesUsuario(bool editar, Usuario usuario)
+        {
+            this.admin = editar;
+            this.usuario = usuario;
+            InitializeComponent();
+        }
+
+        private void TelaInformacoesUsuario_Load(object sender, EventArgs e)
+        {
+            alterarCaixas();
+            setarDados();
+        }
+
+        private void alterarCaixas()
+        {
+            nomeTexto.ReadOnly = !this.admin;
+            nascimentoTexto.ReadOnly = !this.admin;
+            generoTexto.Enabled = this.admin;
+            celularTexto.ReadOnly = !this.admin;
+            telefoneTexto.ReadOnly = !this.admin;
+            cpfTexto.ReadOnly = !this.admin;
+            emailTexto.ReadOnly = !this.admin;
+
+            cepTexto.ReadOnly = !this.admin;
+            cidadeTexto.ReadOnly = !this.admin;
+            bairroTexto.ReadOnly = !this.admin;
+            ruaTexto.ReadOnly = !this.admin;
+            numeroTexto.ReadOnly = !this.admin;
+            complementoTexto.ReadOnly = !this.admin;
+
+            nomeResponsavelTexto.ReadOnly = !this.admin;
+            generoResponsavelTexto.Enabled = this.admin;
+            nascimentoResponsavelTexto.ReadOnly = !this.admin;
+
+            editarBotao.Enabled = this.admin;
+            excluirBotao.Enabled = this.admin;
+        }
+
+        private void setarDados()
+        {
+            idLabel.Text = "Usuário número: " + Convert.ToString(usuario.idUsuario);
+            this.Text = "Informações do usuário " + Convert.ToString(usuario.idUsuario);
+
+            nomeTexto.Text = usuario.Nome;
+            nascimentoTexto.Text = usuario.Nascimento.ToString().Substring(0,10);
+            generoTexto.Text = usuario.getGenero();
+            celularTexto.Text = usuario.Celular;
+            telefoneTexto.Text = usuario.Telefone;
+            cpfTexto.Text = usuario.CPF;
+            emailTexto.Text = usuario.Email;
+
+            cepTexto.Text = usuario.Endereco.CEP;
+            cidadeTexto.Text = usuario.Endereco.Cidade;
+            bairroTexto.Text = usuario.Endereco.Bairro;
+            ruaTexto.Text = usuario.Endereco.Rua;
+            numeroTexto.Text = usuario.Endereco.Numero.ToString();
+            complementoTexto.Text = usuario.Endereco.Complemento;
+
+            if (usuario.Responsavel != null)
+            {
+                responsavelPanel.Visible = true;
+                nomeResponsavelTexto.Text = usuario.Responsavel.Nome;
+                generoResponsavelTexto.Text = usuario.Responsavel.getGenero();
+                nascimentoResponsavelTexto.Text = usuario.Responsavel.Nascimento.ToString().Substring(0, 10);
+            }
         }
 
         public string converterNumero(string numero)
@@ -27,19 +104,18 @@ namespace SistemaInterface
             return retorno;
         }
 
-        private void cadastrarBotao_Click(object sender, EventArgs e)
+        private void editarBotao_Click(object sender, EventArgs e)
         {
             if (generoTexto.Text != "" && nascimentoTexto.Text != "  /  /" && nomeTexto.Text != "")
             {
-                Usuario novoUsuario = new Usuario();
-                novoUsuario.Nome = novoUsuario.converterNome(nomeTexto.Text);
+                usuario.Nome = usuario.converterNome(nomeTexto.Text);
 
                 //Inserir dados essenciais
-                if (generoTexto.Text == "Masculino") { novoUsuario.Genero = "M"; }
-                else if (generoTexto.Text == "Feminino") { novoUsuario.Genero = "F"; }
-                else { novoUsuario.Genero = "O"; }
+                if (generoTexto.Text == "Masculino") { usuario.Genero = "M"; }
+                else if (generoTexto.Text == "Feminino") { usuario.Genero = "F"; }
+                else { usuario.Genero = "O"; }
 
-                try { novoUsuario.Nascimento = Convert.ToDateTime(nascimentoTexto.Text); }
+                try { usuario.Nascimento = Convert.ToDateTime(nascimentoTexto.Text); }
                 catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento está incorreta.", "Erro"); nascimentoTexto.Focus(); }
 
                 Endereco novoEndereco = new Endereco();
@@ -49,10 +125,10 @@ namespace SistemaInterface
                 //Inserir dados pessoais
                 try
                 {
-                    if (celularTexto.Text != "(  )      -") { novoUsuario.Celular = converterNumero(celularTexto.Text); } else { novoUsuario.Celular = ""; }
-                    if (telefoneTexto.Text != "(  )     -") { novoUsuario.Telefone = converterNumero(telefoneTexto.Text); } else { novoUsuario.Telefone = ""; }
-                    if (cpfTexto.Text != "   .   .   -") { novoUsuario.CPF = converterNumero(cpfTexto.Text); } else { novoUsuario.CPF = ""; }
-                    if (emailTexto.Text != "") { novoUsuario.Email = emailTexto.Text; } else { novoUsuario.Email = ""; }
+                    if (celularTexto.Text != "(  )      -") { usuario.Celular = converterNumero(celularTexto.Text); } else { usuario.Celular = ""; }
+                    if (telefoneTexto.Text != "(  )     -") { usuario.Telefone = converterNumero(telefoneTexto.Text); } else { usuario.Telefone = ""; }
+                    if (cpfTexto.Text != "   .   .   -") { usuario.CPF = converterNumero(cpfTexto.Text); } else { usuario.CPF = ""; }
+                    if (emailTexto.Text != "") { usuario.Email = emailTexto.Text; } else { usuario.Email = ""; }
                 }
                 catch
                 {
@@ -77,7 +153,8 @@ namespace SistemaInterface
                 }
 
                 //Inserir dados do responsavel caso exista necessidade
-                if (menorDeIdade == true && nomeResponsavelTexto.Text != ""){
+                if (menorDeIdade == true && nomeResponsavelTexto.Text != "")
+                {
                     try
                     {
                         Pessoa responsavel = new Pessoa();
@@ -96,7 +173,7 @@ namespace SistemaInterface
                             catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento do responsável está incorreta.", "Erro"); nascimentoResponsavelTexto.Focus(); }
                         }
 
-                        novoUsuario.Responsavel = responsavel;
+                        usuario.Responsavel = responsavel;
                     }
                     catch
                     {
@@ -107,53 +184,55 @@ namespace SistemaInterface
 
                 try
                 {
-                    novoUsuario.Endereco = novoEndereco;
+                    usuario.Endereco = novoEndereco;
 
-                    if (novoUsuario.Responsavel == null && menorDeIdade)
+                    if (usuario.Responsavel == null && menorDeIdade)
                     {
-                        DialogResult continuar = MessageBox.Show("Deseja cadastrar usuário menor de idade sem um responsável?", "Confirmação", MessageBoxButtons.YesNo);
+                        DialogResult continuar = MessageBox.Show("Deseja editar usuário menor de idade sem um responsável?", "Confirmação", MessageBoxButtons.YesNo);
                         if (continuar == DialogResult.Yes)
                         {
-                            novoUsuario = banco.CriarUsuario(novoUsuario);
+                            usuario = banco.EditarUsuario(usuario);
 
-                            concluirCadastro();
-                        } else
+                            concluirEdicao();
+                        }
+                        else
                         {
                             nomeResponsavelTexto.Focus();
                         }
                     }
                     else
                     {
-                        novoUsuario = banco.CriarUsuario(novoUsuario);
+                        usuario = banco.EditarUsuario(usuario);
 
-                        concluirCadastro();
+                        concluirEdicao();
                     }
                 }
                 catch
                 {
                     SystemSounds.Beep.Play();
-                    MessageBox.Show("Não foi possível cadastrar o usuário.", "Erro");
+                    MessageBox.Show("Não foi possível editar o usuário.", "Erro");
                 }
             }
             else
             {
-                if (nomeTexto.Text == "") { SystemSounds.Beep.Play(); MessageBox.Show("É necessário um nome para criar usuário.", "Erro"); nomeTexto.Focus(); }
-                else if (nascimentoTexto.Text == "  /  /") { SystemSounds.Beep.Play(); MessageBox.Show("É necessário uma data de nascimento para criar usuário.", "Erro"); nascimentoTexto.Focus(); }
-                else if (generoTexto.Text == "") { SystemSounds.Beep.Play(); MessageBox.Show("É necessário um gênero para criar usuário.", "Erro"); generoTexto.Focus(); }
+                if (nomeTexto.Text == "") { SystemSounds.Beep.Play(); MessageBox.Show("É necessário um nome para editar usuário.", "Erro"); nomeTexto.Focus(); }
+                else if (nascimentoTexto.Text == "  /  /") { SystemSounds.Beep.Play(); MessageBox.Show("É necessário uma data de nascimento para editar usuário.", "Erro"); nascimentoTexto.Focus(); }
+                else if (generoTexto.Text == "") { SystemSounds.Beep.Play(); MessageBox.Show("É necessário um gênero para editar usuário.", "Erro"); generoTexto.Focus(); }
             }
+
         }
 
         private void nascimentoTexto_Leave(object sender, EventArgs e)
         {
             try
             {
-               menorDeIdade = EMenorDeIdade(nascimentoTexto.Text);
+                menorDeIdade = EMenorDeIdade(nascimentoTexto.Text);
 
                 if (menorDeIdade) { nomeResponsavelTexto.Text = ""; generoResponsavelTexto.Text = ""; nascimentoResponsavelTexto.Text = ""; responsavelPanel.Visible = true; menorDeIdade = true; tabOrdemMenor(); }
                 else { responsavelPanel.Visible = false; menorDeIdade = false; tabOrdemMaior(); }
-                
+
             }
-            catch { SystemSounds.Beep.Play();}
+            catch { SystemSounds.Beep.Play(); }
         }
 
         public bool EMenorDeIdade(string ano)
@@ -193,7 +272,8 @@ namespace SistemaInterface
             ruaTexto.TabIndex = 11;
             numeroTexto.TabIndex = 12;
             complementoTexto.TabIndex = 13;
-            cadastrarBotao.TabIndex = 14;
+            editarBotao.TabIndex = 14;
+
 
             nomeResponsavelTexto.TabIndex = 16;
             nascimentoResponsavelTexto.TabIndex = 16;
@@ -214,31 +294,13 @@ namespace SistemaInterface
             ruaTexto.TabIndex = 15;
             numeroTexto.TabIndex = 16;
             complementoTexto.TabIndex = 17;
-            cadastrarBotao.TabIndex = 18;
+            editarBotao.TabIndex = 18;
         }
 
-        private void concluirCadastro()
+        private void concluirEdicao()
         {
-            nomeTexto.Text = "";
-            nascimentoTexto.Text = "";
-            generoTexto.Text = "";
-            celularTexto.Text = "";
-            telefoneTexto.Text = "";
-            cpfTexto.Text = "";
-            emailTexto.Text = "";
-
-            cepTexto.Text = "";
-            cidadeTexto.Text = "";
-            bairroTexto.Text = "";
-            ruaTexto.Text = "";
-            numeroTexto.Text = "";
-            complementoTexto.Text = "";
-
-            nomeResponsavelTexto.Text = "";
-            generoResponsavelTexto.Text = "";
-            nascimentoResponsavelTexto.Text = "";
-
-            MessageBox.Show("Cadastro concluído com sucesso", "Sucesso");
+            MessageBox.Show("Cadastro editado com sucesso", "Sucesso");
+            this.Close();
         }
     }
 }

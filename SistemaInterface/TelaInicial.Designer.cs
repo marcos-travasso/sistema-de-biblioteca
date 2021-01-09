@@ -96,6 +96,7 @@ namespace SistemaInterface
             this.usuariosEditarBotao.TabIndex = 5;
             this.usuariosEditarBotao.Text = "Editar usuários";
             this.usuariosEditarBotao.UseVisualStyleBackColor = true;
+            this.usuariosEditarBotao.Click += new System.EventHandler(this.usuariosEditarBotao_Click);
             // 
             // livrosCadastrarBotao
             // 

@@ -53,6 +53,7 @@ namespace SistemaInterface
             this.usuariosDGV.ReadOnly = true;
             this.usuariosDGV.Size = new System.Drawing.Size(1383, 603);
             this.usuariosDGV.TabIndex = 0;
+            this.usuariosDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuariosDGV_CellDoubleClick);
             // 
             // TelaListarUsuarios
             // 

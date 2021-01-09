@@ -12,8 +12,9 @@ namespace SistemaBiblioteca
             this.Nascimento = Nascimento;
         }
 
-        public Usuario(int idUsuario, string celular, string telefone, string CPF, string email, string criacao, string nome, string genero, string nascimento, Endereco endereco)
+        public Usuario(int idPessoa, int idUsuario, string celular, string telefone, string CPF, string email, string criacao, string nome, string genero, string nascimento, Endereco endereco)
         {
+            this.idPessoa = idPessoa;
             this.Nome = converterNome(nome.Trim());
             this.CPF = CPF;
             this.Genero = genero;

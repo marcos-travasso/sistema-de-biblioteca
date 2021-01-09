@@ -69,6 +69,25 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
+        private void abrirEditarUsuarios()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarUsuarios")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarUsuarios janela = new TelaListarUsuarios(true);
+                janela.Show();
+            }
+        }
 
         private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
         {
@@ -88,6 +107,11 @@ namespace SistemaInterface
         private void usuariosCadastradosBotao_Click(object sender, EventArgs e)
         {
             abrirListarUsuarios();
+        }
+
+        private void usuariosEditarBotao_Click(object sender, EventArgs e)
+        {
+            abrirEditarUsuarios();
         }
     }
 }

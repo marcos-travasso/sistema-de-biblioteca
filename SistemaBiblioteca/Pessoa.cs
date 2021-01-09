@@ -11,6 +11,12 @@ namespace SistemaBiblioteca
             this.Genero = Genero;
             this.Nascimento = Nascimento;
         }
+        public Pessoa(string Nome, string Genero, string Nascimento)
+        {
+            this.Nome = Nome;
+            this.Genero = Genero;
+            this.Nascimento = Convert.ToDateTime(Nascimento);
+        }
         public string Nome { get; set; }
 
         public string Genero { get; set; }

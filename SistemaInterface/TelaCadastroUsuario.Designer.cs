@@ -462,7 +462,6 @@ namespace SistemaInterface
             this.MaximizeBox = false;
             this.Name = "TelaCadastroUsuario";
             this.Text = "Cadastro de Usuário";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaCadastroUsuario_KeyDown);
             this.responsavelPanel.ResumeLayout(false);
             this.responsavelPanel.PerformLayout();
             this.ResumeLayout(false);

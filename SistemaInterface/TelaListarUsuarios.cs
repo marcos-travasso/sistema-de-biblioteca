@@ -1,21 +1,30 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
+using System.Media;
 using System.Windows.Forms;
 
 namespace SistemaInterface
 {
     public partial class TelaListarUsuarios : Form
     {
+        List<Usuario> listaUsuarios = new List<Usuario>();
+        bool admin = false;
         public TelaListarUsuarios()
         {
+            this.admin = false;
+            InitializeComponent();
+        }
+
+        public TelaListarUsuarios(bool editar = false)
+        {
+            this.admin = editar;
             InitializeComponent();
         }
 
         private void TelaListarUsuarios_Load(object sender, EventArgs e)
         {
             BancoDeDados banco = new BancoDeDados();
-            List<Usuario> listaUsuarios = new List<Usuario>();
 
             listaUsuarios = banco.GetUsuarios(listaUsuarios);
 
@@ -46,6 +55,47 @@ namespace SistemaInterface
             foreach (string[] registro in registros)
             {
                 usuariosDGV.Rows.Add(registro);
+            }
+        }
+
+        private void usuariosDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (usuariosDGV.SelectedCells.Count == 1)
+            {
+                var linha = usuariosDGV.SelectedCells[0].RowIndex;
+                int id = Convert.ToInt32(usuariosDGV.Rows[linha].Cells[0].Value);
+
+                foreach(Usuario usuario in listaUsuarios)
+                {
+                    if (usuario.idUsuario == id)
+                    {
+                        abrirInformacoesUsuario(admin, usuario);
+                    }
+                }
+            } else
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Você só pode escolher um usuário por vez.", "Erro");
+            }
+        }
+
+        private void abrirInformacoesUsuario(bool editar, Usuario usuario)
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaInformacoesUsuario")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaInformacoesUsuario paginaUsuario = new TelaInformacoesUsuario(editar, usuario);
+                paginaUsuario.Show();
             }
         }
     }
