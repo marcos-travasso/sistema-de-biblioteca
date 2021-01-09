@@ -31,7 +31,7 @@ namespace SistemaBiblioteca
         public Endereco Endereco { get; set; }
         public DateTime CriacaoDaConta { get; set; }
         public string CPF { get; set; }
-        public Usuario Responsavel { get; set; }
+        public Pessoa Responsavel { get; set; }
         public int idUsuario { get; set; }
         public string Email { get; set; }
 

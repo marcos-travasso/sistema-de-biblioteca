@@ -31,7 +31,7 @@ namespace SistemaBiblioteca
                     cmd.Parameters.AddWithValue("@nascimento", usuario.Nascimento.ToString("yyyy-MM-dd"));
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = "SELECT * FROM Pessoas WHERE nome = \"" + usuario.Nome + "\" ORDER BY idPessoa DESC";
+                    cmd.CommandText = "SELECT * FROM Pessoas WHERE nome = \"" + usuario.Nome + "\" ORDER BY idPessoa DESC LIMIT 1";
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
@@ -49,13 +49,31 @@ namespace SistemaBiblioteca
                     cmd.Parameters.AddWithValue("@complemento", usuario.Endereco.Complemento);
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = "SELECT * FROM Enderecos WHERE CEP = \"" + usuario.Endereco.CEP + "\" ORDER BY idEndereco DESC";
+                    cmd.CommandText = "SELECT * FROM Enderecos WHERE CEP = \"" + usuario.Endereco.CEP + "\" ORDER BY idEndereco DESC LIMIT 1";
                     r = cmd.ExecuteReader();
                     while (r.Read())
                     {
                         usuario.Endereco.idEndereco = Convert.ToInt32(r["idEndereco"]);
                         r.Close();
                         break;
+                    }
+
+                    if (usuario.Responsavel != null)
+                    {
+                        cmd.CommandText = "INSERT INTO Pessoas(Nome, Genero, Nascimento) values (@nome, @genero, @nascimento)";
+                        cmd.Parameters.AddWithValue("@nome", usuario.Responsavel.Nome);
+                        if (usuario.Responsavel.Genero != null) { cmd.Parameters.AddWithValue("@genero", usuario.Responsavel.Genero); } else { cmd.Parameters.AddWithValue("@genero", "N"); }
+                        cmd.Parameters.AddWithValue("@nascimento", usuario.Responsavel.Nascimento.ToString("yyyy-MM-dd"));
+                        cmd.ExecuteNonQuery();
+
+                        cmd.CommandText = "SELECT * FROM Pessoas WHERE nome = \"" + usuario.Responsavel.Nome + "\" ORDER BY idPessoa DESC LIMIT 1";
+                        r = cmd.ExecuteReader();
+                        while (r.Read())
+                        {
+                            usuario.Responsavel.idPessoa = Convert.ToInt32(r["idPessoa"]);
+                            r.Close();
+                            break;
+                        }
                     }
 
                     cmd.CommandText = "INSERT INTO Usuarios(pessoa, celular, telefone, endereco, cpf, email, criacao) values (@pessoa, @celular, @telefone, @endereco, @cpf, @email, @criacao)";

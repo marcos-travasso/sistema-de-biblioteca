@@ -47,8 +47,6 @@ namespace SistemaInterface
             {
                 usuariosDGV.Rows.Add(registro);
             }
-            //usuariosDGV.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //usuariosDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
         }
     }
 }

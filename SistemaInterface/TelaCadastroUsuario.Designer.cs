@@ -54,9 +54,7 @@ namespace SistemaInterface
             this.numeroLabel = new System.Windows.Forms.Label();
             this.ruaTexto = new System.Windows.Forms.MaskedTextBox();
             this.responsavelPanel = new System.Windows.Forms.Panel();
-            this.cpfResponsavelLabel = new System.Windows.Forms.Label();
             this.responsavelLabel = new System.Windows.Forms.Label();
-            this.cpfResponsavelTexto = new System.Windows.Forms.MaskedTextBox();
             this.generoResponsavelTexto = new System.Windows.Forms.ComboBox();
             this.nomeResponsavelTexto = new System.Windows.Forms.TextBox();
             this.generoResponsavelLabel = new System.Windows.Forms.Label();
@@ -96,6 +94,7 @@ namespace SistemaInterface
             this.nascimentoTexto.Size = new System.Drawing.Size(223, 33);
             this.nascimentoTexto.TabIndex = 2;
             this.nascimentoTexto.ValidatingType = typeof(System.DateTime);
+            this.nascimentoTexto.Leave += new System.EventHandler(this.nascimentoTexto_Leave);
             // 
             // celularTexto
             // 
@@ -304,9 +303,7 @@ namespace SistemaInterface
             // 
             // responsavelPanel
             // 
-            this.responsavelPanel.Controls.Add(this.cpfResponsavelLabel);
             this.responsavelPanel.Controls.Add(this.responsavelLabel);
-            this.responsavelPanel.Controls.Add(this.cpfResponsavelTexto);
             this.responsavelPanel.Controls.Add(this.generoResponsavelTexto);
             this.responsavelPanel.Controls.Add(this.nomeResponsavelTexto);
             this.responsavelPanel.Controls.Add(this.generoResponsavelLabel);
@@ -315,18 +312,9 @@ namespace SistemaInterface
             this.responsavelPanel.Controls.Add(this.nascimentoResponsavelTexto);
             this.responsavelPanel.Location = new System.Drawing.Point(12, 428);
             this.responsavelPanel.Name = "responsavelPanel";
-            this.responsavelPanel.Size = new System.Drawing.Size(353, 234);
+            this.responsavelPanel.Size = new System.Drawing.Size(353, 192);
             this.responsavelPanel.TabIndex = 25;
             this.responsavelPanel.Visible = false;
-            // 
-            // cpfResponsavelLabel
-            // 
-            this.cpfResponsavelLabel.AutoSize = true;
-            this.cpfResponsavelLabel.Location = new System.Drawing.Point(73, 192);
-            this.cpfResponsavelLabel.Name = "cpfResponsavelLabel";
-            this.cpfResponsavelLabel.Size = new System.Drawing.Size(48, 25);
-            this.cpfResponsavelLabel.TabIndex = 27;
-            this.cpfResponsavelLabel.Text = "CPF:";
             // 
             // responsavelLabel
             // 
@@ -336,16 +324,6 @@ namespace SistemaInterface
             this.responsavelLabel.Size = new System.Drawing.Size(200, 25);
             this.responsavelLabel.TabIndex = 26;
             this.responsavelLabel.Text = "Dados do Responsável";
-            // 
-            // cpfResponsavelTexto
-            // 
-            this.cpfResponsavelTexto.BeepOnError = true;
-            this.cpfResponsavelTexto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cpfResponsavelTexto.Location = new System.Drawing.Point(127, 188);
-            this.cpfResponsavelTexto.Mask = "000\\.000\\.000\\-00";
-            this.cpfResponsavelTexto.Name = "cpfResponsavelTexto";
-            this.cpfResponsavelTexto.Size = new System.Drawing.Size(223, 33);
-            this.cpfResponsavelTexto.TabIndex = 26;
             // 
             // generoResponsavelTexto
             // 
@@ -412,6 +390,7 @@ namespace SistemaInterface
             this.nascimentoResponsavelTexto.Size = new System.Drawing.Size(223, 33);
             this.nascimentoResponsavelTexto.TabIndex = 28;
             this.nascimentoResponsavelTexto.ValidatingType = typeof(System.DateTime);
+            this.nascimentoResponsavelTexto.Leave += new System.EventHandler(this.nascimentoResponsavelTexto_Leave);
             // 
             // cadastrarBotao
             // 
@@ -518,9 +497,7 @@ namespace SistemaInterface
         private System.Windows.Forms.Label numeroLabel;
         private System.Windows.Forms.MaskedTextBox ruaTexto;
         private System.Windows.Forms.Panel responsavelPanel;
-        private System.Windows.Forms.Label cpfResponsavelLabel;
         private System.Windows.Forms.Label responsavelLabel;
-        private System.Windows.Forms.MaskedTextBox cpfResponsavelTexto;
         private System.Windows.Forms.ComboBox generoResponsavelTexto;
         private System.Windows.Forms.TextBox nomeResponsavelTexto;
         private System.Windows.Forms.Label generoResponsavelLabel;
