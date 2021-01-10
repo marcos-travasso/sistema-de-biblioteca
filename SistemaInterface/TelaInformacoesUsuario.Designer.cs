@@ -436,6 +436,7 @@ namespace SistemaInterface
             this.excluirBotao.TabIndex = 57;
             this.excluirBotao.Text = "Excluir usuário";
             this.excluirBotao.UseVisualStyleBackColor = true;
+            this.excluirBotao.Click += new System.EventHandler(this.excluirBotao_Click);
             // 
             // idLabel
             // 

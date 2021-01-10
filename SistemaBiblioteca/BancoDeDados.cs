@@ -201,5 +201,40 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
+        public void ExcluirUsuario(Usuario usuario)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Enderecos WHERE idEndereco = @id";
+                    cmd.Parameters.AddWithValue("@id", usuario.Endereco.idEndereco);
+                    cmd.ExecuteNonQuery();
+
+                    if (usuario.Responsavel != null)
+                    {
+                        cmd.CommandText = "DELETE FROM Pessoas WHERE idPessoa = @id";
+                        cmd.Parameters.AddWithValue("@id", usuario.Responsavel.idPessoa);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    cmd.CommandText = "DELETE FROM Usuarios WHERE idUsuario = @id";
+                    cmd.Parameters.AddWithValue("@id", usuario.idUsuario);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "DELETE FROM Pessoas WHERE idPessoa = @id";
+                    cmd.Parameters.AddWithValue("@id", usuario.idPessoa);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

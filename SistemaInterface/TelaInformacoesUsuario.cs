@@ -67,7 +67,7 @@ namespace SistemaInterface
             this.Text = "Informações do usuário " + Convert.ToString(usuario.idUsuario);
 
             nomeTexto.Text = usuario.Nome;
-            nascimentoTexto.Text = usuario.Nascimento.ToString().Substring(0,10);
+            nascimentoTexto.Text = usuario.Nascimento.ToString().Substring(0, 10);
             generoTexto.Text = usuario.getGenero();
             celularTexto.Text = usuario.Celular;
             telefoneTexto.Text = usuario.Telefone;
@@ -301,6 +301,22 @@ namespace SistemaInterface
         {
             MessageBox.Show("Cadastro editado com sucesso", "Sucesso");
             this.Close();
+        }
+
+        private void excluirBotao_Click(object sender, EventArgs e)
+        {
+            BancoDeDados banco = new BancoDeDados();
+            try
+            {
+                banco.ExcluirUsuario(usuario);
+
+                MessageBox.Show("Usuário excluído com sucesso.", "Sucesso");
+            }
+            catch
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Não foi possível excluir o usuário.", "Erro");
+            }
         }
     }
 }
