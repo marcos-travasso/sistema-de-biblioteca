@@ -161,7 +161,7 @@ namespace SistemaBiblioteca
             {
                 using (var cmd = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "select * from ((Usuarios inner join Pessoas on Pessoas.idPessoa = Usuarios.idUsuario) inner join Enderecos on Usuarios.endereco = Enderecos.idEndereco);";
+                    cmd.CommandText = "select * from ((Usuarios inner join Pessoas on Pessoas.idPessoa = Usuarios.pessoa) inner join Enderecos on Usuarios.endereco = Enderecos.idEndereco);";
                     da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
 
                     SQLiteDataReader r = cmd.ExecuteReader();

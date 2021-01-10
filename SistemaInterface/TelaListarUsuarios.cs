@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Media;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -23,6 +24,11 @@ namespace SistemaInterface
         }
 
         private void TelaListarUsuarios_Load(object sender, EventArgs e)
+        {
+            atualizarGrid();
+        }
+
+        private void atualizarGrid()
         {
             BancoDeDados banco = new BancoDeDados();
 
