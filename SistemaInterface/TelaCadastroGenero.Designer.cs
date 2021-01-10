@@ -45,16 +45,17 @@ namespace SistemaInterface
             this.generoEditar.TabIndex = 32;
             this.generoEditar.TabStop = true;
             this.generoEditar.Text = "editar gêneros";
+            this.generoEditar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.generoEditar_LinkClicked);
             // 
             // cadastrarBotao
             // 
-            this.cadastrarBotao.Enabled = false;
             this.cadastrarBotao.Location = new System.Drawing.Point(200, 112);
             this.cadastrarBotao.Name = "cadastrarBotao";
             this.cadastrarBotao.Size = new System.Drawing.Size(223, 64);
             this.cadastrarBotao.TabIndex = 31;
             this.cadastrarBotao.Text = "Cadastrar gênero";
             this.cadastrarBotao.UseVisualStyleBackColor = true;
+            this.cadastrarBotao.Click += new System.EventHandler(this.cadastrarBotao_Click);
             // 
             // generoTexto
             // 
@@ -83,7 +84,7 @@ namespace SistemaInterface
             this.Controls.Add(this.nomeLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "TelaCadastroGenero";
             this.Text = "Cadastrar Gênero";

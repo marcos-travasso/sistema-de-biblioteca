@@ -195,6 +195,8 @@ namespace SistemaInterface
             this.MaximizeBox = false;
             this.Name = "TelaCadastroLivro";
             this.Text = "Cadastro de Livro";
+            this.Activated += new System.EventHandler(this.TelaCadastroLivro_Activated);
+            this.Load += new System.EventHandler(this.TelaCadastroLivro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

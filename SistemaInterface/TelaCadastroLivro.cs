@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using SistemaBiblioteca;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace SistemaInterface
 {
@@ -57,6 +59,33 @@ namespace SistemaInterface
         private void generoAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             abrirCadastroGenero();
+        }
+
+        private void TelaCadastroLivro_Load(object sender, System.EventArgs e)
+        {
+            atualizarLista();
+        }
+
+        private void atualizarLista()
+        {
+            BancoDeDados banco = new BancoDeDados();
+            List<Genero> listaGeneros = new List<Genero>();
+            listaGeneros = banco.GetGeneros(listaGeneros);
+
+            generoLista.Items.Clear();
+
+            generoLista.BeginUpdate();
+
+            foreach (Genero genero in listaGeneros)
+            {
+                generoLista.Items.Add(genero.Nome);
+            }
+
+            generoLista.EndUpdate();
+        }
+        private void TelaCadastroLivro_Activated(object sender, System.EventArgs e)
+        {
+            atualizarLista();
         }
     }
 }
