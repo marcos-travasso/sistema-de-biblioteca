@@ -1,11 +1,15 @@
 ﻿using SistemaBiblioteca;
+using System;
 using System.Collections.Generic;
+using System.Media;
 using System.Windows.Forms;
 
 namespace SistemaInterface
 {
     public partial class TelaCadastroLivro : Form
     {
+        List<Autor> listaAutores = new List<Autor>();
+        List<Genero> listaGeneros = new List<Genero>();
         public TelaCadastroLivro()
         {
             InitializeComponent();
@@ -70,7 +74,7 @@ namespace SistemaInterface
         private void atualizarListaGeneros()
         {
             BancoDeDados banco = new BancoDeDados();
-            List<Genero> listaGeneros = new List<Genero>();
+            listaGeneros.Clear();
             listaGeneros = banco.GetGeneros(listaGeneros);
 
             generoLista.Items.Clear();
@@ -87,7 +91,7 @@ namespace SistemaInterface
         private void atualizarListaAutores()
         {
             BancoDeDados banco = new BancoDeDados();
-            List<Autor> listaAutores = new List<Autor>();
+            listaAutores.Clear();
             listaAutores = banco.GetAutores(listaAutores);
 
             autoresLista.Items.Clear();
@@ -107,6 +111,80 @@ namespace SistemaInterface
             atualizarListaAutores();
         }
 
+        private void cadastrarBotao_Click(object sender, System.EventArgs e)
+        {
+            if (tituloTexto.Text != "")
+            {
+                Livro livro = new Livro();
+                livro.Titulo = tituloTexto.Text;
 
+                try
+                {
+                    if (anoTexto.Text != "") { livro.Ano = Convert.ToInt32(anoTexto.Text); } else { livro.Ano = 0; }
+                    if (paginasTexto.Text != "") { livro.Paginas = Convert.ToInt32(paginasTexto.Text); } else { livro.Paginas = 1; }
+                }
+                catch
+                {
+                    SystemSounds.Beep.Play();
+                    MessageBox.Show("Algum dado foi inserido incorretamente.", "Erro");
+                }
+
+                foreach (Autor autor in listaAutores)
+                {
+                    if (autor.Nome == Convert.ToString(autoresLista.SelectedItem))
+                    {
+                        livro.Autor = autor;
+                        break;
+                    }
+                }
+
+                foreach (var generoEscolhido in generoLista.CheckedItems)
+                {
+                    foreach (Genero genero in listaGeneros)
+                    {
+                        if (generoEscolhido.ToString() == genero.Nome)
+                        {
+                            livro.Generos.Add(genero);
+                            break;
+                        }
+                    }
+                }
+
+                BancoDeDados banco = new BancoDeDados();
+
+                try
+                {
+                    banco.CriarLivro(livro);
+
+                    concluirCadastro();
+                }
+                catch
+                {
+                    SystemSounds.Beep.Play();
+                    MessageBox.Show("Não foi possível cadastrar o livro.", "Erro");
+                }
+
+
+            }
+            else
+            {
+                SystemSounds.Beep.Play();
+                tituloTexto.Focus();
+            }
+        }
+        private void concluirCadastro()
+        {
+            tituloTexto.Text = "";
+            anoTexto.Text = "";
+            paginasTexto.Text = "";
+
+            autoresLista.SelectedIndex = -1;
+
+            while (generoLista.CheckedIndices.Count > 0) {
+                generoLista.SetItemChecked(generoLista.CheckedIndices[0], false); 
+            }
+
+            MessageBox.Show("Cadastro concluído com sucesso.", "Sucesso");
+        }
     }
 }

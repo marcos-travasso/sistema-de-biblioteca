@@ -116,6 +116,7 @@ namespace SistemaInterface
             this.livrosCadastradosBotao.TabIndex = 7;
             this.livrosCadastradosBotao.Text = "Livros cadastrados";
             this.livrosCadastradosBotao.UseVisualStyleBackColor = true;
+            this.livrosCadastradosBotao.Click += new System.EventHandler(this.livrosCadastradosBotao_Click);
             // 
             // livrosEditarBotao
             // 
@@ -125,6 +126,7 @@ namespace SistemaInterface
             this.livrosEditarBotao.TabIndex = 8;
             this.livrosEditarBotao.Text = "Editar livros";
             this.livrosEditarBotao.UseVisualStyleBackColor = true;
+            this.livrosEditarBotao.Click += new System.EventHandler(this.livrosEditarBotao_Click);
             // 
             // usuariosCadastrarBotao1
             // 

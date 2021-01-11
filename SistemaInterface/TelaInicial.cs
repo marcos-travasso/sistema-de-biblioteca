@@ -89,6 +89,46 @@ namespace SistemaInterface
             }
         }
 
+        private void abrirListarLivros()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarLivros")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarLivros janela = new TelaListarLivros();
+                janela.Show();
+            }
+        }
+
+        private void abrirEditarLivros()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarLivros")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarLivros janela = new TelaListarLivros(true);
+                janela.Show();
+            }
+        }
+
         private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
         {
             abrirCadastroUsuario();
@@ -112,6 +152,16 @@ namespace SistemaInterface
         private void usuariosEditarBotao_Click(object sender, EventArgs e)
         {
             abrirEditarUsuarios();
+        }
+
+        private void livrosCadastradosBotao_Click(object sender, EventArgs e)
+        {
+            abrirListarLivros();
+        }
+
+        private void livrosEditarBotao_Click(object sender, EventArgs e)
+        {
+            abrirEditarLivros();
         }
     }
 }

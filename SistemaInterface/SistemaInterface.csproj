@@ -101,6 +101,12 @@
     <Compile Include="TelaInformacoesGenero.Designer.cs">
       <DependentUpon>TelaInformacoesGenero.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaInformacoesLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaInformacoesLivro.Designer.cs">
+      <DependentUpon>TelaInformacoesLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaInformacoesUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     </Compile>
     <Compile Include="TelaListarGeneros.Designer.cs">
       <DependentUpon>TelaListarGeneros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaListarLivros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaListarLivros.Designer.cs">
+      <DependentUpon>TelaListarLivros.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaListarUsuarios.cs">
       <SubType>Form</SubType>
@@ -160,6 +172,9 @@
     <EmbeddedResource Include="TelaInformacoesGenero.resx">
       <DependentUpon>TelaInformacoesGenero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TelaInformacoesLivro.resx">
+      <DependentUpon>TelaInformacoesLivro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaInformacoesUsuario.resx">
       <DependentUpon>TelaInformacoesUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaListarGeneros.resx">
       <DependentUpon>TelaListarGeneros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaListarLivros.resx">
+      <DependentUpon>TelaListarLivros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaListarUsuarios.resx">
       <DependentUpon>TelaListarUsuarios.cs</DependentUpon>

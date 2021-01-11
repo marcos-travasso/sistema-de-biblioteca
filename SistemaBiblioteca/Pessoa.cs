@@ -30,5 +30,9 @@ namespace SistemaBiblioteca
             else if (this.Genero == "F") { return "Feminino"; }
             else { return "Outro"; }
         }
+        public void setNascimento(string nascimento)
+        {
+            this.Nascimento = Convert.ToDateTime(nascimento);
+        }
     }
 }

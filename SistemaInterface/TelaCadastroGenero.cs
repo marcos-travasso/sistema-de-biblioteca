@@ -46,8 +46,9 @@ namespace SistemaInterface
 
                     banco.CriarGenero(genero);
 
-                    MessageBox.Show("Gênero cadastrado com sucesso.", "Sucesso");
                     generoTexto.Text = "";
+                    MessageBox.Show("Gênero cadastrado com sucesso.", "Sucesso");
+                    this.Close();
                 }
                 catch
                 {

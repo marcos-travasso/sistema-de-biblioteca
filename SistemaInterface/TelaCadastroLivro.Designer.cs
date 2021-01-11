@@ -58,7 +58,6 @@ namespace SistemaInterface
             this.anoTexto.BeepOnError = true;
             this.anoTexto.ForeColor = System.Drawing.SystemColors.WindowText;
             this.anoTexto.Location = new System.Drawing.Point(232, 104);
-            this.anoTexto.Mask = "9000";
             this.anoTexto.Name = "anoTexto";
             this.anoTexto.PromptChar = ' ';
             this.anoTexto.Size = new System.Drawing.Size(223, 33);
@@ -134,13 +133,13 @@ namespace SistemaInterface
             // 
             // cadastrarBotao
             // 
-            this.cadastrarBotao.Enabled = false;
             this.cadastrarBotao.Location = new System.Drawing.Point(232, 445);
             this.cadastrarBotao.Name = "cadastrarBotao";
             this.cadastrarBotao.Size = new System.Drawing.Size(223, 64);
             this.cadastrarBotao.TabIndex = 6;
             this.cadastrarBotao.Text = "Cadastrar livro";
             this.cadastrarBotao.UseVisualStyleBackColor = true;
+            this.cadastrarBotao.Click += new System.EventHandler(this.cadastrarBotao_Click);
             // 
             // paginasLabel
             // 
@@ -156,7 +155,6 @@ namespace SistemaInterface
             this.paginasTexto.BeepOnError = true;
             this.paginasTexto.ForeColor = System.Drawing.SystemColors.WindowText;
             this.paginasTexto.Location = new System.Drawing.Point(232, 155);
-            this.paginasTexto.Mask = "999990";
             this.paginasTexto.Name = "paginasTexto";
             this.paginasTexto.PromptChar = ' ';
             this.paginasTexto.Size = new System.Drawing.Size(223, 33);
@@ -165,6 +163,7 @@ namespace SistemaInterface
             // 
             // generoLista
             // 
+            this.generoLista.CheckOnClick = true;
             this.generoLista.FormattingEnabled = true;
             this.generoLista.Location = new System.Drawing.Point(230, 284);
             this.generoLista.Name = "generoLista";

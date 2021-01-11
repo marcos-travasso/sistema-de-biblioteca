@@ -37,6 +37,7 @@ namespace SistemaInterface
                     generoTexto.Text = "";
 
                     MessageBox.Show("Autor cadastrado com sucesso", "Sucesso");
+                    this.Close();
 
                 }
                 catch

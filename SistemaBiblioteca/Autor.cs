@@ -19,6 +19,10 @@ namespace SistemaBiblioteca
             this.Genero = genero;
             this.Nascimento = Convert.ToDateTime(nascimento);
         }
+        public Autor(int idAutor)
+        {
+            this.idAutor = idAutor;
+        }
         public int idAutor { get; set; }
     }
 }
