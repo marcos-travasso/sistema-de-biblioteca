@@ -167,8 +167,8 @@ namespace SistemaBiblioteca
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
-                        Endereco endereco = new Endereco(Convert.ToInt32(r[13]), Convert.ToString(r[14]), Convert.ToString(r[15]), Convert.ToString(r[16]), Convert.ToString(r[17]), Convert.ToInt32(r[18]), Convert.ToString(r[19]));
-                        Usuario usuario = new Usuario(Convert.ToInt32(r[9]), Convert.ToInt32(r[0]), Convert.ToString(r[2]), Convert.ToString(r[3]), Convert.ToString(r[5]), Convert.ToString(r[6]), Convert.ToString(r[8]), Convert.ToString(r[10]), Convert.ToString(r[11]), Convert.ToString(r[12]), endereco);
+                        Endereco endereco = new Endereco(Convert.ToInt32(r["idEndereco"]), Convert.ToString(r["cep"]), Convert.ToString(r["cidade"]), Convert.ToString(r["bairro"]), Convert.ToString(r["rua"]), Convert.ToInt32(r["numero"]), Convert.ToString(r["complemento"]));
+                        Usuario usuario = new Usuario(Convert.ToInt32(r["pessoa"]), Convert.ToInt32(r["idUsuario"]), Convert.ToString(r["celular"]), Convert.ToString(r["telefone"]), Convert.ToString(r["cpf"]), Convert.ToString(r["email"]), Convert.ToString(r["criacao"]), Convert.ToString(r["nome"]), Convert.ToString(r["genero"]), Convert.ToString(r["nascimento"]), endereco);
                         
                         lista.Add(usuario);
                     }
@@ -184,8 +184,8 @@ namespace SistemaBiblioteca
                         r = cmd.ExecuteReader();
                         while (r.Read())
                         {
-                            pessoa.Responsavel = new Pessoa(Convert.ToString(r[1]), Convert.ToString(r[2]), Convert.ToString(r[3]));
-                            pessoa.Responsavel.idPessoa = Convert.ToInt32(r[0]);
+                            pessoa.Responsavel = new Pessoa(Convert.ToString(r["nome"]), Convert.ToString(r["genero"]), Convert.ToString(r["nascimento"]));
+                            pessoa.Responsavel.idPessoa = Convert.ToInt32(r["idPessoa"]);
                             break;
                         }
                         r.Close();
@@ -267,7 +267,7 @@ namespace SistemaBiblioteca
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
-                        Genero genero = new Genero(Convert.ToInt32(r[0]), Convert.ToString(r[1]));
+                        Genero genero = new Genero(Convert.ToInt32(r["idGenero"]), Convert.ToString(r["nome"]));
                         lista.Add(genero);
                     }
 
