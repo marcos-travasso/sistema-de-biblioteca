@@ -30,7 +30,7 @@ namespace SistemaInterface
 
         private void atualizarGrid()
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoUsuario banco = new BancoUsuario();
 
             listaUsuarios = banco.GetUsuarios(listaUsuarios);
 

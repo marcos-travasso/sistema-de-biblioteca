@@ -44,7 +44,7 @@ namespace SistemaInterface
 
                 Endereco novoEndereco = new Endereco();
 
-                BancoDeDados banco = new BancoDeDados();
+                BancoUsuario banco = new BancoUsuario();
 
                 //Inserir dados pessoais
                 try

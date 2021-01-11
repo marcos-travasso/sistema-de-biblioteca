@@ -195,6 +195,7 @@ namespace SistemaInterface
             this.excluirBotao.TabIndex = 7;
             this.excluirBotao.Text = "Excluir livro";
             this.excluirBotao.UseVisualStyleBackColor = true;
+            this.excluirBotao.Click += new System.EventHandler(this.excluirBotao_Click);
             // 
             // idLabel
             // 
@@ -229,7 +230,7 @@ namespace SistemaInterface
             this.Controls.Add(this.tituloLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "TelaInformacoesLivro";
             this.Text = "Informações do livro";

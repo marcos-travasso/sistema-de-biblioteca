@@ -41,7 +41,7 @@ namespace SistemaInterface
             {
                 try
                 {
-                    BancoDeDados banco = new BancoDeDados();
+                    BancoGenero banco = new BancoGenero();
                     Genero genero = new Genero(generoTexto.Text);
 
                     banco.CriarGenero(genero);

@@ -120,7 +120,7 @@ namespace SistemaInterface
 
                 Endereco novoEndereco = new Endereco();
 
-                BancoDeDados banco = new BancoDeDados();
+                BancoUsuario banco = new BancoUsuario();
 
                 //Inserir dados pessoais
                 try
@@ -305,12 +305,14 @@ namespace SistemaInterface
 
         private void excluirBotao_Click(object sender, EventArgs e)
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoUsuario banco = new BancoUsuario();
             try
             {
                 banco.ExcluirUsuario(usuario);
 
                 MessageBox.Show("Usuário excluído com sucesso.", "Sucesso");
+
+                this.Close();
             }
             catch
             {

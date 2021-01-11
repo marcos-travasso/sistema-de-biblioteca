@@ -68,7 +68,7 @@ namespace SistemaInterface
 
         private void atualizarGrid()
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoGenero banco = new BancoGenero();
 
             listaGeneros = banco.GetGeneros(listaGeneros);
 

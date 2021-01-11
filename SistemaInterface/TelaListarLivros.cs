@@ -35,7 +35,7 @@ namespace SistemaInterface
 
         private void atualizarGrid()
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoLivro banco = new BancoLivro();
 
             listaLivros = banco.GetLivros(listaLivros);
 

@@ -73,7 +73,7 @@ namespace SistemaInterface
 
         private void atualizarListaGeneros()
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoGenero banco = new BancoGenero();
             listaGeneros.Clear();
             listaGeneros = banco.GetGeneros(listaGeneros);
 
@@ -90,7 +90,7 @@ namespace SistemaInterface
         }
         private void atualizarListaAutores()
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoAutor banco = new BancoAutor();
             listaAutores.Clear();
             listaAutores = banco.GetAutores(listaAutores);
 
@@ -150,7 +150,7 @@ namespace SistemaInterface
                     }
                 }
 
-                BancoDeDados banco = new BancoDeDados();
+                BancoLivro banco = new BancoLivro();
 
                 try
                 {

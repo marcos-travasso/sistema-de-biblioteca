@@ -68,7 +68,7 @@ namespace SistemaInterface
 
         private void atualizarGrid()
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoAutor banco = new BancoAutor();
 
             listaAutores = banco.GetAutores(listaAutores);
 

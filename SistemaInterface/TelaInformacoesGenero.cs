@@ -30,7 +30,7 @@ namespace SistemaInterface
         {
             if (nomeTexto.Text != "")
             {
-                BancoDeDados banco = new BancoDeDados();
+                BancoGenero banco = new BancoGenero();
                 try
                 {
                     genero.Nome = nomeTexto.Text;
@@ -52,12 +52,13 @@ namespace SistemaInterface
 
         private void excluirBotao_Click(object sender, EventArgs e)
         {
-            BancoDeDados banco = new BancoDeDados();
+            BancoGenero banco = new BancoGenero();
             try
             {
                 banco.ExcluirGenero(genero);
 
                 MessageBox.Show("Gênero excluído com sucesso.", "Sucesso");
+                this.Close();
             }
             catch
             {

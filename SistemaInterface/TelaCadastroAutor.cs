@@ -26,7 +26,7 @@ namespace SistemaInterface
                 try { autor.Nascimento = Convert.ToDateTime(nascimentoTexto.Text); }
                 catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento está incorreta.", "Erro"); nascimentoTexto.Focus(); }
 
-                BancoDeDados banco = new BancoDeDados();
+                BancoAutor banco = new BancoAutor();
 
                 try
                 {
