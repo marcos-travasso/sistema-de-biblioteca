@@ -3,7 +3,8 @@
     public class Genero : Funcoes
     {
         public Genero() { }
-        public Genero(string nome) {
+        public Genero(string nome)
+        {
             this.Nome = converterNome(nome);
         }
         public Genero(int id, string nome)

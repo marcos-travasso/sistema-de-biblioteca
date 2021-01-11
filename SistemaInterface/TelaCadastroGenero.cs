@@ -55,7 +55,8 @@ namespace SistemaInterface
                     SystemSounds.Beep.Play();
                     MessageBox.Show("Não foi possível cadastrar o gênero.", "Erro");
                 }
-            } else
+            }
+            else
             {
                 SystemSounds.Beep.Play();
                 generoTexto.Focus();

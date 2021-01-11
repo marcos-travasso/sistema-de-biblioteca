@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Media;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -71,14 +70,15 @@ namespace SistemaInterface
                 var linha = usuariosDGV.SelectedCells[0].RowIndex;
                 int id = Convert.ToInt32(usuariosDGV.Rows[linha].Cells[0].Value);
 
-                foreach(Usuario usuario in listaUsuarios)
+                foreach (Usuario usuario in listaUsuarios)
                 {
                     if (usuario.idUsuario == id)
                     {
                         abrirInformacoesUsuario(admin, usuario);
                     }
                 }
-            } else
+            }
+            else
             {
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Você só pode escolher um usuário por vez.", "Erro");

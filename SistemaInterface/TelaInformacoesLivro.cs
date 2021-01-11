@@ -1,13 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -77,7 +71,8 @@ namespace SistemaInterface
                 }
 
                 generoLista.EndUpdate();
-            } else
+            }
+            else
             {
                 atualizarListaGeneros();
             }
@@ -183,7 +178,8 @@ namespace SistemaInterface
                     SystemSounds.Beep.Play();
                     MessageBox.Show("Não foi possível editar o livro.", "Erro");
                 }
-            } else
+            }
+            else
             {
                 SystemSounds.Beep.Play();
                 tituloTexto.Focus();

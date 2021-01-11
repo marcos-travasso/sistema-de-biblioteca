@@ -1,13 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -75,7 +69,7 @@ namespace SistemaInterface
             generosDGV.ColumnCount = 2;
 
             List<string> colunas = new List<string> { "ID", "Nome" };
-            List<int> colunasTamanho = new List<int> { 50, 150};
+            List<int> colunasTamanho = new List<int> { 50, 150 };
 
             for (int i = 0; i < generosDGV.ColumnCount; i++)
             {
@@ -91,7 +85,7 @@ namespace SistemaInterface
             var registros = new List<string[]>();
             foreach (Genero genero in listaGeneros)
             {
-                string[] registro = new string[] { Convert.ToString(genero.idGenero), genero.Nome};
+                string[] registro = new string[] { Convert.ToString(genero.idGenero), genero.Nome };
                 registros.Add(registro);
             }
 

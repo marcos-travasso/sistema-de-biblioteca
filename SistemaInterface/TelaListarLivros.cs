@@ -1,13 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -58,7 +52,7 @@ namespace SistemaInterface
             var registros = new List<string[]>();
             foreach (Livro livro in listaLivros)
             {
-                string[] registro = new string[] { Convert.ToString(livro.idLivro), livro.Titulo, livro.getAutor()};
+                string[] registro = new string[] { Convert.ToString(livro.idLivro), livro.Titulo, livro.getAutor() };
                 registros.Add(registro);
             }
 

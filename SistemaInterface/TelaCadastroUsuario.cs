@@ -77,7 +77,8 @@ namespace SistemaInterface
                 }
 
                 //Inserir dados do responsavel caso exista necessidade
-                if (menorDeIdade == true && nomeResponsavelTexto.Text != ""){
+                if (menorDeIdade == true && nomeResponsavelTexto.Text != "")
+                {
                     try
                     {
                         Pessoa responsavel = new Pessoa();
@@ -117,7 +118,8 @@ namespace SistemaInterface
                             novoUsuario = banco.CriarUsuario(novoUsuario);
 
                             concluirCadastro();
-                        } else
+                        }
+                        else
                         {
                             nomeResponsavelTexto.Focus();
                         }
@@ -147,13 +149,13 @@ namespace SistemaInterface
         {
             try
             {
-               menorDeIdade = EMenorDeIdade(nascimentoTexto.Text);
+                menorDeIdade = EMenorDeIdade(nascimentoTexto.Text);
 
                 if (menorDeIdade) { nomeResponsavelTexto.Text = ""; generoResponsavelTexto.Text = ""; nascimentoResponsavelTexto.Text = ""; responsavelPanel.Visible = true; menorDeIdade = true; tabOrdemMenor(); }
                 else { responsavelPanel.Visible = false; menorDeIdade = false; tabOrdemMaior(); }
-                
+
             }
-            catch { SystemSounds.Beep.Play();}
+            catch { SystemSounds.Beep.Play(); }
         }
 
         public bool EMenorDeIdade(string ano)

@@ -180,8 +180,9 @@ namespace SistemaInterface
 
             autoresLista.SelectedIndex = -1;
 
-            while (generoLista.CheckedIndices.Count > 0) {
-                generoLista.SetItemChecked(generoLista.CheckedIndices[0], false); 
+            while (generoLista.CheckedIndices.Count > 0)
+            {
+                generoLista.SetItemChecked(generoLista.CheckedIndices[0], false);
             }
 
             MessageBox.Show("Cadastro concluído com sucesso.", "Sucesso");
