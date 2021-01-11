@@ -63,10 +63,11 @@ namespace SistemaInterface
 
         private void TelaCadastroLivro_Load(object sender, System.EventArgs e)
         {
-            atualizarLista();
+            atualizarListaGeneros();
+            atualizarListaAutores();
         }
 
-        private void atualizarLista()
+        private void atualizarListaGeneros()
         {
             BancoDeDados banco = new BancoDeDados();
             List<Genero> listaGeneros = new List<Genero>();
@@ -83,9 +84,29 @@ namespace SistemaInterface
 
             generoLista.EndUpdate();
         }
+        private void atualizarListaAutores()
+        {
+            BancoDeDados banco = new BancoDeDados();
+            List<Autor> listaAutores = new List<Autor>();
+            listaAutores = banco.GetAutores(listaAutores);
+
+            autoresLista.Items.Clear();
+
+            autoresLista.BeginUpdate();
+
+            foreach (Autor autor in listaAutores)
+            {
+                autoresLista.Items.Add(autor.Nome);
+            }
+
+            autoresLista.EndUpdate();
+        }
         private void TelaCadastroLivro_Activated(object sender, System.EventArgs e)
         {
-            atualizarLista();
+            atualizarListaGeneros();
+            atualizarListaAutores();
         }
+
+
     }
 }

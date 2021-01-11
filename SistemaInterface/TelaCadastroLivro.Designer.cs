@@ -35,13 +35,13 @@ namespace SistemaInterface
             this.tituloLabel = new System.Windows.Forms.Label();
             this.autorLabel = new System.Windows.Forms.Label();
             this.autorAdicionar = new System.Windows.Forms.LinkLabel();
-            this.autorTexto = new System.Windows.Forms.ComboBox();
-            this.generoLista = new System.Windows.Forms.ListBox();
+            this.autoresLista = new System.Windows.Forms.ComboBox();
             this.generoLabel = new System.Windows.Forms.Label();
             this.generoAdicionar = new System.Windows.Forms.LinkLabel();
             this.cadastrarBotao = new System.Windows.Forms.Button();
             this.paginasLabel = new System.Windows.Forms.Label();
             this.paginasTexto = new System.Windows.Forms.MaskedTextBox();
+            this.generoLista = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // anoLabel
@@ -62,15 +62,15 @@ namespace SistemaInterface
             this.anoTexto.Name = "anoTexto";
             this.anoTexto.PromptChar = ' ';
             this.anoTexto.Size = new System.Drawing.Size(223, 33);
-            this.anoTexto.TabIndex = 8;
+            this.anoTexto.TabIndex = 2;
             this.anoTexto.ValidatingType = typeof(System.DateTime);
             // 
             // tituloTexto
             // 
-            this.tituloTexto.Location = new System.Drawing.Point(232, 55);
+            this.tituloTexto.Location = new System.Drawing.Point(232, 50);
             this.tituloTexto.Name = "tituloTexto";
             this.tituloTexto.Size = new System.Drawing.Size(223, 33);
-            this.tituloTexto.TabIndex = 7;
+            this.tituloTexto.TabIndex = 1;
             // 
             // tituloLabel
             // 
@@ -102,22 +102,14 @@ namespace SistemaInterface
             this.autorAdicionar.Text = "adicionar novo autor";
             this.autorAdicionar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorAdicionar_LinkClicked);
             // 
-            // autorTexto
+            // autoresLista
             // 
-            this.autorTexto.FormattingEnabled = true;
-            this.autorTexto.Location = new System.Drawing.Point(230, 208);
-            this.autorTexto.Name = "autorTexto";
-            this.autorTexto.Size = new System.Drawing.Size(225, 33);
-            this.autorTexto.TabIndex = 13;
-            // 
-            // generoLista
-            // 
-            this.generoLista.FormattingEnabled = true;
-            this.generoLista.ItemHeight = 25;
-            this.generoLista.Location = new System.Drawing.Point(230, 284);
-            this.generoLista.Name = "generoLista";
-            this.generoLista.Size = new System.Drawing.Size(225, 104);
-            this.generoLista.TabIndex = 14;
+            this.autoresLista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.autoresLista.FormattingEnabled = true;
+            this.autoresLista.Location = new System.Drawing.Point(230, 208);
+            this.autoresLista.Name = "autoresLista";
+            this.autoresLista.Size = new System.Drawing.Size(225, 33);
+            this.autoresLista.TabIndex = 4;
             // 
             // generoLabel
             // 
@@ -132,7 +124,7 @@ namespace SistemaInterface
             // 
             this.generoAdicionar.AutoSize = true;
             this.generoAdicionar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generoAdicionar.Location = new System.Drawing.Point(314, 391);
+            this.generoAdicionar.Location = new System.Drawing.Point(314, 403);
             this.generoAdicionar.Name = "generoAdicionar";
             this.generoAdicionar.Size = new System.Drawing.Size(141, 17);
             this.generoAdicionar.TabIndex = 16;
@@ -143,10 +135,10 @@ namespace SistemaInterface
             // cadastrarBotao
             // 
             this.cadastrarBotao.Enabled = false;
-            this.cadastrarBotao.Location = new System.Drawing.Point(232, 432);
+            this.cadastrarBotao.Location = new System.Drawing.Point(232, 445);
             this.cadastrarBotao.Name = "cadastrarBotao";
             this.cadastrarBotao.Size = new System.Drawing.Size(223, 64);
-            this.cadastrarBotao.TabIndex = 27;
+            this.cadastrarBotao.TabIndex = 6;
             this.cadastrarBotao.Text = "Cadastrar livro";
             this.cadastrarBotao.UseVisualStyleBackColor = true;
             // 
@@ -168,21 +160,29 @@ namespace SistemaInterface
             this.paginasTexto.Name = "paginasTexto";
             this.paginasTexto.PromptChar = ' ';
             this.paginasTexto.Size = new System.Drawing.Size(223, 33);
-            this.paginasTexto.TabIndex = 28;
+            this.paginasTexto.TabIndex = 3;
             this.paginasTexto.ValidatingType = typeof(System.DateTime);
+            // 
+            // generoLista
+            // 
+            this.generoLista.FormattingEnabled = true;
+            this.generoLista.Location = new System.Drawing.Point(230, 284);
+            this.generoLista.Name = "generoLista";
+            this.generoLista.Size = new System.Drawing.Size(225, 116);
+            this.generoLista.TabIndex = 5;
             // 
             // TelaCadastroLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 544);
+            this.Controls.Add(this.generoLista);
             this.Controls.Add(this.paginasLabel);
             this.Controls.Add(this.paginasTexto);
             this.Controls.Add(this.cadastrarBotao);
             this.Controls.Add(this.generoAdicionar);
             this.Controls.Add(this.generoLabel);
-            this.Controls.Add(this.generoLista);
-            this.Controls.Add(this.autorTexto);
+            this.Controls.Add(this.autoresLista);
             this.Controls.Add(this.autorAdicionar);
             this.Controls.Add(this.autorLabel);
             this.Controls.Add(this.anoLabel);
@@ -210,12 +210,12 @@ namespace SistemaInterface
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Label autorLabel;
         private System.Windows.Forms.LinkLabel autorAdicionar;
-        private System.Windows.Forms.ComboBox autorTexto;
-        private System.Windows.Forms.ListBox generoLista;
+        private System.Windows.Forms.ComboBox autoresLista;
         private System.Windows.Forms.Label generoLabel;
         private System.Windows.Forms.LinkLabel generoAdicionar;
         private System.Windows.Forms.Button cadastrarBotao;
         private System.Windows.Forms.Label paginasLabel;
         private System.Windows.Forms.MaskedTextBox paginasTexto;
+        private System.Windows.Forms.CheckedListBox generoLista;
     }
 }
