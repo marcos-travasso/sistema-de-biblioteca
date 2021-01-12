@@ -83,7 +83,8 @@ namespace SistemaInterface
                         if (!selecionar)
                         {
                             abrirInformacoesLivro(admin, livro);
-                        } else
+                        }
+                        else
                         {
                             this.selecionado = livro;
                             this.DialogResult = DialogResult.OK;

@@ -5,7 +5,8 @@ namespace SistemaBiblioteca
 {
     public class Emprestimo
     {
-        public Emprestimo() {
+        public Emprestimo()
+        {
             this.devolucoes = new List<Devolucao>();
         }
         public int idEmprestimo { get; set; }

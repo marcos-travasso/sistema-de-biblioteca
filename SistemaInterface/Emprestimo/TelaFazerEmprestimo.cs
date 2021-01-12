@@ -1,13 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -69,7 +63,8 @@ namespace SistemaInterface
             if (idUsuarioTexto.Text != "" && idLivroTexto.Text != "")
             {
                 var diferenca = Math.Ceiling((devolucaoData.Value - DateTime.Now).TotalDays);
-                if (diferenca >= 1) {
+                if (diferenca >= 1)
+                {
                     try
                     {
                         Emprestimo emprestimo = new Emprestimo();
@@ -102,7 +97,7 @@ namespace SistemaInterface
                             else
                             {
                                 SystemSounds.Beep.Play();
-                                MessageBox.Show("O livro já está sendo emprestado. Previsão de entrega é de " + livroEmprestado[0] + " dia(s) (" + livroEmprestado[1] + ")" , "Erro");
+                                MessageBox.Show("O livro já está sendo emprestado. Previsão de entrega é de " + livroEmprestado[0] + " dia(s) (" + livroEmprestado[1] + ")", "Erro");
                             }
                         }
                         else

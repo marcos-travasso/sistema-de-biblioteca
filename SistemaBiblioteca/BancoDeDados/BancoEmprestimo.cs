@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Text;
 
 namespace SistemaBiblioteca
 {
@@ -65,7 +64,8 @@ namespace SistemaBiblioteca
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
-                        if (Convert.ToInt32(r["devolvido"]) == 1){
+                        if (Convert.ToInt32(r["devolvido"]) == 1)
+                        {
                             DbDisconnection();
                             return lista;
                         }
