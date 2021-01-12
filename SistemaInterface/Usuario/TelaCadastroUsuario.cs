@@ -42,99 +42,102 @@ namespace SistemaInterface
                 try { novoUsuario.Nascimento = Convert.ToDateTime(nascimentoTexto.Text); }
                 catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento está incorreta.", "Erro"); nascimentoTexto.Focus(); }
 
-                Endereco novoEndereco = new Endereco();
+                if (novoUsuario.Nascimento != Convert.ToDateTime("01/01/0001"))
+                {
+                    Endereco novoEndereco = new Endereco();
 
-                BancoUsuario banco = new BancoUsuario();
+                    BancoUsuario banco = new BancoUsuario();
 
-                //Inserir dados pessoais
-                try
-                {
-                    if (celularTexto.Text != "(  )      -") { novoUsuario.Celular = converterNumero(celularTexto.Text); } else { novoUsuario.Celular = ""; }
-                    if (telefoneTexto.Text != "(  )     -") { novoUsuario.Telefone = converterNumero(telefoneTexto.Text); } else { novoUsuario.Telefone = ""; }
-                    if (cpfTexto.Text != "   .   .   -") { novoUsuario.CPF = converterNumero(cpfTexto.Text); } else { novoUsuario.CPF = ""; }
-                    if (emailTexto.Text != "") { novoUsuario.Email = emailTexto.Text; } else { novoUsuario.Email = ""; }
-                }
-                catch
-                {
-                    SystemSounds.Beep.Play();
-                    MessageBox.Show("Algum dado pessoal está inválido.", "Erro");
-                }
-
-                //Inserir dados de endereco
-                try
-                {
-                    if (cepTexto.Text != "     -") { novoEndereco.CEP = converterNumero(cepTexto.Text); } else { novoEndereco.CEP = ""; }
-                    if (cidadeTexto.Text != "") { novoEndereco.Cidade = novoEndereco.converterNome(cidadeTexto.Text); } else { novoEndereco.Cidade = ""; }
-                    if (bairroTexto.Text != "") { novoEndereco.Bairro = novoEndereco.converterNome(bairroTexto.Text); } else { novoEndereco.Bairro = ""; }
-                    if (ruaTexto.Text != "") { novoEndereco.Rua = novoEndereco.converterNome(ruaTexto.Text); } else { novoEndereco.Rua = ""; }
-                    if (numeroTexto.Text != "") { novoEndereco.Numero = Convert.ToInt32(numeroTexto.Text); } else { novoEndereco.Numero = 0; }
-                    if (complementoTexto.Text != "") { novoEndereco.Complemento = complementoTexto.Text; } else { novoEndereco.Complemento = ""; }
-                }
-                catch
-                {
-                    SystemSounds.Beep.Play();
-                    MessageBox.Show("Algum dado do endereço está inválido.", "Erro");
-                }
-
-                //Inserir dados do responsavel caso exista necessidade
-                if (menorDeIdade == true && nomeResponsavelTexto.Text != "")
-                {
+                    //Inserir dados pessoais
                     try
                     {
-                        Pessoa responsavel = new Pessoa();
-                        responsavel.Nome = responsavel.converterNome(nomeResponsavelTexto.Text);
-
-                        if (generoResponsavelTexto.Text != "")
-                        {
-                            if (generoResponsavelTexto.Text == "Masculino") { responsavel.Genero = "M"; }
-                            else if (generoResponsavelTexto.Text == "Feminino") { responsavel.Genero = "F"; }
-                            else { responsavel.Genero = "O"; }
-                        }
-
-                        if (nascimentoResponsavelTexto.Text != "  /  /")
-                        {
-                            try { responsavel.Nascimento = Convert.ToDateTime(nascimentoResponsavelTexto.Text); }
-                            catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento do responsável está incorreta.", "Erro"); nascimentoResponsavelTexto.Focus(); }
-                        }
-
-                        novoUsuario.Responsavel = responsavel;
+                        if (celularTexto.Text != "(  )      -" && celularTexto.Text.Length == 15) { novoUsuario.Celular = converterNumero(celularTexto.Text); } else { novoUsuario.Celular = ""; }
+                        if (telefoneTexto.Text != "(  )     -" && telefoneTexto.Text.Length == 14) { novoUsuario.Telefone = converterNumero(telefoneTexto.Text); } else { novoUsuario.Telefone = ""; }
+                        if (cpfTexto.Text != "   .   .   -" && cpfTexto.Text.Length == 14) { novoUsuario.CPF = converterNumero(cpfTexto.Text); } else { novoUsuario.CPF = ""; }
+                        if (emailTexto.Text != "") { novoUsuario.Email = emailTexto.Text; } else { novoUsuario.Email = ""; }
                     }
                     catch
                     {
                         SystemSounds.Beep.Play();
-                        MessageBox.Show("Algum dado do responsável está inválido.", "Erro");
+                        MessageBox.Show("Algum dado pessoal está inválido.", "Erro");
                     }
-                }
 
-                try
-                {
-                    novoUsuario.Endereco = novoEndereco;
-
-                    if (novoUsuario.Responsavel == null && menorDeIdade)
+                    //Inserir dados de endereco
+                    try
                     {
-                        DialogResult continuar = MessageBox.Show("Deseja cadastrar usuário menor de idade sem um responsável?", "Confirmação", MessageBoxButtons.YesNo);
-                        if (continuar == DialogResult.Yes)
+                        if (cepTexto.Text != "     -") { novoEndereco.CEP = converterNumero(cepTexto.Text); } else { novoEndereco.CEP = ""; }
+                        if (cidadeTexto.Text != "") { novoEndereco.Cidade = novoEndereco.converterNome(cidadeTexto.Text); } else { novoEndereco.Cidade = ""; }
+                        if (bairroTexto.Text != "") { novoEndereco.Bairro = novoEndereco.converterNome(bairroTexto.Text); } else { novoEndereco.Bairro = ""; }
+                        if (ruaTexto.Text != "") { novoEndereco.Rua = novoEndereco.converterNome(ruaTexto.Text); } else { novoEndereco.Rua = ""; }
+                        if (numeroTexto.Text != "") { novoEndereco.Numero = Convert.ToInt32(numeroTexto.Text); } else { novoEndereco.Numero = 0; }
+                        if (complementoTexto.Text != "") { novoEndereco.Complemento = complementoTexto.Text; } else { novoEndereco.Complemento = ""; }
+                    }
+                    catch
+                    {
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Algum dado do endereço está inválido.", "Erro");
+                    }
+
+                    //Inserir dados do responsavel caso exista necessidade
+                    if (menorDeIdade == true && nomeResponsavelTexto.Text != "")
+                    {
+                        try
+                        {
+                            Pessoa responsavel = new Pessoa();
+                            responsavel.Nome = responsavel.converterNome(nomeResponsavelTexto.Text);
+
+                            if (generoResponsavelTexto.Text != "")
+                            {
+                                if (generoResponsavelTexto.Text == "Masculino") { responsavel.Genero = "M"; }
+                                else if (generoResponsavelTexto.Text == "Feminino") { responsavel.Genero = "F"; }
+                                else { responsavel.Genero = "O"; }
+                            }
+
+                            if (nascimentoResponsavelTexto.Text != "  /  /")
+                            {
+                                try { responsavel.Nascimento = Convert.ToDateTime(nascimentoResponsavelTexto.Text); }
+                                catch { SystemSounds.Beep.Play(); MessageBox.Show("A data de nascimento do responsável está incorreta.", "Erro"); nascimentoResponsavelTexto.Focus(); }
+                            }
+
+                            novoUsuario.Responsavel = responsavel;
+                        }
+                        catch
+                        {
+                            SystemSounds.Beep.Play();
+                            MessageBox.Show("Algum dado do responsável está inválido.", "Erro");
+                        }
+                    }
+
+                    try
+                    {
+                        novoUsuario.Endereco = novoEndereco;
+
+                        if (novoUsuario.Responsavel == null && menorDeIdade)
+                        {
+                            DialogResult continuar = MessageBox.Show("Deseja cadastrar usuário menor de idade sem um responsável?", "Confirmação", MessageBoxButtons.YesNo);
+                            if (continuar == DialogResult.Yes)
+                            {
+                                novoUsuario = banco.CriarUsuario(novoUsuario);
+
+                                concluirCadastro();
+                            }
+                            else
+                            {
+                                nomeResponsavelTexto.Focus();
+                            }
+                        }
+                        else
                         {
                             novoUsuario = banco.CriarUsuario(novoUsuario);
 
                             concluirCadastro();
                         }
-                        else
-                        {
-                            nomeResponsavelTexto.Focus();
-                        }
                     }
-                    else
+                    catch
                     {
-                        novoUsuario = banco.CriarUsuario(novoUsuario);
-
-                        concluirCadastro();
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Não foi possível cadastrar o usuário.", "Erro");
                     }
-                }
-                catch
-                {
-                    SystemSounds.Beep.Play();
-                    MessageBox.Show("Não foi possível cadastrar o usuário.", "Erro");
                 }
             }
             else
