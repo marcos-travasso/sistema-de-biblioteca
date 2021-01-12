@@ -89,6 +89,18 @@
     <Compile Include="TelaCadastroUsuario.Designer.cs">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaConfirmarEmprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaConfirmarEmprestimo.Designer.cs">
+      <DependentUpon>TelaConfirmarEmprestimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaFazerEmprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaFazerEmprestimo.Designer.cs">
+      <DependentUpon>TelaFazerEmprestimo.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaInformacoesAutor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaCadastroUsuario.resx">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaConfirmarEmprestimo.resx">
+      <DependentUpon>TelaConfirmarEmprestimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaFazerEmprestimo.resx">
+      <DependentUpon>TelaFazerEmprestimo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaInformacoesAutor.resx">
       <DependentUpon>TelaInformacoesAutor.cs</DependentUpon>

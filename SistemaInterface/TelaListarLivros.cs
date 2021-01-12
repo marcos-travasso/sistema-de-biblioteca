@@ -10,6 +10,8 @@ namespace SistemaInterface
     {
         List<Livro> listaLivros = new List<Livro>();
         bool admin = false;
+        bool selecionar = false;
+        public Livro selecionado { get; set; }
         public TelaListarLivros()
         {
             this.admin = false;
@@ -19,6 +21,11 @@ namespace SistemaInterface
         public TelaListarLivros(bool editar = false)
         {
             this.admin = editar;
+            InitializeComponent();
+        }
+        public TelaListarLivros(bool selecionar = false, string diferenca = "")
+        {
+            this.selecionar = selecionar;
             InitializeComponent();
         }
 
@@ -73,7 +80,15 @@ namespace SistemaInterface
                 {
                     if (livro.idLivro == id)
                     {
-                        abrirInformacoesLivro(admin, livro);
+                        if (!selecionar)
+                        {
+                            abrirInformacoesLivro(admin, livro);
+                        } else
+                        {
+                            this.selecionado = livro;
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
                     }
                 }
             }

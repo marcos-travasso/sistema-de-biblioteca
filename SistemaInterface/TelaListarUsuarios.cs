@@ -10,6 +10,8 @@ namespace SistemaInterface
     {
         List<Usuario> listaUsuarios = new List<Usuario>();
         bool admin = false;
+        bool selecionar = false;
+        public Usuario selecionado { get; set; }
         public TelaListarUsuarios()
         {
             this.admin = false;
@@ -19,6 +21,11 @@ namespace SistemaInterface
         public TelaListarUsuarios(bool editar = false)
         {
             this.admin = editar;
+            InitializeComponent();
+        }
+        public TelaListarUsuarios(bool selecionar = false, string diferenca = "")
+        {
+            this.selecionar = selecionar;
             InitializeComponent();
         }
 
@@ -74,7 +81,16 @@ namespace SistemaInterface
                 {
                     if (usuario.idUsuario == id)
                     {
-                        abrirInformacoesUsuario(admin, usuario);
+                        if (!selecionar)
+                        {
+                            abrirInformacoesUsuario(admin, usuario);
+                        }
+                        else
+                        {
+                            this.selecionado = usuario;
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
                     }
                 }
             }

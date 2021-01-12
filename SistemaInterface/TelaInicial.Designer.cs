@@ -155,6 +155,7 @@ namespace SistemaInterface
             this.novoEmprestimoBotao.TabIndex = 11;
             this.novoEmprestimoBotao.Text = "Novo empréstimo";
             this.novoEmprestimoBotao.UseVisualStyleBackColor = true;
+            this.novoEmprestimoBotao.Click += new System.EventHandler(this.novoEmprestimoBotao_Click);
             // 
             // usuariosCadastrarBotao2
             // 

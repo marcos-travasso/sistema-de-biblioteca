@@ -17,6 +17,10 @@ namespace SistemaBiblioteca
             if (idAutor != 0) { this.Autor = new Autor(idAutor); }
             this.Generos = new List<Genero>();
         }
+        public Livro(int idLivro)
+        {
+            this.idLivro = idLivro;
+        }
         public string Titulo { get; set; }
         public int Ano { get; set; }
         public Autor Autor { get; set; }
@@ -33,6 +37,14 @@ namespace SistemaBiblioteca
             {
                 return this.Autor.Nome;
             }
+        }
+        public void setDados(string titulo, int ano, int paginas, int idAutor)
+        {
+            this.Titulo = titulo;
+            this.Ano = ano;
+            this.Paginas = paginas;
+            if (idAutor != 0) { this.Autor = new Autor(idAutor); }
+            this.Generos = new List<Genero>();
         }
     }
 }

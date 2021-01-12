@@ -29,7 +29,6 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
-
         private void abrirCadastroLivro()
         {
             bool isOpen = false;
@@ -49,7 +48,6 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
-
         private void abrirListarUsuarios()
         {
             bool isOpen = false;
@@ -88,7 +86,6 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
-
         private void abrirListarLivros()
         {
             bool isOpen = false;
@@ -108,7 +105,6 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
-
         private void abrirEditarLivros()
         {
             bool isOpen = false;
@@ -128,6 +124,26 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
+        private void abrirFazerEmprestimo()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaFazerEmprestimo")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaFazerEmprestimo janela = new TelaFazerEmprestimo();
+                janela.Show();
+            }
+        }
+
 
         private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
         {
@@ -162,6 +178,11 @@ namespace SistemaInterface
         private void livrosEditarBotao_Click(object sender, EventArgs e)
         {
             abrirEditarLivros();
+        }
+
+        private void novoEmprestimoBotao_Click(object sender, EventArgs e)
+        {
+            abrirFazerEmprestimo();
         }
     }
 }

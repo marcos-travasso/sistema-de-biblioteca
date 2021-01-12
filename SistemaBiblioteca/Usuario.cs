@@ -26,6 +26,10 @@ namespace SistemaBiblioteca
             this.idUsuario = idUsuario;
             this.Email = email;
         }
+        public Usuario(int idUsuario)
+        {
+            this.idUsuario = idUsuario;
+        }
 
         public string Celular { get; set; }
         public string Telefone { get; set; }

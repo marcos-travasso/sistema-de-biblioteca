@@ -226,5 +226,49 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
+        public Usuario GetUsuario(Usuario usuario)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "select * from ((Usuarios inner join Pessoas on Pessoas.idPessoa = Usuarios.pessoa) inner join Enderecos on Usuarios.endereco = Enderecos.idEndereco) WHERE idUsuario = @id;";
+                    cmd.Parameters.AddWithValue("@id", usuario.idUsuario);
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        Endereco endereco = new Endereco(Convert.ToInt32(r["idEndereco"]), Convert.ToString(r["cep"]), Convert.ToString(r["cidade"]), Convert.ToString(r["bairro"]), Convert.ToString(r["rua"]), Convert.ToInt32(r["numero"]), Convert.ToString(r["complemento"]));
+                        usuario = new Usuario(Convert.ToInt32(r["pessoa"]), Convert.ToInt32(r["idUsuario"]), Convert.ToString(r["celular"]), Convert.ToString(r["telefone"]), Convert.ToString(r["cpf"]), Convert.ToString(r["email"]), Convert.ToString(r["criacao"]), Convert.ToString(r["nome"]), Convert.ToString(r["genero"]), Convert.ToString(r["nascimento"]), endereco);
+                    }
+
+                    r.Close();
+
+                    cmd.CommandText = "select idPessoa, nome, genero, nascimento from usuarios inner join pessoas on usuarios.responsavel = Pessoas.idPessoa where idUsuario = @id";
+                    cmd.Parameters.AddWithValue("@id", usuario.idUsuario);
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        usuario.Responsavel = new Pessoa(Convert.ToString(r["nome"]), Convert.ToString(r["genero"]), Convert.ToString(r["nascimento"]));
+                        usuario.Responsavel.idPessoa = Convert.ToInt32(r["idPessoa"]);
+                        break;
+                    }
+                    r.Close();
+
+                    cmd.Dispose();
+
+                    return usuario;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

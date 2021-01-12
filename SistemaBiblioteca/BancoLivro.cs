@@ -174,5 +174,65 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
+        public Livro GetLivro(Livro livro)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "select * from livros where idLivro = @id";
+                    cmd.Parameters.AddWithValue("@id", livro.idLivro);
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        livro.setDados(Convert.ToString(r["titulo"]), Convert.ToInt32(r["ano"]), Convert.ToInt32(r["paginas"]), Convert.ToInt32(r["autor"]));
+                    }
+
+                    r.Close();
+
+                    if (livro.Autor != null)
+                    {
+                        cmd.CommandText = "select idPessoa, nome, genero, nascimento from autores inner join pessoas on pessoas.idPessoa = autores.pessoa where idAutor = @id";
+                        cmd.Parameters.AddWithValue("@id", livro.Autor.idAutor);
+                        da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                        r = cmd.ExecuteReader();
+                        while (r.Read())
+                        {
+                            livro.Autor.Nome = Convert.ToString(r["nome"]);
+                            livro.Autor.Genero = Convert.ToString(r["genero"]);
+                            livro.Autor.setNascimento(Convert.ToString(r["nascimento"]));
+                            livro.Autor.idPessoa = Convert.ToInt32(r["idPessoa"]);
+
+                            break;
+                        }
+                        r.Close();
+                    }
+
+                    cmd.CommandText = "select idGenero, nome from generos_dos_livros inner join livros on livros.idLivro = generos_dos_livros.livro inner join Generos on generos_dos_livros.genero = generos.idGenero where idLivro = @id";
+                    cmd.Parameters.AddWithValue("@id", livro.idLivro);
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        livro.Generos.Add(new Genero(Convert.ToInt32(r["idGenero"]), Convert.ToString(r["nome"])));
+                    }
+                    r.Close();
+
+                    cmd.Dispose();
+
+                    return livro;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
