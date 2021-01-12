@@ -19,6 +19,7 @@ namespace SistemaBiblioteca
                     cmd.ExecuteNonQuery();
 
                     cmd.Dispose();
+                    DbDisconnection();
                 }
             }
             catch (Exception ex)
@@ -47,6 +48,7 @@ namespace SistemaBiblioteca
                     r.Close();
                     cmd.Dispose();
 
+                    DbDisconnection();
                     return lista;
                 }
             }
@@ -68,6 +70,7 @@ namespace SistemaBiblioteca
 
                     cmd.Dispose();
 
+                    DbDisconnection();
                     return genero;
                 }
             }
@@ -91,6 +94,7 @@ namespace SistemaBiblioteca
                     cmd.Parameters.AddWithValue("@id", genero.idGenero);
                     cmd.ExecuteNonQuery();
 
+                    DbDisconnection();
                     cmd.Dispose();
                 }
             }

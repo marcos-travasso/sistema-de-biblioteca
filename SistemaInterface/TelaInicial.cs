@@ -143,7 +143,25 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
+        private void abrirDevolverEmprestimo()
+        {
+            bool isOpen = false;
 
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaDevolverEmprestimo")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaDevolverEmprestimo janela = new TelaDevolverEmprestimo();
+                janela.Show();
+            }
+        }
 
         private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
         {
@@ -183,6 +201,11 @@ namespace SistemaInterface
         private void novoEmprestimoBotao_Click(object sender, EventArgs e)
         {
             abrirFazerEmprestimo();
+        }
+
+        private void devolutivaBotao_Click(object sender, EventArgs e)
+        {
+            abrirDevolverEmprestimo();
         }
     }
 }

@@ -184,6 +184,7 @@ namespace SistemaInterface
             this.devolutivaBotao.TabIndex = 14;
             this.devolutivaBotao.Text = "Devolutiva";
             this.devolutivaBotao.UseVisualStyleBackColor = true;
+            this.devolutivaBotao.Click += new System.EventHandler(this.devolutivaBotao_Click);
             // 
             // emprestimosBotao
             // 

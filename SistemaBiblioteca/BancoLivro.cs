@@ -40,6 +40,7 @@ namespace SistemaBiblioteca
                     }
 
                     cmd.Dispose();
+                    DbDisconnection();
                 }
             }
             catch (Exception ex)
@@ -102,6 +103,7 @@ namespace SistemaBiblioteca
 
                     cmd.Dispose();
 
+                    DbDisconnection();
                     return lista;
                 }
             }
@@ -143,6 +145,7 @@ namespace SistemaBiblioteca
 
                     cmd.Dispose();
 
+                    DbDisconnection();
                     return livro;
                 }
             }
@@ -167,6 +170,7 @@ namespace SistemaBiblioteca
                     cmd.ExecuteNonQuery();
 
                     cmd.Dispose();
+                    DbDisconnection();
                 }
             }
             catch (Exception ex)
@@ -226,6 +230,7 @@ namespace SistemaBiblioteca
 
                     cmd.Dispose();
 
+                    DbDisconnection();
                     return livro;
                 }
             }

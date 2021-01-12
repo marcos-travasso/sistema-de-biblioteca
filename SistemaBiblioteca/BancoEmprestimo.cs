@@ -44,6 +44,7 @@ namespace SistemaBiblioteca
                     }
                     cmd.Dispose();
 
+                    DbDisconnection();
                     return emprestimo;
                 }
             }
@@ -52,7 +53,7 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
-        public List<string> EstaEmprestado(Emprestimo emprestimo)
+        public List<string> EstaEmprestado(Emprestimo emprestimo, bool devolucaoBool = false)
         {
             List<string> lista = new List<string>();
             try
@@ -60,11 +61,12 @@ namespace SistemaBiblioteca
                 using (var cmd = DbConnection().CreateCommand())
                 {
                     Emprestimo emprestado = new Emprestimo();
-                    cmd.CommandText = "SELECT devolvido, idEmprestimo FROM Emprestimos WHERE livro = \"" + emprestimo.livro.idLivro.ToString() + "\" ORDER BY datadopedido DESC LIMIT 1";
+                    cmd.CommandText = "SELECT devolvido, idEmprestimo FROM Emprestimos WHERE livro = \"" + emprestimo.livro.idLivro.ToString() + "\" ORDER BY idemprestimo DESC LIMIT 1";
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
                         if (Convert.ToInt32(r["devolvido"]) == 1){
+                            DbDisconnection();
                             return lista;
                         }
                         else
@@ -74,8 +76,10 @@ namespace SistemaBiblioteca
                         }
                     }
                     r.Close();
+                    if (devolucaoBool) { cmd.Dispose(); DbDisconnection(); lista.Add(emprestado.idEmprestimo.ToString()); return lista; }
 
-                    cmd.CommandText = "SELECT dataDeDevolucao FROM devolucoes WHERE emprestimo = \"" + emprestado.idEmprestimo.ToString() + "\" ORDER BY datadedevolucao DESC LIMIT 1";
+
+                    cmd.CommandText = "SELECT dataDeDevolucao FROM devolucoes WHERE emprestimo = \"" + emprestado.idEmprestimo.ToString() + "\" ORDER BY emprestimo DESC LIMIT 1";
                     r = cmd.ExecuteReader();
                     while (r.Read())
                     {
@@ -89,6 +93,7 @@ namespace SistemaBiblioteca
                     r.Close();
                     cmd.Dispose();
                 }
+                DbDisconnection();
                 return lista;
             }
             catch (Exception ex)
@@ -103,7 +108,7 @@ namespace SistemaBiblioteca
             {
                 using (var cmd = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "SELECT devolvido FROM Emprestimos WHERE usuario = \"" + emprestimo.usuario.idUsuario.ToString() + "\" ORDER BY datadopedido DESC LIMIT 1";
+                    cmd.CommandText = "SELECT devolvido FROM Emprestimos WHERE usuario = \"" + emprestimo.usuario.idUsuario.ToString() + "\" ORDER BY idemprestimo DESC LIMIT 1";
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
@@ -114,7 +119,57 @@ namespace SistemaBiblioteca
                     }
                     r.Close();
                     cmd.Dispose();
+                    DbDisconnection();
+
                     return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public Emprestimo GetEmprestimo(Emprestimo emprestimo)
+        {
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    string request = "";
+                    if (emprestimo.usuario != null) { request = "idusuario = " + emprestimo.usuario.idUsuario; }
+                    if (emprestimo.livro != null) { request = "idlivro = " + emprestimo.livro.idLivro; }
+
+                    cmd.CommandText = "select idEmprestimo, idLivro, titulo, idUsuario, nome from emprestimos inner join usuarios on usuario = idUsuario inner join pessoas on pessoa = idpessoa inner join livros on livro = idlivro where " + request + " order by idemprestimo desc limit 1";
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        emprestimo.setDados(Convert.ToInt32(r["idEmprestimo"]), Convert.ToInt32(r["idLivro"]), Convert.ToString(r["titulo"]), Convert.ToInt32(r["idUsuario"]), Convert.ToString(r["nome"]));
+                    }
+
+                    r.Close();
+                    cmd.Dispose();
+
+                    DbDisconnection();
+                    return emprestimo;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void DevolverEmprestimo(Emprestimo emprestimo)
+        {
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE emprestimos SET devolvido = 1 WHERE idemprestimo = @id";
+                    cmd.Parameters.AddWithValue("@id", emprestimo.idEmprestimo);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                    DbDisconnection();
                 }
             }
             catch (Exception ex)

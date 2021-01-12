@@ -89,11 +89,23 @@
     <Compile Include="TelaCadastroUsuario.Designer.cs">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaConfirmarDevolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaConfirmarDevolucao.Designer.cs">
+      <DependentUpon>TelaConfirmarDevolucao.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaConfirmarEmprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TelaConfirmarEmprestimo.Designer.cs">
       <DependentUpon>TelaConfirmarEmprestimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaDevolverEmprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaDevolverEmprestimo.Designer.cs">
+      <DependentUpon>TelaDevolverEmprestimo.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaFazerEmprestimo.cs">
       <SubType>Form</SubType>
@@ -178,8 +190,14 @@
     <EmbeddedResource Include="TelaCadastroUsuario.resx">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TelaConfirmarDevolucao.resx">
+      <DependentUpon>TelaConfirmarDevolucao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaConfirmarEmprestimo.resx">
       <DependentUpon>TelaConfirmarEmprestimo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaDevolverEmprestimo.resx">
+      <DependentUpon>TelaDevolverEmprestimo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaFazerEmprestimo.resx">
       <DependentUpon>TelaFazerEmprestimo.cs</DependentUpon>
