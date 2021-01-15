@@ -1,0 +1,9 @@
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\bin\Debug\netstandard2.0\SistemaBiblioteca.deps.json
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\bin\Debug\netstandard2.0\SistemaBiblioteca.dll
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\bin\Debug\netstandard2.0\SistemaBiblioteca.pdb
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\obj\Debug\netstandard2.0\SistemaBiblioteca.AssemblyInfoInputs.cache
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\obj\Debug\netstandard2.0\SistemaBiblioteca.AssemblyInfo.cs
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\obj\Debug\netstandard2.0\SistemaBiblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\obj\Debug\netstandard2.0\SistemaBiblioteca.dll
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\obj\Debug\netstandard2.0\SistemaBiblioteca.pdb
+C:\Users\Marcos Eduardo\source\repos\marcos-travasso\sistema-de-biblioteca\SistemaBiblioteca\obj\Debug\netstandard2.0\SistemaBiblioteca.csprojAssemblyReference.cache

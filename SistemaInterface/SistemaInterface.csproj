@@ -65,76 +65,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Livro\Autor\TelaCadastroAutor.cs">
+    <Compile Include="TelaCadastroAutor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\Autor\TelaCadastroAutor.Designer.cs">
+    <Compile Include="TelaCadastroAutor.Designer.cs">
       <DependentUpon>TelaCadastroAutor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\Genero\TelaCadastroGenero.cs">
+    <Compile Include="TelaCadastroGenero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\Genero\TelaCadastroGenero.Designer.cs">
+    <Compile Include="TelaCadastroGenero.Designer.cs">
       <DependentUpon>TelaCadastroGenero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\TelaCadastroLivro.cs">
+    <Compile Include="TelaCadastroLivro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\TelaCadastroLivro.Designer.cs">
+    <Compile Include="TelaCadastroLivro.Designer.cs">
       <DependentUpon>TelaCadastroLivro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\TelaCadastroUsuario.cs">
+    <Compile Include="TelaCadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\TelaCadastroUsuario.Designer.cs">
+    <Compile Include="TelaCadastroUsuario.Designer.cs">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Emprestimo\TelaConfirmarDevolucao.cs">
+    <Compile Include="TelaConfirmarDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Emprestimo\TelaConfirmarDevolucao.Designer.cs">
+    <Compile Include="TelaConfirmarDevolucao.Designer.cs">
       <DependentUpon>TelaConfirmarDevolucao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Emprestimo\TelaConfirmarEmprestimo.cs">
+    <Compile Include="TelaConfirmarEmprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Emprestimo\TelaConfirmarEmprestimo.Designer.cs">
+    <Compile Include="TelaConfirmarEmprestimo.Designer.cs">
       <DependentUpon>TelaConfirmarEmprestimo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Emprestimo\TelaDevolverEmprestimo.cs">
+    <Compile Include="TelaDevolverEmprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Emprestimo\TelaDevolverEmprestimo.Designer.cs">
+    <Compile Include="TelaDevolverEmprestimo.Designer.cs">
       <DependentUpon>TelaDevolverEmprestimo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Emprestimo\TelaFazerEmprestimo.cs">
+    <Compile Include="TelaFazerEmprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Emprestimo\TelaFazerEmprestimo.Designer.cs">
+    <Compile Include="TelaFazerEmprestimo.Designer.cs">
       <DependentUpon>TelaFazerEmprestimo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\Autor\TelaInformacoesAutor.cs">
+    <Compile Include="TelaInformacoesAutor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\Autor\TelaInformacoesAutor.Designer.cs">
+    <Compile Include="TelaInformacoesAutor.Designer.cs">
       <DependentUpon>TelaInformacoesAutor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\Genero\TelaInformacoesGenero.cs">
+    <Compile Include="TelaInformacoesGenero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\Genero\TelaInformacoesGenero.Designer.cs">
+    <Compile Include="TelaInformacoesGenero.Designer.cs">
       <DependentUpon>TelaInformacoesGenero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\TelaInformacoesLivro.cs">
+    <Compile Include="TelaInformacoesLivro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\TelaInformacoesLivro.Designer.cs">
+    <Compile Include="TelaInformacoesLivro.Designer.cs">
       <DependentUpon>TelaInformacoesLivro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\TelaInformacoesUsuario.cs">
+    <Compile Include="TelaInformacoesUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\TelaInformacoesUsuario.Designer.cs">
+    <Compile Include="TelaInformacoesUsuario.Designer.cs">
       <DependentUpon>TelaInformacoesUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaInicial.cs">
@@ -145,28 +145,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Livro\Autor\TelaListarAutores.cs">
+    <Compile Include="TelaListarAutores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\Autor\TelaListarAutores.Designer.cs">
+    <Compile Include="TelaListarAutores.Designer.cs">
       <DependentUpon>TelaListarAutores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\Genero\TelaListarGeneros.cs">
+    <Compile Include="TelaListarGeneros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\Genero\TelaListarGeneros.Designer.cs">
+    <Compile Include="TelaListarGeneros.Designer.cs">
       <DependentUpon>TelaListarGeneros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Livro\TelaListarLivros.cs">
+    <Compile Include="TelaListarLivros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Livro\TelaListarLivros.Designer.cs">
+    <Compile Include="TelaListarLivros.Designer.cs">
       <DependentUpon>TelaListarLivros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\TelaListarUsuarios.cs">
+    <Compile Include="TelaListarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\TelaListarUsuarios.Designer.cs">
+    <Compile Include="TelaListarUsuarios.Designer.cs">
       <DependentUpon>TelaListarUsuarios.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -178,55 +178,55 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Livro\Autor\TelaCadastroAutor.resx">
+    <EmbeddedResource Include="TelaCadastroAutor.resx">
       <DependentUpon>TelaCadastroAutor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\Genero\TelaCadastroGenero.resx">
+    <EmbeddedResource Include="TelaCadastroGenero.resx">
       <DependentUpon>TelaCadastroGenero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\TelaCadastroLivro.resx">
+    <EmbeddedResource Include="TelaCadastroLivro.resx">
       <DependentUpon>TelaCadastroLivro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\TelaCadastroUsuario.resx">
+    <EmbeddedResource Include="TelaCadastroUsuario.resx">
       <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Emprestimo\TelaConfirmarDevolucao.resx">
+    <EmbeddedResource Include="TelaConfirmarDevolucao.resx">
       <DependentUpon>TelaConfirmarDevolucao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Emprestimo\TelaConfirmarEmprestimo.resx">
+    <EmbeddedResource Include="TelaConfirmarEmprestimo.resx">
       <DependentUpon>TelaConfirmarEmprestimo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Emprestimo\TelaDevolverEmprestimo.resx">
+    <EmbeddedResource Include="TelaDevolverEmprestimo.resx">
       <DependentUpon>TelaDevolverEmprestimo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Emprestimo\TelaFazerEmprestimo.resx">
+    <EmbeddedResource Include="TelaFazerEmprestimo.resx">
       <DependentUpon>TelaFazerEmprestimo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\Autor\TelaInformacoesAutor.resx">
+    <EmbeddedResource Include="TelaInformacoesAutor.resx">
       <DependentUpon>TelaInformacoesAutor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\Genero\TelaInformacoesGenero.resx">
+    <EmbeddedResource Include="TelaInformacoesGenero.resx">
       <DependentUpon>TelaInformacoesGenero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\TelaInformacoesLivro.resx">
+    <EmbeddedResource Include="TelaInformacoesLivro.resx">
       <DependentUpon>TelaInformacoesLivro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\TelaInformacoesUsuario.resx">
+    <EmbeddedResource Include="TelaInformacoesUsuario.resx">
       <DependentUpon>TelaInformacoesUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\Autor\TelaListarAutores.resx">
+    <EmbeddedResource Include="TelaListarAutores.resx">
       <DependentUpon>TelaListarAutores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\Genero\TelaListarGeneros.resx">
+    <EmbeddedResource Include="TelaListarGeneros.resx">
       <DependentUpon>TelaListarGeneros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Livro\TelaListarLivros.resx">
+    <EmbeddedResource Include="TelaListarLivros.resx">
       <DependentUpon>TelaListarLivros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\TelaListarUsuarios.resx">
+    <EmbeddedResource Include="TelaListarUsuarios.resx">
       <DependentUpon>TelaListarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BancoDeDados.db" />
