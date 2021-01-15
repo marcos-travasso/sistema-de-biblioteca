@@ -214,6 +214,7 @@ namespace SistemaInterface
             this.renovarBotao.TabIndex = 17;
             this.renovarBotao.Text = "Renovar empréstimo";
             this.renovarBotao.UseVisualStyleBackColor = true;
+            this.renovarBotao.Click += new System.EventHandler(this.renovarBotao_Click);
             // 
             // TelaInicial
             // 

@@ -93,6 +93,8 @@ namespace SistemaInterface
                             if (livroEmprestado.Count.Equals(0))
                             {
                                 abrirConfirmarEmprestimo(emprestimo);
+                                idUsuarioTexto.Text = "";
+                                idLivroTexto.Text = "";
                             }
                             else
                             {
@@ -105,7 +107,6 @@ namespace SistemaInterface
                             SystemSounds.Beep.Play();
                             MessageBox.Show("O usuário já está com um livro emprestado.", "Erro");
                         }
-                        //TODO clicar na grid e preencher o ID
                     }
                     catch
                     {

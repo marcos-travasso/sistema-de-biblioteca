@@ -53,6 +53,26 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
+        public void RenovarEmprestimo(Emprestimo emprestimo)
+        {
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO devolucoes(emprestimo, datadedevolucao) values (@emprestimo, @datadedevolucao)";
+                    cmd.Parameters.AddWithValue("@emprestimo", emprestimo.idEmprestimo);
+                    cmd.Parameters.AddWithValue("@datadedevolucao", emprestimo.devolucoes[0].dataDeDevolucao.ToString("yyyy-MM-dd"));
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                    DbDisconnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<string> EstaEmprestado(Emprestimo emprestimo, bool devolucaoBool = false)
         {
             List<string> lista = new List<string>();

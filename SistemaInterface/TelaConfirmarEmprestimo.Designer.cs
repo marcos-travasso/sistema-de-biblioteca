@@ -36,7 +36,7 @@ namespace SistemaInterface
             this.usuarioTexto = new System.Windows.Forms.TextBox();
             this.usuarioLabel = new System.Windows.Forms.Label();
             this.dataConfirmarLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.confirmarLabel = new System.Windows.Forms.Label();
             this.cancelarBotao = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -105,15 +105,15 @@ namespace SistemaInterface
             this.dataConfirmarLabel.TabIndex = 30;
             this.dataConfirmarLabel.Text = "XX/XX/XXXX (XX dias)";
             // 
-            // label1
+            // confirmarLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(208, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 25);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Confirmar empréstimo";
+            this.confirmarLabel.AutoSize = true;
+            this.confirmarLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmarLabel.Location = new System.Drawing.Point(208, 29);
+            this.confirmarLabel.Name = "confirmarLabel";
+            this.confirmarLabel.Size = new System.Drawing.Size(214, 25);
+            this.confirmarLabel.TabIndex = 31;
+            this.confirmarLabel.Text = "Confirmar empréstimo";
             // 
             // cancelarBotao
             // 
@@ -131,7 +131,7 @@ namespace SistemaInterface
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 374);
             this.Controls.Add(this.cancelarBotao);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.confirmarLabel);
             this.Controls.Add(this.dataConfirmarLabel);
             this.Controls.Add(this.dataLabel);
             this.Controls.Add(this.emprestarBotao);
@@ -160,7 +160,7 @@ namespace SistemaInterface
         private System.Windows.Forms.TextBox usuarioTexto;
         private System.Windows.Forms.Label usuarioLabel;
         private System.Windows.Forms.Label dataConfirmarLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label confirmarLabel;
         private System.Windows.Forms.Button cancelarBotao;
     }
 }

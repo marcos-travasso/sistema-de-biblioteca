@@ -181,7 +181,25 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
+        private void abrirRenovarEmprestimo()
+        {
+            bool isOpen = false;
 
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaRenovarEmprestimo")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaRenovarEmprestimo janela = new TelaRenovarEmprestimo();
+                janela.Show();
+            }
+        }
         private void usuariosCadastrarBotao1_Click(object sender, EventArgs e)
         {
             abrirCadastroUsuario();
@@ -230,6 +248,11 @@ namespace SistemaInterface
         private void emprestimosBotao_Click(object sender, EventArgs e)
         {
             abrirListarEmprestimos();
+        }
+
+        private void renovarBotao_Click(object sender, EventArgs e)
+        {
+            abrirRenovarEmprestimo();
         }
     }
 }
