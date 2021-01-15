@@ -96,7 +96,7 @@ namespace SistemaInterface
             else
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show("Você só pode escolher um usuário por vez.", "Erro");
+                MessageBox.Show("Você só pode escolher um livro por vez.", "Erro");
             }
         }
 

@@ -85,5 +85,19 @@ namespace SistemaInterface
                 idLivroTexto.Text = "";
             }
         }
+
+        private void listaEmprestimosLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (var form = new TelaListarEmprestimos(true))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Emprestimo emprestimo = form.selecionado;
+                    idUsuarioTexto.Text = emprestimo.usuario.idUsuario.ToString();
+                    idLivroTexto.Text = emprestimo.livro.idLivro.ToString();
+                }
+            }
+        }
     }
 }

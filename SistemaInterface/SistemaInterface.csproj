@@ -151,6 +151,12 @@
     <Compile Include="TelaListarAutores.Designer.cs">
       <DependentUpon>TelaListarAutores.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaListarEmprestimos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaListarEmprestimos.Designer.cs">
+      <DependentUpon>TelaListarEmprestimos.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaListarGeneros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaListarAutores.resx">
       <DependentUpon>TelaListarAutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaListarEmprestimos.resx">
+      <DependentUpon>TelaListarEmprestimos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaListarGeneros.resx">
       <DependentUpon>TelaListarGeneros.cs</DependentUpon>

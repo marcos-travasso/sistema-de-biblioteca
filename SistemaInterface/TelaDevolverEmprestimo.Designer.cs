@@ -47,6 +47,7 @@
             this.listaEmprestimosLink.TabIndex = 28;
             this.listaEmprestimosLink.TabStop = true;
             this.listaEmprestimosLink.Text = "lista de empréstimos";
+            this.listaEmprestimosLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.listaEmprestimosLink_LinkClicked);
             // 
             // devolverBotao
             // 
@@ -117,7 +118,7 @@
             this.Controls.Add(this.idUsuarioLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "TelaDevolverEmprestimo";
             this.Text = "Devolver livro";

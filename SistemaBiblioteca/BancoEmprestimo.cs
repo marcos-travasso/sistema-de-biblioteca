@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 
 namespace SistemaBiblioteca
@@ -170,6 +171,64 @@ namespace SistemaBiblioteca
 
                     cmd.Dispose();
                     DbDisconnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Emprestimo> GetEmprestimos(List<Emprestimo> lista)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "select idemprestimo, idusuario, idlivro,nome, titulo, datadopedido  from emprestimos inner join usuarios on usuario = idusuario inner join pessoas on pessoa = idpessoa inner join livros on livro = idlivro where devolvido = 0";
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        Usuario usuario = new Usuario(Convert.ToInt32(r["idUsuario"]));
+                        usuario.Nome = Convert.ToString(r["nome"]);
+
+                        Livro livro = new Livro(Convert.ToInt32(r["idlivro"]));
+                        livro.Titulo = Convert.ToString(r["titulo"]);
+
+                        Emprestimo emprestimo = new Emprestimo(Convert.ToInt32(r["idemprestimo"]), Convert.ToString(r["datadopedido"]));
+                        emprestimo.usuario = usuario;
+                        emprestimo.livro = livro;
+
+                        lista.Add(emprestimo);
+                    }
+
+                    r.Close();
+
+                    foreach (Emprestimo emprestimo in lista)
+                    {
+                        cmd.CommandText = "select * from devolucoes where emprestimo = @id order by iddevolucao desc";
+                        cmd.Parameters.AddWithValue("@id", emprestimo.idEmprestimo);
+                        da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                        r = cmd.ExecuteReader();
+                        while (r.Read())
+                        {
+                            Devolucao devolucao = new Devolucao(Convert.ToDateTime(r["datadedevolucao"]));
+                            devolucao.idDevolucao = Convert.ToInt32(r["iddevolucao"]);
+                            devolucao.emprestimo = emprestimo;
+
+                            emprestimo.devolucoes.Add(devolucao);
+                        }
+                        r.Close();
+                    }
+
+                    cmd.Dispose();
+
+                    DbDisconnection();
+                    return lista;
                 }
             }
             catch (Exception ex)

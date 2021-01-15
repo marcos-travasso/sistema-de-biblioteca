@@ -9,6 +9,12 @@ namespace SistemaBiblioteca
         {
             this.devolucoes = new List<Devolucao>();
         }
+        public Emprestimo(int idEmprestimo, string data = "0001/01/01")
+        {
+            this.devolucoes = new List<Devolucao>();
+            this.idEmprestimo = idEmprestimo;
+            this.dataDoPedido = Convert.ToDateTime(data);
+        }
         public int idEmprestimo { get; set; }
         public Livro livro { get; set; }
         public Usuario usuario { get; set; }

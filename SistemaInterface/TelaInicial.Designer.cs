@@ -194,6 +194,7 @@ namespace SistemaInterface
             this.emprestimosBotao.TabIndex = 15;
             this.emprestimosBotao.Text = "Livros emprestados";
             this.emprestimosBotao.UseVisualStyleBackColor = true;
+            this.emprestimosBotao.Click += new System.EventHandler(this.emprestimosBotao_Click);
             // 
             // notificacoesLabel
             // 
