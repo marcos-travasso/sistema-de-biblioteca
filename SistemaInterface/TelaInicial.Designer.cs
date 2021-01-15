@@ -51,10 +51,12 @@ namespace SistemaInterface
             // 
             // imagemDaLogo
             // 
+            this.imagemDaLogo.Image = global::SistemaInterface.Properties.Resources.livrearia;
             this.imagemDaLogo.Location = new System.Drawing.Point(1, 0);
             this.imagemDaLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.imagemDaLogo.Name = "imagemDaLogo";
             this.imagemDaLogo.Size = new System.Drawing.Size(243, 225);
+            this.imagemDaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imagemDaLogo.TabIndex = 1;
             this.imagemDaLogo.TabStop = false;
             // 
@@ -146,6 +148,7 @@ namespace SistemaInterface
             this.livrosPesquisarBotao.TabIndex = 10;
             this.livrosPesquisarBotao.Text = "Pesquisar Livros";
             this.livrosPesquisarBotao.UseVisualStyleBackColor = true;
+            this.livrosPesquisarBotao.Visible = false;
             // 
             // novoEmprestimoBotao
             // 
