@@ -244,17 +244,35 @@ namespace SistemaInterface
 
         private void excluirBotao_Click(object sender, EventArgs e)
         {
-            try
+            if (confirmarSenha())
             {
-                BancoLivro banco = new BancoLivro();
-                banco.ExcluirLivro(livro);
+                try
+                {
+                    BancoLivro banco = new BancoLivro();
+                    banco.ExcluirLivro(livro);
 
-                MessageBox.Show("Livro excluído com sucesso", "Sucesso");
+                    MessageBox.Show("Livro excluído com sucesso", "Sucesso");
+                }
+                catch
+                {
+                    SystemSounds.Beep.Play();
+                    MessageBox.Show("Não foi possível excluir o livro.", "Erro");
+                }
             }
-            catch
+        }
+        private bool confirmarSenha()
+        {
+            using (var form = new TelaConfirmarSenha())
             {
-                SystemSounds.Beep.Play();
-                MessageBox.Show("Não foi possível excluir o livro.", "Erro");
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.confirmacao)
+                    {
+                        return true;
+                    }
+                }
+                return false;
             }
         }
     }

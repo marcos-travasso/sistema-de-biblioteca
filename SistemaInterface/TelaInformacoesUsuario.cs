@@ -298,19 +298,37 @@ namespace SistemaInterface
 
         private void excluirBotao_Click(object sender, EventArgs e)
         {
-            BancoUsuario banco = new BancoUsuario();
-            try
+            if (confirmarSenha())
             {
-                banco.ExcluirUsuario(usuario);
+                BancoUsuario banco = new BancoUsuario();
+                try
+                {
+                    banco.ExcluirUsuario(usuario);
 
-                MessageBox.Show("Usuário excluído com sucesso.", "Sucesso");
+                    MessageBox.Show("Usuário excluído com sucesso.", "Sucesso");
 
-                this.Close();
+                    this.Close();
+                }
+                catch
+                {
+                    SystemSounds.Beep.Play();
+                    MessageBox.Show("Não foi possível excluir o usuário.", "Erro");
+                }
             }
-            catch
+        }
+        private bool confirmarSenha()
+        {
+            using (var form = new TelaConfirmarSenha())
             {
-                SystemSounds.Beep.Play();
-                MessageBox.Show("Não foi possível excluir o usuário.", "Erro");
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.confirmacao)
+                    {
+                        return true;
+                    }
+                }
+                return false;
             }
         }
     }

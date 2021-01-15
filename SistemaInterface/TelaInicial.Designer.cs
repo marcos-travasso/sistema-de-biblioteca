@@ -243,7 +243,8 @@ namespace SistemaInterface
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "TelaInicial";
-            this.Text = "Sistema Livrearia";
+            this.Text = "Sistema";
+            this.Load += new System.EventHandler(this.TelaInicial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imagemDaLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

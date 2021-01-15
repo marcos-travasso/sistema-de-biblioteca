@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBiblioteca;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -9,7 +10,21 @@ namespace SistemaInterface
         {
             InitializeComponent();
         }
-
+        private bool confirmarSenha()
+        {
+            using (var form = new TelaConfirmarSenha())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.confirmacao)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
         private void abrirCadastroUsuario()
         {
             bool isOpen = false;
@@ -222,7 +237,7 @@ namespace SistemaInterface
 
         private void usuariosEditarBotao_Click(object sender, EventArgs e)
         {
-            abrirEditarUsuarios();
+            if (confirmarSenha()) { abrirEditarUsuarios(); }
         }
 
         private void livrosCadastradosBotao_Click(object sender, EventArgs e)
@@ -232,7 +247,7 @@ namespace SistemaInterface
 
         private void livrosEditarBotao_Click(object sender, EventArgs e)
         {
-            abrirEditarLivros();
+            if (confirmarSenha()) { abrirEditarLivros(); }
         }
 
         private void novoEmprestimoBotao_Click(object sender, EventArgs e)
@@ -253,6 +268,12 @@ namespace SistemaInterface
         private void renovarBotao_Click(object sender, EventArgs e)
         {
             abrirRenovarEmprestimo();
+        }
+
+        private void TelaInicial_Load(object sender, EventArgs e)
+        {
+            Configuracoes config = new Configuracoes();
+            this.Text = "Sistema " + config.nomeDaBiblioteca;
         }
     }
 }
