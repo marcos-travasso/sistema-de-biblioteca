@@ -251,28 +251,12 @@ namespace SistemaInterface
                     BancoLivro banco = new BancoLivro();
                     banco.ExcluirLivro(livro);
 
-                    MessageBox.Show("Livro excluído com sucesso", "Sucesso");
-                }
-                catch
-                {
-                    SystemSounds.Beep.Play();
-                    MessageBox.Show("Não foi possível excluir o livro.", "Erro");
-                }
+                MessageBox.Show("Livro excluído com sucesso", "Sucesso");
             }
-        }
-        private bool confirmarSenha()
-        {
-            using (var form = new TelaConfirmarSenha())
+            catch
             {
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    if (form.confirmacao)
-                    {
-                        return true;
-                    }
-                }
-                return false;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Não foi possível excluir o livro.", "Erro");
             }
         }
     }
