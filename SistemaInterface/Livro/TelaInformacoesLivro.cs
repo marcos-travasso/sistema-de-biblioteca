@@ -244,7 +244,18 @@ namespace SistemaInterface
 
         private void excluirBotao_Click(object sender, EventArgs e)
         {
+            try
+            {
+                BancoLivro banco = new BancoLivro();
+                banco.ExcluirLivro(livro);
 
+                MessageBox.Show("Livro excluído com sucesso", "Sucesso");
+            }
+            catch
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Não foi possível excluir o livro.", "Erro");
+            }
         }
     }
 }
