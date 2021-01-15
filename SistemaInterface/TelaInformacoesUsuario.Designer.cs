@@ -88,6 +88,7 @@ namespace SistemaInterface
             // 
             // historicoBotao
             // 
+            this.historicoBotao.Enabled = false;
             this.historicoBotao.Location = new System.Drawing.Point(592, 369);
             this.historicoBotao.Name = "historicoBotao";
             this.historicoBotao.Size = new System.Drawing.Size(223, 64);
