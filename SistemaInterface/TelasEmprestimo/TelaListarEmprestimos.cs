@@ -1,13 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -39,7 +33,7 @@ namespace SistemaInterface
 
             emprestimosDGV.ColumnCount = 4;
 
-            List<string> colunas = new List<string> { "Nome", "Título", "Data do empréstimo", "Data de devolução"};
+            List<string> colunas = new List<string> { "Nome", "Título", "Data do empréstimo", "Data de devolução" };
             List<int> colunasTamanho = new List<int> { 150, 250, 170, 150 };
 
             for (int i = 0; i < emprestimosDGV.ColumnCount; i++)

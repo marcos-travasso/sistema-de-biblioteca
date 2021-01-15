@@ -14,7 +14,7 @@ namespace SistemaInterface
             this.emprestimo = emprestimo;
             InitializeComponent();
         }
-        public TelaConfirmarEmprestimo(Emprestimo emprestimo, bool devolver  = false)
+        public TelaConfirmarEmprestimo(Emprestimo emprestimo, bool devolver = false)
         {
             this.emprestimo = emprestimo;
             this.devolver = devolver;
