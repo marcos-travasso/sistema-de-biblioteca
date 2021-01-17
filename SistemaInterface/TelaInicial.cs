@@ -1,4 +1,5 @@
 ﻿using SistemaBiblioteca;
+using SistemaInterface.TelasLivro;
 using System;
 using System.Windows.Forms;
 
@@ -256,6 +257,26 @@ namespace SistemaInterface
         {
             Configuracoes config = new Configuracoes();
             this.Text = "Sistema " + config.nomeDaBiblioteca;
+        }
+
+        private void livrosPesquisarBotao_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaPesquisarLivro")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaPesquisarLivro janela = new TelaPesquisarLivro();
+                janela.Show();
+            }
         }
     }
 }

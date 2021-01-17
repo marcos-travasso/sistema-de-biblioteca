@@ -148,7 +148,7 @@ namespace SistemaInterface
             this.livrosPesquisarBotao.TabIndex = 10;
             this.livrosPesquisarBotao.Text = "Pesquisar Livros";
             this.livrosPesquisarBotao.UseVisualStyleBackColor = true;
-            this.livrosPesquisarBotao.Visible = false;
+            this.livrosPesquisarBotao.Click += new System.EventHandler(this.livrosPesquisarBotao_Click);
             // 
             // novoEmprestimoBotao
             // 

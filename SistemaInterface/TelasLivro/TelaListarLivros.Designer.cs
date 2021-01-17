@@ -31,6 +31,7 @@ namespace SistemaInterface
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.livrosDGV = new System.Windows.Forms.DataGridView();
+            this.procurarLink = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.livrosDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,11 +56,24 @@ namespace SistemaInterface
             this.livrosDGV.TabIndex = 1;
             this.livrosDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.livrosDGV_CellDoubleClick);
             // 
+            // procurarLink
+            // 
+            this.procurarLink.AutoSize = true;
+            this.procurarLink.Location = new System.Drawing.Point(323, 8);
+            this.procurarLink.Name = "procurarLink";
+            this.procurarLink.Size = new System.Drawing.Size(97, 17);
+            this.procurarLink.TabIndex = 2;
+            this.procurarLink.TabStop = true;
+            this.procurarLink.Text = "procurar livro...";
+            this.procurarLink.Visible = false;
+            this.procurarLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.procurarLink_LinkClicked);
+            // 
             // TelaListarLivros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 658);
+            this.Controls.Add(this.procurarLink);
             this.Controls.Add(this.livrosDGV);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -70,11 +84,13 @@ namespace SistemaInterface
             this.Load += new System.EventHandler(this.TelaListarLivros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.livrosDGV)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView livrosDGV;
+        private System.Windows.Forms.LinkLabel procurarLink;
     }
 }

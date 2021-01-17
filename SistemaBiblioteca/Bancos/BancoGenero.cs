@@ -103,5 +103,46 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
+        public List<Livro> ProcurarGeneros(List<Genero> listaGeneros)
+        {
+            List<Livro> listaLivros = new List<Livro>();
+
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = $"select * from livros inner join generos_dos_livros on idLivro = livro inner join generos on genero = idgenero where nome = \"{listaGeneros[0].Nome}\"";
+                    if (listaGeneros.Count > 1)
+                    {
+                        listaGeneros.RemoveAt(0);
+                        foreach(Genero genero in listaGeneros)
+                        {
+                            cmd.CommandText += $"or nome = \"{genero.Nome}\"";
+                        }
+                    }
+
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        Livro livro = new Livro(Convert.ToInt32(r["idLivro"]));
+                        listaLivros.Add(livro);
+                    }
+
+                    r.Close();
+                    cmd.Dispose();
+
+                    DbDisconnection();
+                    return listaLivros;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

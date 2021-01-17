@@ -1,4 +1,5 @@
 ﻿using SistemaBiblioteca;
+using SistemaInterface.TelasLivro;
 using System;
 using System.Collections.Generic;
 using System.Media;
@@ -11,10 +12,17 @@ namespace SistemaInterface
         List<Livro> listaLivros = new List<Livro>();
         bool admin = false;
         bool selecionar = false;
+        List<Livro> livrosFiltrados = new List<Livro>();
         public Livro selecionado { get; set; }
         public TelaListarLivros()
         {
             this.admin = false;
+            InitializeComponent();
+        }
+        public TelaListarLivros(List<Livro> lista, bool admin)
+        {
+            this.admin = admin;
+            this.livrosFiltrados = lista;
             InitializeComponent();
         }
 
@@ -32,6 +40,7 @@ namespace SistemaInterface
         private void TelaListarLivros_Load(object sender, EventArgs e)
         {
             atualizarGrid();
+            procurarLink.Visible = admin;
         }
 
         private void atualizarGrid()
@@ -57,7 +66,9 @@ namespace SistemaInterface
             }
 
             var registros = new List<string[]>();
-            foreach (Livro livro in listaLivros)
+            List<Livro> lista;
+            if (this.livrosFiltrados.Count > 0) { lista = livrosFiltrados; } else { lista = listaLivros; }
+            foreach (Livro livro in lista)
             {
                 string[] registro = new string[] { Convert.ToString(livro.idLivro), livro.Titulo, livro.getAutor() };
                 registros.Add(registro);
@@ -118,6 +129,13 @@ namespace SistemaInterface
                 TelaInformacoesLivro paginaUsuario = new TelaInformacoesLivro(editar, livro);
                 paginaUsuario.Show();
             }
+        }
+
+        private void procurarLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TelaPesquisarLivro pesquisa = new TelaPesquisarLivro(admin);
+            pesquisa.Show();
+            this.Close();
         }
     }
 }

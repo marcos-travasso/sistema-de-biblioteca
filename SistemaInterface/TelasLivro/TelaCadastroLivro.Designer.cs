@@ -34,14 +34,14 @@ namespace SistemaInterface
             this.tituloTexto = new System.Windows.Forms.TextBox();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.autorLabel = new System.Windows.Forms.Label();
-            this.autorEditar = new System.Windows.Forms.LinkLabel();
             this.autoresLista = new System.Windows.Forms.ComboBox();
             this.generoLabel = new System.Windows.Forms.Label();
-            this.generoAdicionar = new System.Windows.Forms.LinkLabel();
             this.cadastrarBotao = new System.Windows.Forms.Button();
             this.paginasLabel = new System.Windows.Forms.Label();
             this.paginasTexto = new System.Windows.Forms.MaskedTextBox();
             this.generoLista = new System.Windows.Forms.CheckedListBox();
+            this.autorEditar = new System.Windows.Forms.LinkLabel();
+            this.generoAdicionar = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // anoLabel
@@ -74,7 +74,7 @@ namespace SistemaInterface
             // tituloLabel
             // 
             this.tituloLabel.AutoSize = true;
-            this.tituloLabel.Location = new System.Drawing.Point(159, 58);
+            this.tituloLabel.Location = new System.Drawing.Point(158, 50);
             this.tituloLabel.Name = "tituloLabel";
             this.tituloLabel.Size = new System.Drawing.Size(64, 25);
             this.tituloLabel.TabIndex = 6;
@@ -88,18 +88,6 @@ namespace SistemaInterface
             this.autorLabel.Size = new System.Drawing.Size(63, 25);
             this.autorLabel.TabIndex = 10;
             this.autorLabel.Text = "Autor:";
-            // 
-            // autorEditar
-            // 
-            this.autorEditar.AutoSize = true;
-            this.autorEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autorEditar.Location = new System.Drawing.Point(365, 244);
-            this.autorEditar.Name = "autorEditar";
-            this.autorEditar.Size = new System.Drawing.Size(90, 17);
-            this.autorEditar.TabIndex = 12;
-            this.autorEditar.TabStop = true;
-            this.autorEditar.Text = "editar autores";
-            this.autorEditar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorEditar_LinkClicked);
             // 
             // autoresLista
             // 
@@ -120,18 +108,6 @@ namespace SistemaInterface
             this.generoLabel.Size = new System.Drawing.Size(98, 25);
             this.generoLabel.TabIndex = 15;
             this.generoLabel.Text = "Gênero(s):";
-            // 
-            // generoAdicionar
-            // 
-            this.generoAdicionar.AutoSize = true;
-            this.generoAdicionar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generoAdicionar.Location = new System.Drawing.Point(314, 403);
-            this.generoAdicionar.Name = "generoAdicionar";
-            this.generoAdicionar.Size = new System.Drawing.Size(141, 17);
-            this.generoAdicionar.TabIndex = 16;
-            this.generoAdicionar.TabStop = true;
-            this.generoAdicionar.Text = "adicionar novo gênero";
-            this.generoAdicionar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.generoAdicionar_LinkClicked);
             // 
             // cadastrarBotao
             // 
@@ -173,6 +149,30 @@ namespace SistemaInterface
             this.generoLista.Sorted = true;
             this.generoLista.TabIndex = 5;
             // 
+            // autorEditar
+            // 
+            this.autorEditar.AutoSize = true;
+            this.autorEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autorEditar.Location = new System.Drawing.Point(365, 244);
+            this.autorEditar.Name = "autorEditar";
+            this.autorEditar.Size = new System.Drawing.Size(90, 17);
+            this.autorEditar.TabIndex = 12;
+            this.autorEditar.TabStop = true;
+            this.autorEditar.Text = "editar autores";
+            this.autorEditar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorEditar_LinkClicked);
+            // 
+            // generoAdicionar
+            // 
+            this.generoAdicionar.AutoSize = true;
+            this.generoAdicionar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generoAdicionar.Location = new System.Drawing.Point(314, 403);
+            this.generoAdicionar.Name = "generoAdicionar";
+            this.generoAdicionar.Size = new System.Drawing.Size(141, 17);
+            this.generoAdicionar.TabIndex = 16;
+            this.generoAdicionar.TabStop = true;
+            this.generoAdicionar.Text = "adicionar novo gênero";
+            this.generoAdicionar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.generoAdicionar_LinkClicked);
+            // 
             // TelaCadastroLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -211,13 +211,13 @@ namespace SistemaInterface
         private System.Windows.Forms.TextBox tituloTexto;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Label autorLabel;
-        private System.Windows.Forms.LinkLabel autorEditar;
         private System.Windows.Forms.ComboBox autoresLista;
         private System.Windows.Forms.Label generoLabel;
-        private System.Windows.Forms.LinkLabel generoAdicionar;
         private System.Windows.Forms.Button cadastrarBotao;
         private System.Windows.Forms.Label paginasLabel;
         private System.Windows.Forms.MaskedTextBox paginasTexto;
         private System.Windows.Forms.CheckedListBox generoLista;
+        private System.Windows.Forms.LinkLabel autorEditar;
+        private System.Windows.Forms.LinkLabel generoAdicionar;
     }
 }
