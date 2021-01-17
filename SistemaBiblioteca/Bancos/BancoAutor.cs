@@ -130,5 +130,35 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
+        public Autor GetAutor(Autor autor)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = "select idAutor, idPessoa, genero, nascimento from autores inner join pessoas on pessoas.idPessoa = autores.pessoa WHERE nome = @nome ORDER BY idPessoa DESC limit 1";
+                    cmd.Parameters.AddWithValue("@nome", autor.Nome);
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        autor.setDados(Convert.ToInt32(r["idPessoa"]), Convert.ToString(r["nascimento"]), Convert.ToString(r["genero"]), Convert.ToInt32(r["idAutor"]));
+                    }
+
+                    r.Close();
+                    cmd.Dispose();
+
+                    DbDisconnection();
+                    return autor;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

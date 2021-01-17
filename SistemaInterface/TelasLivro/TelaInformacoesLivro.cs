@@ -151,6 +151,23 @@ namespace SistemaInterface
                         break;
                     }
                 }
+                if (livro.Autor.Nome == "")
+                {
+                    try
+                    {
+                        Autor novoAutor = new Autor(Convert.ToString(autoresLista.Text), "O", "01/01/0001");
+
+                        BancoAutor bancoAutor = new BancoAutor();
+                        bancoAutor.CriarAutor(novoAutor);
+
+                        livro.Autor = bancoAutor.GetAutor(novoAutor);
+                    }
+                    catch
+                    {
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Não foi possível editar o autor", "Erro");
+                    }
+                }
 
                 livro.Generos.Clear();
                 foreach (var generoEscolhido in generoLista.CheckedItems)
@@ -185,33 +202,9 @@ namespace SistemaInterface
                 tituloTexto.Focus();
             }
         }
-
-        private void autorAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            abrirCadastroAutor();
-        }
         private void generoAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             abrirCadastroGenero();
-        }
-        private void abrirCadastroAutor()
-        {
-            bool isOpen = false;
-
-            foreach (Form f in Application.OpenForms)
-            {
-                if (f.Name == "TelaCadastroAutor")
-                {
-                    isOpen = true;
-                    f.BringToFront();
-                }
-            }
-
-            if (!isOpen)
-            {
-                TelaCadastroAutor janela = new TelaCadastroAutor();
-                janela.Show();
-            }
         }
         private void abrirCadastroGenero()
         {
@@ -229,6 +222,25 @@ namespace SistemaInterface
             if (!isOpen)
             {
                 TelaCadastroGenero janela = new TelaCadastroGenero();
+                janela.Show();
+            }
+        }
+        private void abrirEditarAutor()
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarAutores")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarAutores janela = new TelaListarAutores();
                 janela.Show();
             }
         }
@@ -274,6 +286,11 @@ namespace SistemaInterface
                 }
                 return false;
             }
+        }
+
+        private void autorEditar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            abrirEditarAutor();
         }
     }
 }

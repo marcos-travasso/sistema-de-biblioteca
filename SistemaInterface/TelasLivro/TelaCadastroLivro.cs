@@ -15,26 +15,6 @@ namespace SistemaInterface
             InitializeComponent();
         }
 
-        private void abrirCadastroAutor()
-        {
-            bool isOpen = false;
-
-            foreach (Form f in Application.OpenForms)
-            {
-                if (f.Name == "TelaCadastroAutor")
-                {
-                    isOpen = true;
-                    f.BringToFront();
-                }
-            }
-
-            if (!isOpen)
-            {
-                TelaCadastroAutor janela = new TelaCadastroAutor();
-                janela.Show();
-            }
-        }
-
         private void abrirCadastroGenero()
         {
             bool isOpen = false;
@@ -54,10 +34,24 @@ namespace SistemaInterface
                 janela.Show();
             }
         }
-
-        private void autorAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void abrirEditarAutor()
         {
-            abrirCadastroAutor();
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarAutor")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarAutores janela = new TelaListarAutores();
+                janela.Show();
+            }
         }
 
         private void generoAdicionar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -108,7 +102,6 @@ namespace SistemaInterface
         private void TelaCadastroLivro_Activated(object sender, System.EventArgs e)
         {
             atualizarListaGeneros();
-            atualizarListaAutores();
         }
 
         private void cadastrarBotao_Click(object sender, System.EventArgs e)
@@ -135,6 +128,23 @@ namespace SistemaInterface
                     {
                         livro.Autor = autor;
                         break;
+                    }
+                }
+                if (livro.Autor.Nome == "")
+                {
+                    try
+                    {
+                        Autor novoAutor = new Autor(Convert.ToString(autoresLista.Text), "O", "01/01/0001");
+
+                        BancoAutor bancoAutor = new BancoAutor();
+                        bancoAutor.CriarAutor(novoAutor);
+
+                        livro.Autor = bancoAutor.GetAutor(novoAutor);
+                    }
+                    catch
+                    {
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Não foi possível cadastrar o autor", "Erro");
                     }
                 }
 
@@ -186,6 +196,11 @@ namespace SistemaInterface
             }
 
             MessageBox.Show("Cadastro concluído com sucesso.", "Sucesso");
+        }
+
+        private void autorEditar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            abrirEditarAutor();
         }
     }
 }

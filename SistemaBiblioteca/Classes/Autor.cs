@@ -24,5 +24,12 @@ namespace SistemaBiblioteca
             this.idAutor = idAutor;
         }
         public int idAutor { get; set; }
+        public void setDados(int idPessoa, string nascimento, string genero, int idAutor)
+        {
+            this.idPessoa = idPessoa;
+            this.Genero = genero;
+            this.Nascimento = Convert.ToDateTime(nascimento);
+            this.idAutor = idAutor;
+        }
     }
 }

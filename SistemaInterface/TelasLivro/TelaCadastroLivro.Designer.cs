@@ -34,7 +34,7 @@ namespace SistemaInterface
             this.tituloTexto = new System.Windows.Forms.TextBox();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.autorLabel = new System.Windows.Forms.Label();
-            this.autorAdicionar = new System.Windows.Forms.LinkLabel();
+            this.autorEditar = new System.Windows.Forms.LinkLabel();
             this.autoresLista = new System.Windows.Forms.ComboBox();
             this.generoLabel = new System.Windows.Forms.Label();
             this.generoAdicionar = new System.Windows.Forms.LinkLabel();
@@ -89,25 +89,27 @@ namespace SistemaInterface
             this.autorLabel.TabIndex = 10;
             this.autorLabel.Text = "Autor:";
             // 
-            // autorAdicionar
+            // autorEditar
             // 
-            this.autorAdicionar.AutoSize = true;
-            this.autorAdicionar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autorAdicionar.Location = new System.Drawing.Point(325, 241);
-            this.autorAdicionar.Name = "autorAdicionar";
-            this.autorAdicionar.Size = new System.Drawing.Size(130, 17);
-            this.autorAdicionar.TabIndex = 12;
-            this.autorAdicionar.TabStop = true;
-            this.autorAdicionar.Text = "adicionar novo autor";
-            this.autorAdicionar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorAdicionar_LinkClicked);
+            this.autorEditar.AutoSize = true;
+            this.autorEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autorEditar.Location = new System.Drawing.Point(365, 244);
+            this.autorEditar.Name = "autorEditar";
+            this.autorEditar.Size = new System.Drawing.Size(90, 17);
+            this.autorEditar.TabIndex = 12;
+            this.autorEditar.TabStop = true;
+            this.autorEditar.Text = "editar autores";
+            this.autorEditar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorEditar_LinkClicked);
             // 
             // autoresLista
             // 
-            this.autoresLista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.autoresLista.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.autoresLista.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.autoresLista.FormattingEnabled = true;
             this.autoresLista.Location = new System.Drawing.Point(230, 208);
             this.autoresLista.Name = "autoresLista";
             this.autoresLista.Size = new System.Drawing.Size(225, 33);
+            this.autoresLista.Sorted = true;
             this.autoresLista.TabIndex = 4;
             // 
             // generoLabel
@@ -168,6 +170,7 @@ namespace SistemaInterface
             this.generoLista.Location = new System.Drawing.Point(230, 284);
             this.generoLista.Name = "generoLista";
             this.generoLista.Size = new System.Drawing.Size(225, 116);
+            this.generoLista.Sorted = true;
             this.generoLista.TabIndex = 5;
             // 
             // TelaCadastroLivro
@@ -182,7 +185,7 @@ namespace SistemaInterface
             this.Controls.Add(this.generoAdicionar);
             this.Controls.Add(this.generoLabel);
             this.Controls.Add(this.autoresLista);
-            this.Controls.Add(this.autorAdicionar);
+            this.Controls.Add(this.autorEditar);
             this.Controls.Add(this.autorLabel);
             this.Controls.Add(this.anoLabel);
             this.Controls.Add(this.anoTexto);
@@ -208,7 +211,7 @@ namespace SistemaInterface
         private System.Windows.Forms.TextBox tituloTexto;
         private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Label autorLabel;
-        private System.Windows.Forms.LinkLabel autorAdicionar;
+        private System.Windows.Forms.LinkLabel autorEditar;
         private System.Windows.Forms.ComboBox autoresLista;
         private System.Windows.Forms.Label generoLabel;
         private System.Windows.Forms.LinkLabel generoAdicionar;

@@ -36,7 +36,6 @@ namespace SistemaInterface
             this.generoAdicionar = new System.Windows.Forms.LinkLabel();
             this.generoLabel = new System.Windows.Forms.Label();
             this.autoresLista = new System.Windows.Forms.ComboBox();
-            this.autorAdicionar = new System.Windows.Forms.LinkLabel();
             this.autorLabel = new System.Windows.Forms.Label();
             this.anoLabel = new System.Windows.Forms.Label();
             this.anoTexto = new System.Windows.Forms.MaskedTextBox();
@@ -45,6 +44,7 @@ namespace SistemaInterface
             this.editarBotao = new System.Windows.Forms.Button();
             this.excluirBotao = new System.Windows.Forms.Button();
             this.idLabel = new System.Windows.Forms.Label();
+            this.autorEditar = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // generoLista
@@ -54,6 +54,7 @@ namespace SistemaInterface
             this.generoLista.Location = new System.Drawing.Point(243, 277);
             this.generoLista.Name = "generoLista";
             this.generoLista.Size = new System.Drawing.Size(225, 116);
+            this.generoLista.Sorted = true;
             this.generoLista.TabIndex = 5;
             // 
             // paginasLabel
@@ -110,24 +111,14 @@ namespace SistemaInterface
             // 
             // autoresLista
             // 
-            this.autoresLista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.autoresLista.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.autoresLista.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.autoresLista.FormattingEnabled = true;
             this.autoresLista.Location = new System.Drawing.Point(243, 201);
             this.autoresLista.Name = "autoresLista";
             this.autoresLista.Size = new System.Drawing.Size(225, 33);
+            this.autoresLista.Sorted = true;
             this.autoresLista.TabIndex = 4;
-            // 
-            // autorAdicionar
-            // 
-            this.autorAdicionar.AutoSize = true;
-            this.autorAdicionar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autorAdicionar.Location = new System.Drawing.Point(338, 234);
-            this.autorAdicionar.Name = "autorAdicionar";
-            this.autorAdicionar.Size = new System.Drawing.Size(130, 17);
-            this.autorAdicionar.TabIndex = 39;
-            this.autorAdicionar.TabStop = true;
-            this.autorAdicionar.Text = "adicionar novo autor";
-            this.autorAdicionar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorAdicionar_LinkClicked);
             // 
             // autorLabel
             // 
@@ -208,11 +199,24 @@ namespace SistemaInterface
             this.idLabel.TabIndex = 60;
             this.idLabel.Text = "Livro número:";
             // 
+            // autorEditar
+            // 
+            this.autorEditar.AutoSize = true;
+            this.autorEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autorEditar.Location = new System.Drawing.Point(378, 237);
+            this.autorEditar.Name = "autorEditar";
+            this.autorEditar.Size = new System.Drawing.Size(90, 17);
+            this.autorEditar.TabIndex = 61;
+            this.autorEditar.TabStop = true;
+            this.autorEditar.Text = "editar autores";
+            this.autorEditar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.autorEditar_LinkClicked);
+            // 
             // TelaInformacoesLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 661);
+            this.Controls.Add(this.autorEditar);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.excluirBotao);
             this.Controls.Add(this.editarBotao);
@@ -223,7 +227,6 @@ namespace SistemaInterface
             this.Controls.Add(this.generoAdicionar);
             this.Controls.Add(this.generoLabel);
             this.Controls.Add(this.autoresLista);
-            this.Controls.Add(this.autorAdicionar);
             this.Controls.Add(this.autorLabel);
             this.Controls.Add(this.anoLabel);
             this.Controls.Add(this.anoTexto);
@@ -251,7 +254,6 @@ namespace SistemaInterface
         private System.Windows.Forms.LinkLabel generoAdicionar;
         private System.Windows.Forms.Label generoLabel;
         private System.Windows.Forms.ComboBox autoresLista;
-        private System.Windows.Forms.LinkLabel autorAdicionar;
         private System.Windows.Forms.Label autorLabel;
         private System.Windows.Forms.Label anoLabel;
         private System.Windows.Forms.MaskedTextBox anoTexto;
@@ -260,5 +262,6 @@ namespace SistemaInterface
         private System.Windows.Forms.Button editarBotao;
         private System.Windows.Forms.Button excluirBotao;
         private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.LinkLabel autorEditar;
     }
 }
