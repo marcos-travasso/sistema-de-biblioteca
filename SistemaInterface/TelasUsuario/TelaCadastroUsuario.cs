@@ -163,8 +163,7 @@ namespace SistemaInterface
 
         public bool EMenorDeIdade(string ano)
         {
-            int idade;
-            idade = DateTime.Now.Year - Convert.ToDateTime(ano).Year;
+            int idade = DateTime.Now.Year - Convert.ToDateTime(ano).Year;
             if (DateTime.Now.DayOfYear < Convert.ToDateTime(ano).DayOfYear) { idade = idade - 1; }
 
             if (idade < 0) { throw new Exception(); }

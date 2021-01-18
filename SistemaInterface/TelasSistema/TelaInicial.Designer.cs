@@ -46,16 +46,16 @@ namespace SistemaInterface
             this.emprestimosBotao = new System.Windows.Forms.Button();
             this.notificacoesLabel = new System.Windows.Forms.Label();
             this.renovarBotao = new System.Windows.Forms.Button();
+            this.configuracoesBotao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imagemDaLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // imagemDaLogo
             // 
-            this.imagemDaLogo.Image = global::SistemaInterface.Properties.Resources.livrearia;
             this.imagemDaLogo.Location = new System.Drawing.Point(1, 0);
             this.imagemDaLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.imagemDaLogo.Name = "imagemDaLogo";
-            this.imagemDaLogo.Size = new System.Drawing.Size(243, 225);
+            this.imagemDaLogo.Size = new System.Drawing.Size(250, 250);
             this.imagemDaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imagemDaLogo.TabIndex = 1;
             this.imagemDaLogo.TabStop = false;
@@ -64,7 +64,7 @@ namespace SistemaInterface
             // 
             this.usuariosLabel.AutoSize = true;
             this.usuariosLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuariosLabel.Location = new System.Drawing.Point(12, 246);
+            this.usuariosLabel.Location = new System.Drawing.Point(12, 251);
             this.usuariosLabel.Name = "usuariosLabel";
             this.usuariosLabel.Size = new System.Drawing.Size(142, 32);
             this.usuariosLabel.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace SistemaInterface
             // 
             this.livrosLabel.AutoSize = true;
             this.livrosLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livrosLabel.Location = new System.Drawing.Point(12, 412);
+            this.livrosLabel.Location = new System.Drawing.Point(12, 417);
             this.livrosLabel.Name = "livrosLabel";
             this.livrosLabel.Size = new System.Drawing.Size(111, 32);
             this.livrosLabel.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace SistemaInterface
             // 
             // usuariosCadastradosBotao
             // 
-            this.usuariosCadastradosBotao.Location = new System.Drawing.Point(54, 281);
+            this.usuariosCadastradosBotao.Location = new System.Drawing.Point(54, 286);
             this.usuariosCadastradosBotao.Name = "usuariosCadastradosBotao";
             this.usuariosCadastradosBotao.Size = new System.Drawing.Size(154, 33);
             this.usuariosCadastradosBotao.TabIndex = 4;
@@ -92,7 +92,7 @@ namespace SistemaInterface
             // 
             // usuariosEditarBotao
             // 
-            this.usuariosEditarBotao.Location = new System.Drawing.Point(54, 359);
+            this.usuariosEditarBotao.Location = new System.Drawing.Point(54, 364);
             this.usuariosEditarBotao.Name = "usuariosEditarBotao";
             this.usuariosEditarBotao.Size = new System.Drawing.Size(154, 33);
             this.usuariosEditarBotao.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace SistemaInterface
             // 
             // livrosCadastrarBotao
             // 
-            this.livrosCadastrarBotao.Location = new System.Drawing.Point(54, 486);
+            this.livrosCadastrarBotao.Location = new System.Drawing.Point(54, 491);
             this.livrosCadastrarBotao.Name = "livrosCadastrarBotao";
             this.livrosCadastrarBotao.Size = new System.Drawing.Size(154, 33);
             this.livrosCadastrarBotao.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace SistemaInterface
             // 
             // livrosCadastradosBotao
             // 
-            this.livrosCadastradosBotao.Location = new System.Drawing.Point(54, 447);
+            this.livrosCadastradosBotao.Location = new System.Drawing.Point(54, 452);
             this.livrosCadastradosBotao.Name = "livrosCadastradosBotao";
             this.livrosCadastradosBotao.Size = new System.Drawing.Size(154, 33);
             this.livrosCadastradosBotao.TabIndex = 7;
@@ -122,7 +122,7 @@ namespace SistemaInterface
             // 
             // livrosEditarBotao
             // 
-            this.livrosEditarBotao.Location = new System.Drawing.Point(54, 525);
+            this.livrosEditarBotao.Location = new System.Drawing.Point(54, 530);
             this.livrosEditarBotao.Name = "livrosEditarBotao";
             this.livrosEditarBotao.Size = new System.Drawing.Size(154, 33);
             this.livrosEditarBotao.TabIndex = 8;
@@ -132,7 +132,7 @@ namespace SistemaInterface
             // 
             // usuariosCadastrarBotao1
             // 
-            this.usuariosCadastrarBotao1.Location = new System.Drawing.Point(54, 320);
+            this.usuariosCadastrarBotao1.Location = new System.Drawing.Point(54, 325);
             this.usuariosCadastrarBotao1.Name = "usuariosCadastrarBotao1";
             this.usuariosCadastrarBotao1.Size = new System.Drawing.Size(154, 33);
             this.usuariosCadastrarBotao1.TabIndex = 9;
@@ -219,11 +219,22 @@ namespace SistemaInterface
             this.renovarBotao.UseVisualStyleBackColor = true;
             this.renovarBotao.Click += new System.EventHandler(this.renovarBotao_Click);
             // 
+            // configuracoesBotao
+            // 
+            this.configuracoesBotao.Location = new System.Drawing.Point(676, 510);
+            this.configuracoesBotao.Name = "configuracoesBotao";
+            this.configuracoesBotao.Size = new System.Drawing.Size(214, 50);
+            this.configuracoesBotao.TabIndex = 18;
+            this.configuracoesBotao.Text = "Configurações";
+            this.configuracoesBotao.UseVisualStyleBackColor = true;
+            this.configuracoesBotao.Click += new System.EventHandler(this.configuracoesBotao_Click);
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.Controls.Add(this.configuracoesBotao);
             this.Controls.Add(this.renovarBotao);
             this.Controls.Add(this.notificacoesLabel);
             this.Controls.Add(this.emprestimosBotao);
@@ -273,6 +284,7 @@ namespace SistemaInterface
         private System.Windows.Forms.Button emprestimosBotao;
         private System.Windows.Forms.Label notificacoesLabel;
         private System.Windows.Forms.Button renovarBotao;
+        private System.Windows.Forms.Button configuracoesBotao;
     }
 }
 

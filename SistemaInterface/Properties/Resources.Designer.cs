@@ -59,15 +59,5 @@ namespace SistemaInterface.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap livrearia {
-            get {
-                object obj = ResourceManager.GetObject("livrearia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

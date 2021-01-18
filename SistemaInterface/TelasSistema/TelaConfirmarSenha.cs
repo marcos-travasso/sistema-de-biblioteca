@@ -1,5 +1,6 @@
 ﻿using SistemaBiblioteca;
 using System;
+using System.Configuration;
 using System.Media;
 using System.Windows.Forms;
 
@@ -15,8 +16,7 @@ namespace SistemaInterface
 
         private void confirmarBotao_Click(object sender, EventArgs e)
         {
-            Configuracoes config = new Configuracoes();
-            if (senhaTexto.Text == config.senha)
+            if (senhaTexto.Text == ConfigurationManager.AppSettings.Get("Senha"))
             {
                 this.confirmacao = true;
                 this.DialogResult = DialogResult.OK;

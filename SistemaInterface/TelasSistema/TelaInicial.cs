@@ -3,6 +3,11 @@ using SistemaInterface.TelasLivro;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Configuration;
+using SistemaInterface.TelasSistema;
+using System.Drawing;
+using System.IO;
+using Microsoft.VisualBasic;
 
 namespace SistemaInterface
 {
@@ -256,9 +261,9 @@ namespace SistemaInterface
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
-            Configuracoes config = new Configuracoes();
-            this.Text = "Sistema " + config.nomeDaBiblioteca;
+            this.Text = "Sistema " + ConfigurationManager.AppSettings.Get("Nome");
             carregarNotificacoes();
+            atualizarLogo();
         }
 
         private void livrosPesquisarBotao_Click(object sender, EventArgs e)
@@ -294,6 +299,52 @@ namespace SistemaInterface
                 {
                     notificacoesListBox.Items.Add($"[ATRASO] {emprestimo.usuario.Nome} | {emprestimo.livro.Titulo}");
                 }
+            }
+        }
+
+        private void configuracoesBotao_Click(object sender, EventArgs e)
+        {
+            if (confirmarSenha())
+            {
+                bool isOpen = false;
+
+                foreach (Form f in Application.OpenForms)
+                {
+                    if (f.Name == "TelaConfiguracoes")
+                    {
+                        isOpen = true;
+                        f.BringToFront();
+                    }
+                }
+
+                if (!isOpen)
+                {
+                    TelaConfiguracoes janela = new TelaConfiguracoes();
+                    janela.Show();
+                }
+            }
+        }
+
+        private void atualizarLogo()
+        {
+            string caminho = System.IO.Directory.GetCurrentDirectory();
+            if (File.Exists(caminho + @"\novaLogo.png"))
+            {
+                if (File.Exists(caminho + @"\logo.png"))
+                {
+                    File.Delete(caminho + @"\logo.png");
+                }
+
+                Image imagem = Image.FromFile(caminho + @"\novaLogo.png");
+                imagem.Save(caminho + @"\logo.png");
+                imagem.Dispose();
+
+                File.Delete(caminho + @"\novaLogo.png");
+            }
+
+            if (File.Exists(caminho + @"\logo.png"))
+            {
+                imagemDaLogo.Image = Image.FromFile(caminho + @"\logo.png");
             }
         }
     }
