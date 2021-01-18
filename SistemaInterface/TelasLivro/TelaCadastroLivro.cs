@@ -130,7 +130,7 @@ namespace SistemaInterface
                         break;
                     }
                 }
-                if (livro.Autor.Nome == "")
+                if (livro.Autor == null)
                 {
                     try
                     {
