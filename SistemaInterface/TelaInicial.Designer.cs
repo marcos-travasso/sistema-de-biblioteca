@@ -172,11 +172,11 @@ namespace SistemaInterface
             // 
             // notificacoesListBox
             // 
+            this.notificacoesListBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notificacoesListBox.FormattingEnabled = true;
-            this.notificacoesListBox.ItemHeight = 17;
             this.notificacoesListBox.Location = new System.Drawing.Point(676, 58);
             this.notificacoesListBox.Name = "notificacoesListBox";
-            this.notificacoesListBox.Size = new System.Drawing.Size(214, 259);
+            this.notificacoesListBox.Size = new System.Drawing.Size(214, 251);
             this.notificacoesListBox.TabIndex = 13;
             // 
             // devolutivaBotao

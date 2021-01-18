@@ -1,6 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Media;
 using System.Windows.Forms;
 
@@ -10,6 +11,8 @@ namespace SistemaInterface
     {
         List<Emprestimo> listaEmprestimos = new List<Emprestimo>();
         bool selecionar = false;
+        Usuario usuario;
+        Livro livro;
         public Emprestimo selecionado { get; set; }
         public TelaListarEmprestimos()
         {
@@ -20,21 +23,33 @@ namespace SistemaInterface
             this.selecionar = selecionar;
             InitializeComponent();
         }
-
+        public TelaListarEmprestimos(Usuario usuario)
+        {
+            this.usuario = usuario;
+            InitializeComponent();
+        }        
+        public TelaListarEmprestimos(Livro livro)
+        {
+            this.livro = livro;
+            InitializeComponent();
+        }
         private void TelaListarEmprestimos_Load(object sender, EventArgs e)
         {
             atualizarGrid();
+            if (usuario != null) { this.Text = "Histórico de " + usuario.Nome; }
+            else if (livro != null) { this.Text = $"Histórico de \"{livro.Titulo}\""; }
+
         }
         private void atualizarGrid()
         {
             BancoEmprestimo banco = new BancoEmprestimo();
 
-            listaEmprestimos = banco.GetEmprestimos(listaEmprestimos);
+            listaEmprestimos = banco.GetEmprestimos(listaEmprestimos, usuario, livro);
 
-            emprestimosDGV.ColumnCount = 4;
+            emprestimosDGV.ColumnCount = 5;
 
-            List<string> colunas = new List<string> { "Nome", "Título", "Data do empréstimo", "Data de devolução" };
-            List<int> colunasTamanho = new List<int> { 150, 250, 170, 150 };
+            List<string> colunas = new List<string> { "Nome", "Título", "Data do empréstimo", "Data de devolução", "Status" };
+            List<int> colunasTamanho = new List<int> { 150, 250, 170, 150, 120 };
 
             for (int i = 0; i < emprestimosDGV.ColumnCount; i++)
             {
@@ -48,7 +63,9 @@ namespace SistemaInterface
             var registros = new List<string[]>();
             foreach (Emprestimo emprestimo in listaEmprestimos)
             {
-                string[] registro = new string[] { emprestimo.usuario.Nome, emprestimo.livro.Titulo, emprestimo.dataDoPedido.ToString("dd/MM/yyyy"), emprestimo.devolucoes[0].dataDeDevolucao.ToString("dd/MM/yyyy") };
+                string status;
+                if (emprestimo.devolvido == 0) { status = "Emprestado"; } else { status = "Devolvido"; }
+                string[] registro = new string[] { emprestimo.usuario.Nome, emprestimo.livro.Titulo, emprestimo.dataDoPedido.ToString("dd/MM/yyyy"), emprestimo.devolucoes[0].dataDeDevolucao.ToString("dd/MM/yyyy"), status };
                 registros.Add(registro);
             }
 
@@ -56,8 +73,9 @@ namespace SistemaInterface
             {
                 emprestimosDGV.Rows.Add(registro);
             }
-        }
 
+            emprestimosDGV.Sort(emprestimosDGV.Columns[4], ListSortDirection.Descending);
+        }
         private void emprestimosDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (emprestimosDGV.SelectedCells.Count == 1)

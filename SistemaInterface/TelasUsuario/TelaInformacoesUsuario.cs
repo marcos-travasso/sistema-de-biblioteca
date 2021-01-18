@@ -1,4 +1,5 @@
 ﻿using SistemaBiblioteca;
+using SistemaInterface;
 using System;
 using System.Media;
 using System.Windows.Forms;
@@ -329,6 +330,26 @@ namespace SistemaInterface
                     }
                 }
                 return false;
+            }
+        }
+
+        private void historicoBotao_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarEmprestimos")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarEmprestimos janela = new TelaListarEmprestimos(usuario);
+                janela.Show();
             }
         }
     }

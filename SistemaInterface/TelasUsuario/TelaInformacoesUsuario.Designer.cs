@@ -88,13 +88,13 @@ namespace SistemaInterface
             // 
             // historicoBotao
             // 
-            this.historicoBotao.Enabled = false;
             this.historicoBotao.Location = new System.Drawing.Point(592, 369);
             this.historicoBotao.Name = "historicoBotao";
             this.historicoBotao.Size = new System.Drawing.Size(223, 64);
             this.historicoBotao.TabIndex = 48;
             this.historicoBotao.Text = "Histórico do usuário";
             this.historicoBotao.UseVisualStyleBackColor = true;
+            this.historicoBotao.Click += new System.EventHandler(this.historicoBotao_Click);
             // 
             // responsavelPanel
             // 

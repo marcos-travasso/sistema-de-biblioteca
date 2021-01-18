@@ -1,6 +1,7 @@
 ﻿using SistemaBiblioteca;
 using SistemaInterface.TelasLivro;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SistemaInterface
@@ -257,6 +258,7 @@ namespace SistemaInterface
         {
             Configuracoes config = new Configuracoes();
             this.Text = "Sistema " + config.nomeDaBiblioteca;
+            carregarNotificacoes();
         }
 
         private void livrosPesquisarBotao_Click(object sender, EventArgs e)
@@ -276,6 +278,22 @@ namespace SistemaInterface
             {
                 TelaPesquisarLivro janela = new TelaPesquisarLivro();
                 janela.Show();
+            }
+        }
+
+        private void carregarNotificacoes()
+        {
+            BancoEmprestimo bancoEmprestimo = new BancoEmprestimo();
+            List<Emprestimo> emprestimos = new List<Emprestimo>();
+            emprestimos = bancoEmprestimo.GetEmprestimos(emprestimos);
+
+            foreach(Emprestimo emprestimo in emprestimos)
+            {
+                int atraso = DateTime.Now.Day - Convert.ToDateTime(emprestimo.devolucoes[0].dataDeDevolucao).Day;
+                if (atraso > 0)
+                {
+                    notificacoesListBox.Items.Add($"[ATRASO] {emprestimo.usuario.Nome} | {emprestimo.livro.Titulo}");
+                }
             }
         }
     }

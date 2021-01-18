@@ -163,11 +163,7 @@ namespace SistemaInterface
 
         public bool EMenorDeIdade(string ano)
         {
-            DateTime zero = new DateTime(1, 1, 1);
-
-            System.TimeSpan diferenca = Convert.ToDateTime(ano) - DateTime.Now;
-
-            int idade = 0;
+            int idade;
             idade = DateTime.Now.Year - Convert.ToDateTime(ano).Year;
             if (DateTime.Now.DayOfYear < Convert.ToDateTime(ano).DayOfYear) { idade = idade - 1; }
 

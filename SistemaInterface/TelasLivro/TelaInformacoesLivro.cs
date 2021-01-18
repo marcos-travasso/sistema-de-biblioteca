@@ -292,5 +292,25 @@ namespace SistemaInterface
         {
             abrirEditarAutor();
         }
+
+        private void historicoBotao_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaListarEmprestimos")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaListarEmprestimos janela = new TelaListarEmprestimos(livro);
+                janela.Show();
+            }
+        }
     }
 }

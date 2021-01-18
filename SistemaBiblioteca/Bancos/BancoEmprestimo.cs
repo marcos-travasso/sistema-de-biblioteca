@@ -20,7 +20,7 @@ namespace SistemaBiblioteca
                     cmd.Parameters.AddWithValue("@datadopedido", emprestimo.dataDoPedido.ToString("yyyy-MM-dd"));
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = "SELECT * FROM Emprestimos WHERE livro = \"" + emprestimo.livro.idLivro.ToString() + "\" ORDER BY datadopedido DESC LIMIT 1";
+                    cmd.CommandText = "SELECT * FROM Emprestimos WHERE livro = \"" + emprestimo.livro.idLivro.ToString() + "\" ORDER BY idemprestimo DESC LIMIT 1";
                     SQLiteDataReader r = cmd.ExecuteReader();
                     while (r.Read())
                     {
@@ -198,7 +198,7 @@ namespace SistemaBiblioteca
                 throw ex;
             }
         }
-        public List<Emprestimo> GetEmprestimos(List<Emprestimo> lista)
+        public List<Emprestimo> GetEmprestimos(List<Emprestimo> lista, Usuario usuarioSelecionado = null, Livro livroSelecionado = null)
         {
             SQLiteDataAdapter da = null;
             DataTable dt = new DataTable();
@@ -206,7 +206,10 @@ namespace SistemaBiblioteca
             {
                 using (var cmd = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "select idemprestimo, idusuario, idlivro,nome, titulo, datadopedido  from emprestimos inner join usuarios on usuario = idusuario inner join pessoas on pessoa = idpessoa inner join livros on livro = idlivro where devolvido = 0";
+                    if (usuarioSelecionado != null) { cmd.CommandText = "select idemprestimo, idusuario, idlivro, nome, titulo, datadopedido, devolvido from emprestimos inner join usuarios on usuario = idusuario inner join pessoas on pessoa = idpessoa inner join livros on livro = idlivro where usuario = @id"; cmd.Parameters.AddWithValue("@id", usuarioSelecionado.idUsuario.ToString()); }
+                    else if (livroSelecionado != null) { cmd.CommandText = "select idemprestimo, idusuario, idlivro, nome, titulo, datadopedido, devolvido from emprestimos inner join usuarios on usuario = idusuario inner join pessoas on pessoa = idpessoa inner join livros on livro = idlivro where livro = @id"; cmd.Parameters.AddWithValue("@id", livroSelecionado.idLivro); }
+                    else { cmd.CommandText = "select idemprestimo, idusuario, idlivro, nome, titulo, datadopedido, devolvido from emprestimos inner join usuarios on usuario = idusuario inner join pessoas on pessoa = idpessoa inner join livros on livro = idlivro where devolvido = 0"; }
+
                     da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
 
                     SQLiteDataReader r = cmd.ExecuteReader();
@@ -221,6 +224,8 @@ namespace SistemaBiblioteca
                         Emprestimo emprestimo = new Emprestimo(Convert.ToInt32(r["idemprestimo"]), Convert.ToString(r["datadopedido"]));
                         emprestimo.usuario = usuario;
                         emprestimo.livro = livro;
+
+                        emprestimo.devolvido = Convert.ToInt32(r["devolvido"]);
 
                         lista.Add(emprestimo);
                     }

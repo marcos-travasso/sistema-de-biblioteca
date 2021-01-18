@@ -80,13 +80,13 @@ namespace SistemaInterface
             // 
             // historicoBotao
             // 
-            this.historicoBotao.Enabled = false;
             this.historicoBotao.Location = new System.Drawing.Point(245, 438);
             this.historicoBotao.Name = "historicoBotao";
             this.historicoBotao.Size = new System.Drawing.Size(223, 64);
             this.historicoBotao.TabIndex = 35;
             this.historicoBotao.Text = "Histórico do livro";
             this.historicoBotao.UseVisualStyleBackColor = true;
+            this.historicoBotao.Click += new System.EventHandler(this.historicoBotao_Click);
             // 
             // generoAdicionar
             // 
