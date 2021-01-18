@@ -8,9 +8,13 @@
 - [x] 📖 Cadastro de livro
   - [x] Gerenciamento de gêneros
   - [x] Gerenciamento de autores
-  - [ ] Pesquisa de livros com filtros
+  - [x] Pesquisa de livros com filtros
 - [x] 📅 Empréstimo de livros
   - [x] Devolução de livros
   - [x] Renovação dos empréstimos
-  - [ ] Notificação quando um livro deveria ter sido entregue
+  - [x] Notificação quando um livro deveria ter sido entregue
+  - [ ] Avalição do livro durante a devolução
 - [ ] 🛠 Painel de configurações para administrador
+  - [x] Mudança de nome da biblioteca e senha
+  - [x] Seleção de imagem da logo
+  - [ ] Backup da base de dados
