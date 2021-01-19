@@ -29,6 +29,7 @@ namespace SistemaInterface
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.imagemDaLogo = new System.Windows.Forms.PictureBox();
             this.usuariosLabel = new System.Windows.Forms.Label();
             this.livrosLabel = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@ namespace SistemaInterface
             this.notificacoesLabel = new System.Windows.Forms.Label();
             this.renovarBotao = new System.Windows.Forms.Button();
             this.configuracoesBotao = new System.Windows.Forms.Button();
+            this.timerBackup = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imagemDaLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -229,6 +231,12 @@ namespace SistemaInterface
             this.configuracoesBotao.UseVisualStyleBackColor = true;
             this.configuracoesBotao.Click += new System.EventHandler(this.configuracoesBotao_Click);
             // 
+            // timerBackup
+            // 
+            this.timerBackup.Enabled = true;
+            this.timerBackup.Interval = 1800000;
+            this.timerBackup.Tick += new System.EventHandler(this.timerBackup_Tick);
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -285,6 +293,7 @@ namespace SistemaInterface
         private System.Windows.Forms.Label notificacoesLabel;
         private System.Windows.Forms.Button renovarBotao;
         private System.Windows.Forms.Button configuracoesBotao;
+        private System.Windows.Forms.Timer timerBackup;
     }
 }
 

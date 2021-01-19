@@ -63,7 +63,7 @@ namespace SistemaInterface.TelasSistema
 
             foreach (Form f in Application.OpenForms)
             {
-                if (f.Name == "TelaSelecionarPasta")
+                if (f.Name == "TelaListarBackup")
                 {
                     isOpen = true;
                     f.BringToFront();
@@ -83,7 +83,7 @@ namespace SistemaInterface.TelasSistema
 
             foreach (Form f in Application.OpenForms)
             {
-                if (f.Name == "TelaSelecionarPasta")
+                if (f.Name == "TelaListarBackup")
                 {
                     isOpen = true;
                     f.BringToFront();

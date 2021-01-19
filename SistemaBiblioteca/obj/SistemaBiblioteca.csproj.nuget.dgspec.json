@@ -40,6 +40,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Google.Apis.Drive.v3": {
+              "target": "Package",
+              "version": "[1.49.0.2201, )"
+            },
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[5.0.1, )"

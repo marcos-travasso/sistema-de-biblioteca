@@ -266,6 +266,37 @@ namespace SistemaInterface
             verificarBackup();
             carregarNotificacoes();
             atualizarLogo();
+            verificarBackupDiario();
+        }
+
+        private void verificarBackupDiario()
+        {
+            string[] fileEntries = Directory.GetFiles(System.IO.Directory.GetCurrentDirectory() + @"\backups");
+            string hojedia = DateTime.Now.ToString("dd-MM-yyyy");
+            bool hoje = false;
+            foreach (string fileName in fileEntries)
+            {
+                string arquivoData = File.GetCreationTime(fileName).ToString("dd-MM-yyyy");
+                if(hojedia == arquivoData)
+                {
+                    hoje = true;
+                    break;
+                }
+            }
+
+            if (!hoje && File.Exists(System.IO.Directory.GetCurrentDirectory() + @"\credentials.json"))
+            {
+                try
+                {
+                    TelaBackup backup = new TelaBackup();
+                    backup.fazerBackup();
+                }
+                catch
+                {
+                    MessageBox.Show("Não foi possível fazer o backup diário");
+                }
+
+            }
         }
 
         private void verificarBackup()
@@ -356,6 +387,19 @@ namespace SistemaInterface
             if (File.Exists(caminho + @"\logo.png"))
             {
                 imagemDaLogo.Image = Image.FromFile(caminho + @"\logo.png");
+            }
+        }
+
+        private void timerBackup_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                TelaBackup backup = new TelaBackup();
+                backup.fazerBackup();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível realizar o backup periódico", "Erro");
             }
         }
     }
