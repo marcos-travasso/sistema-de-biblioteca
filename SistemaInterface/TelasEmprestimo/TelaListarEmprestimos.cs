@@ -27,7 +27,7 @@ namespace SistemaInterface
         {
             this.usuario = usuario;
             InitializeComponent();
-        }        
+        }
         public TelaListarEmprestimos(Livro livro)
         {
             this.livro = livro;

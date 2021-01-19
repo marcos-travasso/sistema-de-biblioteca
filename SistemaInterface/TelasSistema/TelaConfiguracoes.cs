@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface.TelasSistema
@@ -76,7 +70,7 @@ namespace SistemaInterface.TelasSistema
                 string[] diretorios = arquivo.Split('\\');
                 this.imagem = Image.FromFile(arquivo);
 
-                logoBotao.Text = diretorios[diretorios.Length-1];
+                logoBotao.Text = diretorios[diretorios.Length - 1];
             }
         }
 

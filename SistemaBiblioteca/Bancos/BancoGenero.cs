@@ -117,7 +117,7 @@ namespace SistemaBiblioteca
                     if (listaGeneros.Count > 1)
                     {
                         listaGeneros.RemoveAt(0);
-                        foreach(Genero genero in listaGeneros)
+                        foreach (Genero genero in listaGeneros)
                         {
                             cmd.CommandText += $"or nome = \"{genero.Nome}\"";
                         }

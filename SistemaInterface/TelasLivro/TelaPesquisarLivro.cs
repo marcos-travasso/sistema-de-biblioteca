@@ -1,13 +1,7 @@
 ﻿using SistemaBiblioteca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaInterface.TelasLivro
@@ -122,7 +116,7 @@ namespace SistemaInterface.TelasLivro
                 {
                     bancoLivro.GetLivro(livro);
                     int soma = generoLista.CheckedItems.Count;
-                    foreach(Genero genero in livro.Generos)
+                    foreach (Genero genero in livro.Generos)
                     {
                         if (generoLista.CheckedItems.Contains(genero.Nome))
                         {
@@ -130,10 +124,10 @@ namespace SistemaInterface.TelasLivro
                         }
                     }
 
-                    if(soma == 0)
+                    if (soma == 0)
                     {
                         bool tem = false;
-                        foreach(Livro livroExistente in listaDeRetorno)
+                        foreach (Livro livroExistente in listaDeRetorno)
                         {
                             if (livroExistente.idLivro == livro.idLivro)
                             {

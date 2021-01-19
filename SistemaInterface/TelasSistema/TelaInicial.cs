@@ -1,14 +1,12 @@
 ﻿using SistemaBiblioteca;
 using SistemaInterface.TelasLivro;
+using SistemaInterface.TelasSistema;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Configuration;
-using SistemaInterface.TelasSistema;
 using System.Drawing;
 using System.IO;
-using Microsoft.VisualBasic;
-using System.Web.Script.Serialization;
+using System.Windows.Forms;
 
 namespace SistemaInterface
 {
@@ -277,7 +275,7 @@ namespace SistemaInterface
             foreach (string fileName in fileEntries)
             {
                 string arquivoData = File.GetCreationTime(fileName).ToString("dd-MM-yyyy");
-                if(hojedia == arquivoData)
+                if (hojedia == arquivoData)
                 {
                     hoje = true;
                     break;
@@ -334,7 +332,7 @@ namespace SistemaInterface
             List<Emprestimo> emprestimos = new List<Emprestimo>();
             emprestimos = bancoEmprestimo.GetEmprestimos(emprestimos);
 
-            foreach(Emprestimo emprestimo in emprestimos)
+            foreach (Emprestimo emprestimo in emprestimos)
             {
                 int atraso = DateTime.Now.Day - Convert.ToDateTime(emprestimo.devolucoes[0].dataDeDevolucao).Day;
                 if (atraso > 0)
