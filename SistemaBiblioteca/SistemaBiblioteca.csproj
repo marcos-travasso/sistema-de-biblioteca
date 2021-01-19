@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.49.0.2201" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="5.0.1" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.1" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.113.7" />

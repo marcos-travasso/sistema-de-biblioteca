@@ -36,6 +36,7 @@ namespace SistemaInterface.TelasSistema
             this.editarBotao = new System.Windows.Forms.Button();
             this.logoBotao = new System.Windows.Forms.Button();
             this.abrirImagem = new System.Windows.Forms.OpenFileDialog();
+            this.backupBotao = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // senhaLabel
@@ -77,7 +78,7 @@ namespace SistemaInterface.TelasSistema
             // 
             // editarBotao
             // 
-            this.editarBotao.Location = new System.Drawing.Point(219, 222);
+            this.editarBotao.Location = new System.Drawing.Point(219, 270);
             this.editarBotao.Name = "editarBotao";
             this.editarBotao.Size = new System.Drawing.Size(223, 64);
             this.editarBotao.TabIndex = 36;
@@ -102,11 +103,23 @@ namespace SistemaInterface.TelasSistema
             this.abrirImagem.InitialDirectory = ".\\";
             this.abrirImagem.Title = "Localizar imagem da logo";
             // 
+            // backupBotao
+            // 
+            this.backupBotao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backupBotao.Location = new System.Drawing.Point(219, 222);
+            this.backupBotao.Name = "backupBotao";
+            this.backupBotao.Size = new System.Drawing.Size(223, 33);
+            this.backupBotao.TabIndex = 38;
+            this.backupBotao.Text = "Backup...";
+            this.backupBotao.UseVisualStyleBackColor = true;
+            this.backupBotao.Click += new System.EventHandler(this.backupBotao_Click);
+            // 
             // TelaConfiguracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 360);
+            this.ClientSize = new System.Drawing.Size(498, 406);
+            this.Controls.Add(this.backupBotao);
             this.Controls.Add(this.logoBotao);
             this.Controls.Add(this.editarBotao);
             this.Controls.Add(this.senhaLabel);
@@ -133,5 +146,6 @@ namespace SistemaInterface.TelasSistema
         private System.Windows.Forms.Button editarBotao;
         private System.Windows.Forms.Button logoBotao;
         private System.Windows.Forms.OpenFileDialog abrirImagem;
+        private System.Windows.Forms.Button backupBotao;
     }
 }

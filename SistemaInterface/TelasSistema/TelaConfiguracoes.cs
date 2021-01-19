@@ -79,5 +79,33 @@ namespace SistemaInterface.TelasSistema
                 logoBotao.Text = diretorios[diretorios.Length-1];
             }
         }
+
+        private void backupBotao_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(System.IO.Directory.GetCurrentDirectory() + @"\credentials.json"))
+            {
+                bool isOpen = false;
+
+                foreach (Form f in Application.OpenForms)
+                {
+                    if (f.Name == "TelaBackup")
+                    {
+                        isOpen = true;
+                        f.BringToFront();
+                    }
+                }
+
+                if (!isOpen)
+                {
+                    TelaBackup janela = new TelaBackup();
+                    janela.Show();
+                }
+            }
+            else
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Arquivo credentials.json não foi encontrado", "Erro");
+            }
+        }
     }
 }

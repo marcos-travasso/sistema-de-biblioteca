@@ -8,6 +8,7 @@ using SistemaInterface.TelasSistema;
 using System.Drawing;
 using System.IO;
 using Microsoft.VisualBasic;
+using System.Web.Script.Serialization;
 
 namespace SistemaInterface
 {
@@ -262,8 +263,18 @@ namespace SistemaInterface
         private void TelaInicial_Load(object sender, EventArgs e)
         {
             this.Text = "Sistema " + ConfigurationManager.AppSettings.Get("Nome");
+            verificarBackup();
             carregarNotificacoes();
             atualizarLogo();
+        }
+
+        private void verificarBackup()
+        {
+            if (File.Exists(System.IO.Directory.GetCurrentDirectory() + @"\backupTemp\BancoDeDados.db"))
+            {
+                File.Delete(System.IO.Directory.GetCurrentDirectory() + @"\BancoDeDados.db");
+                File.Move(System.IO.Directory.GetCurrentDirectory() + @"\backupTemp\" + @"\BancoDeDados.db", System.IO.Directory.GetCurrentDirectory() + @"\BancoDeDados.db");
+            }
         }
 
         private void livrosPesquisarBotao_Click(object sender, EventArgs e)
