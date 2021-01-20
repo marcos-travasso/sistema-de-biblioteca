@@ -144,5 +144,19 @@ namespace SistemaBiblioteca
                 stream.WriteTo(file);
             }
         }
+        public void ApagarArquivo(string arquivoApagar)
+        {
+            var service = ConectarGoogle();
+            var arquivos = GetArquivos();
+
+            foreach (var arquivo in arquivos)
+            {
+                if (arquivo.Name == arquivoApagar)
+                {
+                    service.Files.Delete(arquivo.Id).Execute();
+                    break;
+                }
+            }
+        }
     }
 }

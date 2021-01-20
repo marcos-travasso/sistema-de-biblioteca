@@ -89,5 +89,25 @@ namespace SistemaInterface.TelasSistema
                 janela.Show();
             }
         }
+
+        private void configBotao_Click_1(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaConfiguracoesBackup")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaConfiguracoesBackup janela = new TelaConfiguracoesBackup();
+                janela.Show();
+            }
+        }
     }
 }

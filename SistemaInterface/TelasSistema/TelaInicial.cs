@@ -260,11 +260,13 @@ namespace SistemaInterface
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
+            timerBackup.Interval = Convert.ToInt32(ConfigurationManager.AppSettings.Get("IntervaloFazerBackup")) * 60000;
             this.Text = "Sistema " + ConfigurationManager.AppSettings.Get("Nome");
             verificarBackup();
             carregarNotificacoes();
             atualizarLogo();
             verificarBackupDiario();
+            apagarBackups();
         }
 
         private void verificarBackupDiario()
@@ -390,15 +392,62 @@ namespace SistemaInterface
 
         private void timerBackup_Tick(object sender, EventArgs e)
         {
-            try
+            if (File.Exists(System.IO.Directory.GetCurrentDirectory() + @"\credentials.json"))
             {
-                TelaBackup backup = new TelaBackup();
-                backup.fazerBackup();
+                try
+                {
+                    TelaBackup backup = new TelaBackup();
+                    backup.fazerBackup();
+
+                    apagarBackups();
+                }
+                catch
+                {
+                    MessageBox.Show("Não foi possível realizar o backup periódico", "Erro");
+                }
             }
-            catch
+        }
+        private void apagarBackups()
+        {
+            string[] fileEntries = Directory.GetFiles(System.IO.Directory.GetCurrentDirectory() + @"\backups");
+            DateTime hojedia = DateTime.Now;
+
+            foreach (string fileName in fileEntries)
             {
-                MessageBox.Show("Não foi possível realizar o backup periódico", "Erro");
+                DateTime arquivoData = File.GetCreationTime(fileName);
+                int diferenca = (hojedia - arquivoData).Days;
+                string nome = nomeArquivo(fileName);
+                int intervaloParaApagar = Convert.ToInt32(ConfigurationManager.AppSettings.Get("IntervaloApagarBackup"));
+
+                if (diferenca >= intervaloParaApagar)
+                {
+                    if (File.Exists(System.IO.Directory.GetCurrentDirectory() + @"\credentials.json"))
+                    {
+                        BackupDrive backup = new BackupDrive();
+                        backup.ApagarArquivo(nome);
+                    }
+
+
+                    File.Delete(fileName);
+                }
             }
+        }
+        private string nomeArquivo(string arquivo)
+        {
+            string nome = "";
+            foreach(char letra in arquivo)
+            {
+                if (letra == '\\')
+                {
+                    nome = "";
+                }
+                else
+                {
+                    nome += letra;
+                }
+            }
+
+            return nome;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace SistemaInterface.TelasSistema
         {
             this.fazerBotao = new System.Windows.Forms.Button();
             this.abrirBotao = new System.Windows.Forms.Button();
+            this.configDriveBotao = new System.Windows.Forms.Button();
             this.configBotao = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -56,24 +57,36 @@ namespace SistemaInterface.TelasSistema
             this.abrirBotao.UseVisualStyleBackColor = true;
             this.abrirBotao.Click += new System.EventHandler(this.abrirBotao_Click);
             // 
+            // configDriveBotao
+            // 
+            this.configDriveBotao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configDriveBotao.Location = new System.Drawing.Point(87, 53);
+            this.configDriveBotao.Name = "configDriveBotao";
+            this.configDriveBotao.Size = new System.Drawing.Size(223, 64);
+            this.configDriveBotao.TabIndex = 38;
+            this.configDriveBotao.Text = "Configurações do Drive";
+            this.configDriveBotao.UseVisualStyleBackColor = true;
+            this.configDriveBotao.Click += new System.EventHandler(this.configBotao_Click);
+            // 
             // configBotao
             // 
             this.configBotao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.configBotao.Location = new System.Drawing.Point(87, 53);
+            this.configBotao.Location = new System.Drawing.Point(87, 308);
             this.configBotao.Name = "configBotao";
             this.configBotao.Size = new System.Drawing.Size(223, 64);
-            this.configBotao.TabIndex = 38;
-            this.configBotao.Text = "Configurações do Drive";
+            this.configBotao.TabIndex = 40;
+            this.configBotao.Text = "Configurações de backup";
             this.configBotao.UseVisualStyleBackColor = true;
-            this.configBotao.Click += new System.EventHandler(this.configBotao_Click);
+            this.configBotao.Click += new System.EventHandler(this.configBotao_Click_1);
             // 
             // TelaBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 356);
-            this.Controls.Add(this.abrirBotao);
+            this.ClientSize = new System.Drawing.Size(388, 418);
             this.Controls.Add(this.configBotao);
+            this.Controls.Add(this.abrirBotao);
+            this.Controls.Add(this.configDriveBotao);
             this.Controls.Add(this.fazerBotao);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -89,6 +102,7 @@ namespace SistemaInterface.TelasSistema
 
         private System.Windows.Forms.Button fazerBotao;
         private System.Windows.Forms.Button abrirBotao;
+        private System.Windows.Forms.Button configDriveBotao;
         private System.Windows.Forms.Button configBotao;
     }
 }

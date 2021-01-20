@@ -155,6 +155,12 @@
     <Compile Include="TelasSistema\TelaConfiguracoes.Designer.cs">
       <DependentUpon>TelaConfiguracoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasSistema\TelaConfiguracoesBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasSistema\TelaConfiguracoesBackup.Designer.cs">
+      <DependentUpon>TelaConfiguracoesBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelasSistema\TelaListarBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelasSistema\TelaConfiguracoes.resx">
       <DependentUpon>TelaConfiguracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasSistema\TelaConfiguracoesBackup.resx">
+      <DependentUpon>TelaConfiguracoesBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelasSistema\TelaListarBackup.resx">
       <DependentUpon>TelaListarBackup.cs</DependentUpon>
