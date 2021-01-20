@@ -93,6 +93,12 @@ namespace SistemaInterface
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
+                        else
+                        {
+                            BancoUsuario bancoUsuario = new BancoUsuario();
+                            Usuario usuarioSelecionado = bancoUsuario.GetUsuario(emprestimo.usuario);
+                            abrirInformacoesUsuario(usuarioSelecionado);
+                        }
                     }
                 }
             }
@@ -100,6 +106,25 @@ namespace SistemaInterface
             {
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Você só pode escolher um empréstimo por vez.", "Erro");
+            }
+        }
+        private void abrirInformacoesUsuario(Usuario usuario)
+        {
+            bool isOpen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "TelaInformacoesUsuario")
+                {
+                    isOpen = true;
+                    f.BringToFront();
+                }
+            }
+
+            if (!isOpen)
+            {
+                TelaInformacoesUsuario paginaUsuario = new TelaInformacoesUsuario(false, usuario);
+                paginaUsuario.Show();
             }
         }
     }

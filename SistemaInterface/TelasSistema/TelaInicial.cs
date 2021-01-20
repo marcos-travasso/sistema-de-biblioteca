@@ -337,7 +337,7 @@ namespace SistemaInterface
             foreach (Emprestimo emprestimo in emprestimos)
             {
                 int atraso = DateTime.Now.Day - Convert.ToDateTime(emprestimo.devolucoes[0].dataDeDevolucao).Day;
-                if (atraso > 0)
+                if (atraso > 14)
                 {
                     notificacoesListBox.Items.Add($"[ATRASO] {emprestimo.usuario.Nome} | {emprestimo.livro.Titulo}");
                 }
