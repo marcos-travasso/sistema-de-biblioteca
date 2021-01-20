@@ -9,6 +9,8 @@ namespace SistemaInterface.TelasLivro
     public partial class TelaPesquisarLivro : Form
     {
         bool admin = false;
+        bool selecionar = false;
+        public string idLivroTexto;
         List<Autor> listaAutores = new List<Autor>();
         List<Genero> listaGeneros = new List<Genero>();
         List<Livro> listaLivros = new List<Livro>();
@@ -22,9 +24,11 @@ namespace SistemaInterface.TelasLivro
             this.admin = admin;
             InitializeComponent();
         }
-        private void tituloLabel_Click(object sender, EventArgs e)
+        public TelaPesquisarLivro(bool admin, bool selecionar)
         {
-
+            this.admin = admin;
+            this.selecionar = selecionar;
+            InitializeComponent();
         }
         private void TelaPesquisarLivro_Load(object sender, EventArgs e)
         {
@@ -187,24 +191,43 @@ namespace SistemaInterface.TelasLivro
         }
         private void abrirLista(List<Livro> lista)
         {
-            bool isOpen = false;
-
-            foreach (Form f in Application.OpenForms)
+            if (!selecionar)
             {
-                if (f.Name == "TelaListarLivros")
-                {
-                    isOpen = true;
-                    f.Close();
+                bool isOpen = false;
 
+                foreach (Form f in Application.OpenForms)
+                {
+                    if (f.Name == "TelaListarLivros")
+                    {
+                        isOpen = true;
+                        f.Close();
+
+                        TelaListarLivros janela = new TelaListarLivros(lista, this.admin);
+                        janela.Show();
+                    }
+                }
+
+                if (!isOpen)
+                {
                     TelaListarLivros janela = new TelaListarLivros(lista, this.admin);
                     janela.Show();
                 }
-            }
 
-            if (!isOpen)
+                this.Close();
+            }
+            else
             {
-                TelaListarLivros janela = new TelaListarLivros(lista, this.admin);
-                janela.Show();
+                using (var pesquisa = new TelaListarLivros(lista, this.admin, this.selecionar))
+                {
+                    var result = pesquisa.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        Livro livroSelecionado = pesquisa.selecionado;
+                        idLivroTexto = livroSelecionado.idLivro.ToString(); 
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
             }
         }
     }

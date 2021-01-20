@@ -1,4 +1,5 @@
 ﻿using SistemaBiblioteca;
+using SistemaInterface.TelasLivro;
 using System;
 using System.Collections.Generic;
 using System.Media;
@@ -47,13 +48,12 @@ namespace SistemaInterface
 
         private void listaLivrosLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            using (var form = new TelaListarLivros(true, ""))
+            using (var pesquisa = new TelaPesquisarLivro(false, true))
             {
-                var result = form.ShowDialog();
+                var result = pesquisa.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    Livro livroSelecionado = form.selecionado;
-                    idLivroTexto.Text = livroSelecionado.idLivro.ToString();
+                    idLivroTexto.Text = pesquisa.idLivroTexto;
                 }
             }
         }

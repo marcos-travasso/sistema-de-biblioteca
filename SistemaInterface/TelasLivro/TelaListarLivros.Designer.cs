@@ -65,7 +65,6 @@ namespace SistemaInterface
             this.procurarLink.TabIndex = 2;
             this.procurarLink.TabStop = true;
             this.procurarLink.Text = "procurar livro...";
-            this.procurarLink.Visible = false;
             this.procurarLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.procurarLink_LinkClicked);
             // 
             // TelaListarLivros

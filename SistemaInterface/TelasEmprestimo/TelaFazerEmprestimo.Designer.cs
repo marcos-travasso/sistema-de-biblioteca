@@ -35,7 +35,7 @@ namespace SistemaInterface
             this.idUsuarioTexto = new System.Windows.Forms.TextBox();
             this.idUsuarioLabel = new System.Windows.Forms.Label();
             this.listaUsuariosLink = new System.Windows.Forms.LinkLabel();
-            this.listaLivrosLink = new System.Windows.Forms.LinkLabel();
+            this.procurarLivrosLink = new System.Windows.Forms.LinkLabel();
             this.devolucaoData = new System.Windows.Forms.DateTimePicker();
             this.devolucaoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -97,17 +97,17 @@ namespace SistemaInterface
             this.listaUsuariosLink.Text = "lista de usuários";
             this.listaUsuariosLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.listaUsuariosLink_LinkClicked);
             // 
-            // listaLivrosLink
+            // procurarLivrosLink
             // 
-            this.listaLivrosLink.AutoSize = true;
-            this.listaLivrosLink.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listaLivrosLink.Location = new System.Drawing.Point(342, 136);
-            this.listaLivrosLink.Name = "listaLivrosLink";
-            this.listaLivrosLink.Size = new System.Drawing.Size(85, 17);
-            this.listaLivrosLink.TabIndex = 18;
-            this.listaLivrosLink.TabStop = true;
-            this.listaLivrosLink.Text = "lista de livros";
-            this.listaLivrosLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.listaLivrosLink_LinkClicked);
+            this.procurarLivrosLink.AutoSize = true;
+            this.procurarLivrosLink.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.procurarLivrosLink.Location = new System.Drawing.Point(333, 136);
+            this.procurarLivrosLink.Name = "procurarLivrosLink";
+            this.procurarLivrosLink.Size = new System.Drawing.Size(94, 17);
+            this.procurarLivrosLink.TabIndex = 18;
+            this.procurarLivrosLink.TabStop = true;
+            this.procurarLivrosLink.Text = "procurar livros";
+            this.procurarLivrosLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.listaLivrosLink_LinkClicked);
             // 
             // devolucaoData
             // 
@@ -133,7 +133,7 @@ namespace SistemaInterface
             this.ClientSize = new System.Drawing.Size(470, 337);
             this.Controls.Add(this.devolucaoLabel);
             this.Controls.Add(this.devolucaoData);
-            this.Controls.Add(this.listaLivrosLink);
+            this.Controls.Add(this.procurarLivrosLink);
             this.Controls.Add(this.listaUsuariosLink);
             this.Controls.Add(this.emprestarBotao);
             this.Controls.Add(this.idLivroLabel);
@@ -160,7 +160,7 @@ namespace SistemaInterface
         private System.Windows.Forms.TextBox idUsuarioTexto;
         private System.Windows.Forms.Label idUsuarioLabel;
         private System.Windows.Forms.LinkLabel listaUsuariosLink;
-        private System.Windows.Forms.LinkLabel listaLivrosLink;
+        private System.Windows.Forms.LinkLabel procurarLivrosLink;
         private System.Windows.Forms.DateTimePicker devolucaoData;
         private System.Windows.Forms.Label devolucaoLabel;
     }

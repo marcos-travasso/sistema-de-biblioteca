@@ -14,33 +14,22 @@ namespace SistemaInterface
         bool selecionar = false;
         List<Livro> livrosFiltrados = new List<Livro>();
         public Livro selecionado { get; set; }
-        public TelaListarLivros()
-        {
-            this.admin = false;
-            InitializeComponent();
-        }
-        public TelaListarLivros(List<Livro> lista, bool admin)
+        public TelaListarLivros(List<Livro> lista, bool admin, bool selecionar = false)
         {
             this.admin = admin;
+            this.selecionar = selecionar;
             this.livrosFiltrados = lista;
             InitializeComponent();
         }
-
         public TelaListarLivros(bool editar = false)
         {
             this.admin = editar;
-            InitializeComponent();
-        }
-        public TelaListarLivros(bool selecionar = false, string diferenca = "")
-        {
-            this.selecionar = selecionar;
             InitializeComponent();
         }
 
         private void TelaListarLivros_Load(object sender, EventArgs e)
         {
             atualizarGrid();
-            procurarLink.Visible = admin;
         }
 
         private void atualizarGrid()
