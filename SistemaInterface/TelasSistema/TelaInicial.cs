@@ -435,7 +435,7 @@ namespace SistemaInterface
         private string nomeArquivo(string arquivo)
         {
             string nome = "";
-            foreach(char letra in arquivo)
+            foreach (char letra in arquivo)
             {
                 if (letra == '\\')
                 {

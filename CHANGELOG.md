@@ -4,6 +4,14 @@ Todas as mudanças notáveis serão documentadas nesse arquivo.
 O formato baseado é o [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e o projeto segue o [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2021-01-21
+### Adicionado
+- Intervalo para apagar backups antigos.
+  - Intervalo para backup automático.
+  - Tela para configurar os intervalos.
+- Tela de pesquisa de livro na tela de fazer empréstimo.
+- Perfil do usuário é aberta quando selecionado na lista de empréstimos.
+
 ## [1.2.0] - 2021-01-19
 ### Adicionado
 - Sistema de backup no Google Drive.

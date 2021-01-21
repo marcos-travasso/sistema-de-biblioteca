@@ -223,7 +223,7 @@ namespace SistemaInterface.TelasLivro
                     if (result == DialogResult.OK)
                     {
                         Livro livroSelecionado = pesquisa.selecionado;
-                        idLivroTexto = livroSelecionado.idLivro.ToString(); 
+                        idLivroTexto = livroSelecionado.idLivro.ToString();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
