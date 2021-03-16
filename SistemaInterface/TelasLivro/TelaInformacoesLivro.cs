@@ -155,7 +155,7 @@ namespace SistemaInterface
                 {
                     try
                     {
-                        Autor novoAutor = new Autor(Convert.ToString(autoresLista.Text), "O", "01/01/0001");
+                        Autor novoAutor = new Autor(Convert.ToString(autoresLista.Text));
 
                         BancoAutor bancoAutor = new BancoAutor();
                         bancoAutor.CriarAutor(novoAutor);
