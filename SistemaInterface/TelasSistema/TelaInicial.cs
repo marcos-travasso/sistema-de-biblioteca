@@ -336,10 +336,15 @@ namespace SistemaInterface
 
             foreach (Emprestimo emprestimo in emprestimos)
             {
-                int atraso = DateTime.Now.Day - Convert.ToDateTime(emprestimo.devolucoes[0].dataDeDevolucao).Day;
-                if (atraso > 14)
+                System.TimeSpan tempoDeAtraso =
+                    DateTime.Now - Convert.ToDateTime(emprestimo.devolucoes[0].dataDeDevolucao);
+                if (tempoDeAtraso.Days >= 1)
                 {
                     notificacoesListBox.Items.Add($"[ATRASO] {emprestimo.usuario.Nome} | {emprestimo.livro.Titulo}");
+                }
+                else if (tempoDeAtraso.Days == 0)
+                {
+                    notificacoesListBox.Items.Add($"[PENDENTE] {emprestimo.usuario.Nome} | {emprestimo.livro.Titulo}");
                 }
             }
         }
