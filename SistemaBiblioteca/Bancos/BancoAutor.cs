@@ -12,152 +12,157 @@ namespace SistemaBiblioteca
         {
             try
             {
-                using (var cmd = DbConnection().CreateCommand())
+                using (var querry = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Pessoas(nome, genero, nascimento) values (@nome, @genero, @nascimento)";
-                    cmd.Parameters.AddWithValue("@nome", autor.Nome);
-                    cmd.Parameters.AddWithValue("@genero", autor.Genero);
-                    cmd.Parameters.AddWithValue("@nascimento", autor.Nascimento.ToString("yyyy-MM-dd"));
-                    cmd.ExecuteNonQuery();
+                    querry.CommandText = "INSERT INTO Pessoas(nome, genero, nascimento) values (@nome, @genero, @nascimento)";
+                    querry.Parameters.AddWithValue("@nome", autor.Nome);
+                    querry.Parameters.AddWithValue("@genero", autor.Genero);
+                    querry.Parameters.AddWithValue("@nascimento", autor.Nascimento.ToString("yyyy-MM-dd"));
+                    querry.ExecuteNonQuery();
 
-                    cmd.CommandText = "SELECT * FROM Pessoas WHERE nome = \"" + autor.Nome + "\" ORDER BY idPessoa DESC LIMIT 1";
-                    SQLiteDataReader r = cmd.ExecuteReader();
-                    while (r.Read())
+                    querry.CommandText = "SELECT * FROM Pessoas WHERE nome = \"" + autor.Nome + "\" ORDER BY idPessoa DESC LIMIT 1";
+                    SQLiteDataReader consulta = querry.ExecuteReader();
+                    while (consulta.Read())
                     {
-                        autor.idPessoa = Convert.ToInt32(r["idPessoa"]);
-                        r.Close();
+                        autor.idPessoa = Convert.ToInt32(consulta["idPessoa"]);
+                        consulta.Close();
                         break;
                     }
 
-                    cmd.CommandText = "INSERT INTO Autores(pessoa) values (@id)";
-                    cmd.Parameters.AddWithValue("@id", autor.idPessoa);
-                    cmd.ExecuteNonQuery();
+                    querry.CommandText = "INSERT INTO Autores(pessoa) values (@id)";
+                    querry.Parameters.AddWithValue("@id", autor.idPessoa);
+                    querry.ExecuteNonQuery();
 
-                    cmd.CommandText = "SELECT * FROM Autores WHERE pessoa = \"" + autor.idPessoa + "\" ORDER BY idAutor DESC LIMIT 1";
-                    r = cmd.ExecuteReader();
-                    while (r.Read())
+                    querry.CommandText = "SELECT * FROM Autores WHERE pessoa = \"" + autor.idPessoa + "\" ORDER BY idAutor DESC LIMIT 1";
+                    consulta = querry.ExecuteReader();
+                    while (consulta.Read())
                     {
-                        autor.idAutor = Convert.ToInt32(r["idAutor"]);
-                        r.Close();
+                        autor.idAutor = Convert.ToInt32(consulta["idAutor"]);
+                        consulta.Close();
                         break;
                     }
 
-                    cmd.Dispose();
+                    querry.Dispose();
                     DbDisconnection();
                 }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                throw ex;
+                throw error;
             }
         }
         public List<Autor> GetAutores(List<Autor> lista)
         {
-            SQLiteDataAdapter da = null;
-            DataTable dt = new DataTable();
             try
             {
-                using (var cmd = DbConnection().CreateCommand())
+                using (var querry = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "select idAutor, idPessoa, nome, genero, nascimento from autores inner join pessoas on pessoas.idPessoa = autores.pessoa;";
-                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+                    querry.CommandText = "select idAutor, idPessoa, nome, genero, nascimento from autores inner join pessoas on pessoas.idPessoa = autores.pessoa;";
+                    SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(querry.CommandText, DbConnection());
 
-                    SQLiteDataReader r = cmd.ExecuteReader();
-                    while (r.Read())
+                    SQLiteDataReader consulta = querry.ExecuteReader();
+                    while (consulta.Read())
                     {
-                        Autor autor = new Autor(Convert.ToInt32(r["idPessoa"]), Convert.ToString(r["nome"]), Convert.ToString(r["nascimento"]), Convert.ToString(r["genero"]), Convert.ToInt32(r["idAutor"]));
+                        Autor autor = new Autor();
+
+                        autor.idPessoa = Convert.ToInt32(consulta["idPessoa"]);
+                        autor.Nome = Convert.ToString(consulta["nome"]);
+                        autor.Genero = Convert.ToString(consulta["genero"]);
+                        autor.Nascimento = Convert.ToDateTime(consulta["nascimento"]);
+                        autor.idAutor = Convert.ToInt32(consulta["idAutor"]);
+
                         lista.Add(autor);
                     }
 
-                    r.Close();
-                    cmd.Dispose();
+                    consulta.Close();
+                    querry.Dispose();
 
                     DbDisconnection();
                     return lista;
                 }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                throw ex;
+                throw error;
             }
         }
         public Autor EditarAutor(Autor autor)
         {
             try
             {
-                using (var cmd = DbConnection().CreateCommand())
+                using (var querry = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Pessoas SET nome=@nome, genero=@genero, nascimento=@nascimento WHERE idPessoa = @id";
-                    cmd.Parameters.AddWithValue("@nome", autor.Nome);
-                    cmd.Parameters.AddWithValue("@genero", autor.Genero);
-                    cmd.Parameters.AddWithValue("@nascimento", autor.Nascimento.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@id", autor.idPessoa);
-                    cmd.ExecuteNonQuery();
+                    querry.CommandText = "UPDATE Pessoas SET nome=@nome, genero=@genero, nascimento=@nascimento WHERE idPessoa = @id";
+                    querry.Parameters.AddWithValue("@nome", autor.Nome);
+                    querry.Parameters.AddWithValue("@genero", autor.Genero);
+                    querry.Parameters.AddWithValue("@nascimento", autor.Nascimento.ToString("yyyy-MM-dd"));
+                    querry.Parameters.AddWithValue("@id", autor.idPessoa);
+                    querry.ExecuteNonQuery();
 
-                    cmd.Dispose();
+                    querry.Dispose();
 
                     DbDisconnection();
                     return autor;
                 }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                throw ex;
+                throw error;
             }
         }
         public void ExcluirAutor(Autor autor)
         {
-            DataTable dt = new DataTable();
             try
             {
-                using (var cmd = DbConnection().CreateCommand())
+                using (var querry = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "DELETE FROM Livros WHERE autor = @id";
-                    cmd.Parameters.AddWithValue("@id", autor.idAutor);
-                    cmd.ExecuteNonQuery();
+                    querry.CommandText = "DELETE FROM Livros WHERE autor = @id";
+                    querry.Parameters.AddWithValue("@id", autor.idAutor);
+                    querry.ExecuteNonQuery();
 
-                    cmd.CommandText = "DELETE FROM Autores WHERE idAutor = @id";
-                    cmd.Parameters.AddWithValue("@id", autor.idAutor);
-                    cmd.ExecuteNonQuery();
+                    querry.CommandText = "DELETE FROM Autores WHERE idAutor = @id";
+                    querry.Parameters.AddWithValue("@id", autor.idAutor);
+                    querry.ExecuteNonQuery();
 
-                    cmd.Dispose();
+                    querry.Dispose();
 
                     DbDisconnection();
                 }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                throw ex;
+                throw error;
             }
         }
         public Autor GetAutor(Autor autor)
         {
-            SQLiteDataAdapter da = null;
-            DataTable dt = new DataTable();
             try
             {
-                using (var cmd = DbConnection().CreateCommand())
+                using (var querry = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "select idAutor, idPessoa, genero, nascimento from autores inner join pessoas on pessoas.idPessoa = autores.pessoa WHERE nome = @nome ORDER BY idPessoa DESC limit 1";
-                    cmd.Parameters.AddWithValue("@nome", autor.Nome);
-                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+                    querry.CommandText = "select idAutor, idPessoa, genero, nascimento from autores inner join pessoas on pessoas.idPessoa = autores.pessoa WHERE nome = @nome ORDER BY idPessoa DESC limit 1";
+                    querry.Parameters.AddWithValue("@nome", autor.Nome);
+                    SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(querry.CommandText, DbConnection());
 
-                    SQLiteDataReader r = cmd.ExecuteReader();
-                    while (r.Read())
+                    SQLiteDataReader consulta = querry.ExecuteReader();
+                    while (consulta.Read())
                     {
-                        autor.setDados(Convert.ToInt32(r["idPessoa"]), Convert.ToString(r["nascimento"]), Convert.ToString(r["genero"]), Convert.ToInt32(r["idAutor"]));
+                        autor.idPessoa = Convert.ToInt32(consulta["idPessoa"]);
+                        autor.Genero = Convert.ToString(consulta["genero"]);
+                        autor.Nascimento = Convert.ToDateTime(consulta["nascimento"]);
+                        autor.idAutor = Convert.ToInt32(consulta["idAutor"]);
                     }
 
-                    r.Close();
-                    cmd.Dispose();
+                    consulta.Close();
+                    querry.Dispose();
 
                     DbDisconnection();
                     return autor;
                 }
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                throw ex;
+                throw error;
             }
         }
     }
